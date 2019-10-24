@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Kelas;
+use App\Materi;
 use DB;
 
 class AdminController extends Controller
@@ -28,6 +29,17 @@ class AdminController extends Controller
         $users = DB::table('users')->where('status', 'pengajar')->get();
         // $users = User::all();
         return view('kelas', compact('kelass','users','kelass2'));
+    }
+    public function materi(){
+
+        $materis = Materi::all();
+        $url2 = $this->embed();
+        return view('materi', compact('materis','url2'));
+    }
+    public function detailMateri(Materi $materi)
+    {   
+        $url2 = $this->embed();
+        return view('detailMateri', compact('materi','url2'));
     }
 
 // Embed Youtube Trim

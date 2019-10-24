@@ -142,19 +142,6 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-12 text-center">
-                                                <label for="nama">Materi Coding</label>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <script src="https://gist-it.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js"></script>
-                                                </div>
-                                                <label for="nama">Dikirim Oleh : USER001</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                     </div>
                 </div>
@@ -178,7 +165,7 @@
                                                 <label for="nama">Nama Kelas</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="nama">: {{ $kelas->nama }}</label>
+                                                <label for="nama">{{ $kelas->nama }}</label>
                                             </div>
                                             <div class="col-md-3">
                                                 
@@ -189,7 +176,7 @@
                                                 <label for="nama">Kode Kelas</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="nama">: NGULIK{{ $kelas->id }}</label>
+                                                <label for="nama">NGULIK{{ $kelas->id }}</label>
                                             </div>
                                             <div class="col-md-3">
                                                 
@@ -200,7 +187,7 @@
                                                 <label for="nama">Pengajar</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="nama">: {{ $kelas->user->nama }}</label>
+                                                <label for="nama">{{ $kelas->user->nama }}</label>
                                             </div>
                                             <div class="col-md-3">
                                                 
@@ -211,7 +198,7 @@
                                                 <label for="nama">Deskripsi</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="nama">: {{ $kelas->deskripsi }}</label>
+                                                <label for="nama">{{ $kelas->deskripsi }}</label>
                                             </div>
                                             <div class="col-md-3">
                                                 
@@ -284,7 +271,8 @@
                                                 <label for="nama">USER001</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">kirim pesan</button>
+                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
+                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -292,7 +280,8 @@
                                                 <label for="nama">USER023</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">kirim pesan</button>
+                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
+                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
                                             </div>
                                         </div>
                                     </div>
@@ -309,13 +298,20 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-12 text-center">
+                                            <div class="col-md-12">
                                                 <label for="nama">Materi Video</label>
+                                                <div class="pull-right">
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materi') }}">
+                                                        <input type="button" value="Lihat Semua Video" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$url2}}"></iframe>
                                                     <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
                                                 </div>
-                                                <label for="nama">Dikirim Oleh : USER001</label>
                                             </div>
                                         </div>
                                     </div>
@@ -323,12 +319,14 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-12 text-center">
+                                            <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
+                                                <div class="pull-right">
+                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Audio</b></button>
+                                                </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1Vb5knf3ccX69gmie9CHRMHX68Hd2e6XC/preview" height="200"></iframe>
                                                 </div>
-                                                <label for="nama">Dikirim Oleh : USER001</label>
                                             </div>
                                         </div>
                                     </div>
@@ -336,25 +334,14 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-12 text-center">
+                                            <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
+                                                <div class="pull-right">
+                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Tekstual</b></button>
+                                                </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
                                                 </div>
-                                                <label for="nama">Dikirim Oleh : USER001</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-12 text-center">
-                                                <label for="nama">Materi Coding</label>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <script src="https://gist-it.appspot.com/github.com/Riowaldy/coba/blob/master/coba.js"></script>
-                                                </div>
-                                                <label for="nama">Dikirim Oleh : USER001</label>
                                             </div>
                                         </div>
                                     </div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaterisTable extends Migration
+class CreatePengumumansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateMaterisTable extends Migration
      */
     public function up()
     {
-        Schema::create('materis', function (Blueprint $table) {
+        Schema::create('pengumumans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('kelas_id')->unsigned();
             $table->string('nama');
-            $table->string('jenis');
-            $table->string('status');
             $table->string('deskripsi');
-            $table->string('link');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
@@ -36,6 +33,6 @@ class CreateMaterisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('materis');
+        Schema::dropIfExists('pengumumans');
     }
 }

@@ -22,7 +22,8 @@ Route::get('/profil','AdminController@profil')->name('profil');
 Route::get('/pengguna','AdminController@pengguna')->name('pengguna');
 Route::get('/kelas','AdminController@kelas')->name('kelas');
 Route::get('/kelas/{kelas}','AdminController@detailKelas')->name('detailKelas');
-Route::get('/embed','AdminController@embed')->name('embed');
+Route::get('/materi','AdminController@materi')->name('materi');
+Route::get('/materi/{detail}','AdminController@detailMateri')->name('detailMateri');
 
 Route::post('/editProfil','AdminController@editProfil')->name('editProfil');
 Route::post('/editStatus','AdminController@editStatus')->name('editStatus');
