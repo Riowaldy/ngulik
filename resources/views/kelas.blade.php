@@ -136,10 +136,10 @@
                                             <div class="col-md-2">
                                                 <label for="nama">Nama Kelas</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">{{ $kelas->nama }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <a href="{{ route('detailKelas', $kelas) }}">
                                                     <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                 </a>
@@ -149,10 +149,10 @@
                                             <div class="col-md-2">
                                                 <label for="nama">Pengajar</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">{{ $kelas->user->nama }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 
                                             </div>
                                         </div>
@@ -160,10 +160,10 @@
                                             <div class="col-md-2">
                                                 <label for="nama">Deskripsi</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">{{ $kelas->deskripsi }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 
                                             </div>
                                         </div>
@@ -178,23 +178,65 @@
     @else
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <b>Halaman Kelas Murid</b>
+                            <b>Daftar Kelas Yang Saya Ikuti</b>
                         </div>
-                        @foreach ($kelass as $kelas)
+                        @foreach ($kelasusers as $kelasuser)
+                            
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-2">
-                                                <label for="nama">Nama Kelas</label>
+                                                <label for="nama">Kelas</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
+                                                <label for="nama">{{ $kelasuser->kelas_id }}</label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a href="">
+                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-2">
+                                                <label for="nama">User</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label for="nama">{{ $kelasuser->user_id }}</label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <b>Daftar Seluruh Kelas</b>
+                        </div>
+                        @foreach ($kelass as $kelas)
+                            
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-2">
+                                                <label for="nama">Kelas</label>
+                                            </div>
+                                            <div class="col-md-8">
                                                 <label for="nama">{{ $kelas->nama }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
+                                                <!-- <button type="submit" class="btn btn-xs btn-info" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button> -->
                                                 <a href="{{ route('detailKelas', $kelas) }}">
                                                     <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                 </a>
@@ -204,10 +246,10 @@
                                             <div class="col-md-2">
                                                 <label for="nama">Pengajar</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">{{ $kelas->user->nama }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 
                                             </div>
                                         </div>
@@ -215,10 +257,10 @@
                                             <div class="col-md-2">
                                                 <label for="nama">Deskripsi</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">{{ $kelas->deskripsi }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 
                                             </div>
                                         </div>
@@ -232,7 +274,7 @@
         </div>
     @endif
 
-    <!-- Modal Create Project-->
+    <!-- Modal Create Kelas-->
     <div class="modal fade" id="buat_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -244,7 +286,7 @@
                 </div>
                 <div class="modal-body">
                           
-    <!--Form Dalam Modal Create Project -->
+    <!--Form Dalam Modal Create Kelas -->
                     <form role="form" action="{{route('kelasStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                         <div class="box-body">
                             <div class="form-group">
@@ -273,7 +315,42 @@
             </div>
         </div>
     </div>
-    <!-- Akhir Modal Create Project -->
+    <!-- Akhir Modal Create Kelas -->
+
+    <!-- Modal Gabung Kelas-->
+    <div class="modal fade" id="gabung_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Gabung Kelas</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Gabung Kelas -->
+                    <form role="form" action="{{route('kelasuserStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="">ID Kelas</label>
+                                <input type="text" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="">ID User</label>
+                                <input type="text" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id }}">
+                            </div>     
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Modal Gabung Kelas -->
 
     <!-- Modal Update-->
     <div class="modal fade" id="edit_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

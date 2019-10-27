@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kelasuser extends Model
 {
+	protected $fillable = [
+        'kelas_id', 'user_id',
+    ];
     public function user()
 	{
-	    return $this->hasMany('App\User');
+	    return $this->belongsToMany('App\User');
 	}
 	public function kelas()
 	{
-	    return $this->hasMany('App\Kelas');
+	    return $this->belongsToMany('App\Kelas');
 	}
 }

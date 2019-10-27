@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Kelas;
 use App\Materi;
+use App\Kelasuser;
 use DB;
 
 class AdminController extends Controller
@@ -25,10 +26,11 @@ class AdminController extends Controller
 
         $kelass = Kelas::all();
         $kelass2 = Kelas::all()->where('user_id', Auth::id());
+        $kelasusers = Kelasuser::all()->where('user_id', Auth::id());
         
         $users = DB::table('users')->where('status', 'pengajar')->get();
         // $users = User::all();
-        return view('kelas', compact('kelass','users','kelass2'));
+        return view('kelas', compact('kelass','users','kelass2','kelasusers'));
     }
     public function materi(){
 
@@ -124,6 +126,20 @@ class AdminController extends Controller
             'nama' => request('nama'),
             'user_id' => request('user_id'),
             'deskripsi' => request('deskripsi')
+        ]);
+
+        return redirect() -> route('kelas')->with('success');
+    }
+    public function kelasuserStore()
+    {
+        $this->validate(request(), [
+            'kelas_id' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        Kelasuser::create([
+            'kelas_id' => request('kelas_id'),
+            'user_id' => request('user_id')
         ]);
 
         return redirect() -> route('kelas')->with('success');

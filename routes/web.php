@@ -30,6 +30,7 @@ Route::post('/editStatus','AdminController@editStatus')->name('editStatus');
 Route::post('/editKelas','AdminController@editKelas')->name('editKelas');
 
 Route::post('/kelasStore','AdminController@kelasStore')->name('kelasStore');
+Route::post('/kelasuserStore','AdminController@kelasuserStore')->name('kelasuserStore');
 
 Route::delete('/hapusKelas','AdminController@hapusKelas')->name('hapusKelas');
 
