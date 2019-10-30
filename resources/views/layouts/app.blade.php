@@ -178,6 +178,17 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script>
+        $('#detail_user').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id') 
+          var nama = button.data('nama') 
+          var email = button.data('email')
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #nama').val(nama);
+          modal.find('.modal-body #email').val(email);
+        })
+
         $('#edit_profil').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 

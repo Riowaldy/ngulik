@@ -183,7 +183,7 @@
                         <div class="panel-heading">
                             <b>Daftar Kelas Yang Saya Ikuti</b>
                         </div>
-                        @foreach ($kelasusers as $kelasuser)
+                        @foreach ($kelasusers as $kelas)
                             
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
@@ -193,20 +193,20 @@
                                                 <label for="nama">Kelas</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <label for="nama">{{ $kelasuser->kelas_id }}</label>
+                                                <label for="nama">{{ $kelas->nama }}</label>
                                             </div>
                                             <div class="col-md-2">
-                                                <a href="">
+                                                <a href="{{ route('detailKelas', $kelas->kelas_id) }}">
                                                     <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="col-md-2">
-                                                <label for="nama">User</label>
+                                                <label for="nama">Deskripsi</label>
                                             </div>
                                             <div class="col-md-8">
-                                                <label for="nama">{{ $kelasuser->user_id }}</label>
+                                                <label for="nama">{{ $kelas->deskripsi }}</label>
                                             </div>
                                             <div class="col-md-2">
                                                 
@@ -236,21 +236,7 @@
                                                 <label for="nama">{{ $kelas->nama }}</label>
                                             </div>
                                             <div class="col-md-2">
-                                                <!-- <button type="submit" class="btn btn-xs btn-info" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button> -->
-                                                <a href="{{ route('detailKelas', $kelas) }}">
-                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Pengajar</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->user->nama }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                
+                                                <button type="submit" class="btn btn-xs btn-info" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
