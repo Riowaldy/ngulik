@@ -9,6 +9,9 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Informasi Kelas</b>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-default" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</button>
+                            </div>
                         </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
@@ -64,45 +67,34 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>Tambah Pengumuman</b></button>
+                            </div>
                         </div>
+                        @foreach ($pengumumans as $pengumuman)
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Latihan 1</label>
+                                            <div class="col-md-3">
+                                                <label for="nama">Judul</label>
                                             </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Latihan Acara Ngulik Pra UTS.</label>
+                                            <div class="col-md-9">
+                                                <label for="nama">{{ $pengumuman->nama }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <label for="nama">Deskripsi</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label for="nama">{{ $pengumuman->deskripsi }}</label>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Live Streaming</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Ngulik Pra UTS Livestreaming. Waktu : Senin, 01-01-01, 16.00 WIB.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Latihan 2</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Latihan Acara Ngulik Pra UTS.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>   
                             </ul>
+                        @endforeach
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -119,24 +111,17 @@
                                                 <label for="nama">Aksi</label>
                                             </div>
                                         </div>
+                                        @foreach ($users2 as $user)
                                         <div class="col-md-12">
                                             <div class="col-md-6">
-                                                <label for="nama">USER001</label>
+                                                <label for="nama">{{ $user->nama }}</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
-                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
+                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">USER023</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
-                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </li>
                             </ul>
@@ -266,45 +251,34 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>Tambah Pengumuman</b></button>
+                            </div>
                         </div>
+                        @foreach ($pengumumans as $pengumuman)
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Latihan 1</label>
+                                            <div class="col-md-3">
+                                                <label for="nama">Judul</label>
                                             </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Latihan Acara Ngulik Pra UTS.</label>
+                                            <div class="col-md-9">
+                                                <label for="nama">{{ $pengumuman->nama }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <label for="nama">Deskripsi</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label for="nama">{{ $pengumuman->deskripsi }}</label>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Live Streaming</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Ngulik Pra UTS Livestreaming. Waktu : Senin, 01-01-01, 16.00 WIB.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Latihan 2</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Latihan Acara Ngulik Pra UTS.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>   
                             </ul>
+                        @endforeach
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -321,24 +295,17 @@
                                                 <label for="nama">Aksi</label>
                                             </div>
                                         </div>
+                                        @foreach ($users2 as $user)
                                         <div class="col-md-12">
                                             <div class="col-md-6">
-                                                <label for="nama">USER001</label>
+                                                <label for="nama">{{ $user->nama }}</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
-                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
+                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">USER023</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
-                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </li>
                             </ul>
@@ -501,7 +468,6 @@
                         <div class="panel-heading">
                             <b>Informasi Anggota Kelas</b>
                         </div>
-                        @foreach ($users2 as $user)
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
@@ -513,19 +479,20 @@
                                                 <label for="nama">Aksi</label>
                                             </div>
                                         </div>
+                                        @foreach ($users2 as $user)
                                         <div class="col-md-12">
                                             <div class="col-md-6">
                                                 <label for="nama">{{ $user->nama }}</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
+                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
                                                 <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
                                             </div>
                                         </div>
+                                        @endforeach
                                     </div>
                                 </li>
                             </ul>
-                        @endforeach
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -707,24 +674,17 @@
                                                 <label for="nama">Aksi</label>
                                             </div>
                                         </div>
+                                        @foreach ($users2 as $user)
                                         <div class="col-md-12">
                                             <div class="col-md-6">
-                                                <label for="nama">USER001</label>
+                                                <label for="nama">{{ $user->nama }}</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
-                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
+                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">USER023</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button type="button" class="btn btn-xs btn-info">Kirim pesan</button>
-                                                <button type="button" class="btn btn-xs btn-info">Detail user</button>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </li>
                             </ul>
@@ -813,12 +773,10 @@
                                 <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="">User ID</label>
-                                <input type="text" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
+                                <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
                             </div>
                             <div class="form-group">
-                                <label for="">Kelas ID</label>
-                                <input type="text" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
+                                <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
                             </div> 
                             <div class="form-group">
                                 <label for="">Judul Pengumuman</label>
@@ -839,6 +797,50 @@
         </div>
     </div>
 <!-- Akhir Modal Create Pengumuman -->
+
+<!-- Modal Create Pesan-->
+    <div class="modal fade" id="buat_pesan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Kirim Pesan</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Create Pesan -->
+                    <form role="form" action="{{route('pesanStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="pengirim" id="pengirim" class="form-control" value="{{ Auth::id() }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="penerima" id="penerima" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="input_nama">Kirim Pesan Kepada</label>
+                                <input type="text" name="penerima2" id="penerima2" class="form-control" value="" readonly>
+                            </div> 
+                            <div class="form-group">
+                                <label for="input_nama">Isi Pesan</label>
+                                <textarea name="isipesan" id="isipesan" rows="5" class="form-control" placeholder="Tulis Isi Pesan"></textarea>
+                            </div> 
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Create Pesan -->
 
 <!-- Modal Detail User-->
     <div class="modal fade" id="detail_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -877,4 +879,50 @@
         </div>
     </div>
 <!-- Akhir Modal Detail User -->
+
+<!-- Modal Update Kelas-->
+    <div class="modal fade" id="edit_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Kelas</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Update Kelas-->
+                <form role="form" action="{{route('editKelas')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_nama">Nama Kelas</label>
+                            <input type="text" name="nama" id="nama" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Pilih Pengajar</label>
+                            <select name="user_id" id="" class="form-control">
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}"> {{ $user->nama }} </option>
+                                @endforeach
+                            </select>
+                        </div>   
+                        <div class="form-group">
+                            <label for="input_nama">Deskripsi</label>
+                            <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="">
+                        </div>   
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Update Kelas -->
 @endsection

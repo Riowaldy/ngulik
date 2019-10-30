@@ -24,6 +24,7 @@ Route::get('/kelas','AdminController@kelas')->name('kelas');
 Route::get('/kelas/{kelas}','AdminController@detailKelas')->name('detailKelas');
 Route::get('/materi','AdminController@materi')->name('materi');
 Route::get('/materi/{detail}','AdminController@detailMateri')->name('detailMateri');
+Route::get('/obrolan','AdminController@obrolan')->name('obrolan');
 
 Route::get('/detailUser','AdminController@detailUser')->name('detailUser');
 
@@ -34,6 +35,7 @@ Route::post('/editKelas','AdminController@editKelas')->name('editKelas');
 Route::post('/kelasStore','AdminController@kelasStore')->name('kelasStore');
 Route::post('/kelasuserStore','AdminController@kelasuserStore')->name('kelasuserStore');
 Route::post('/pengumumanStore','AdminController@pengumumanStore')->name('pengumumanStore');
+Route::post('/pesanStore','AdminController@pesanStore')->name('pesanStore');
 
 Route::delete('/hapusKelas','AdminController@hapusKelas')->name('hapusKelas');
 

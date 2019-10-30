@@ -50,7 +50,7 @@
                         @if(Auth::user()->status == 'admin')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
-                            <li><a href="">Pesan</a></li>
+                            <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li><a href="{{ route('pengguna') }}">Pengguna</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -78,9 +78,7 @@
                         @elseif(Auth::user()->status == 'moderator')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
-                            <li><a href="">Pesan</a></li>
-                            <li><a href="">Notifikasi</a></li>
-                            <li><a href="">Live Stream</a></li>
+                            <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->nama }} <span class="caret"></span>
@@ -88,7 +86,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="">Edit Profile</a>
+                                        <a href="{{ route('profil') }}">Edit Profile</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -107,9 +105,7 @@
                         @elseif(Auth::user()->status == 'pengajar')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
-                            <li><a href="">Pesan</a></li>
-                            <li><a href="">Notifikasi</a></li>
-                            <li><a href="">Live Stream</a></li>
+                            <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->nama }} <span class="caret"></span>
@@ -117,7 +113,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="">Edit Profile</a>
+                                        <a href="{{ route('profil') }}">Edit Profile</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -136,9 +132,7 @@
                         @else
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
-                            <li><a href="">Pesan</a></li>
-                            <li><a href="">Notifikasi</a></li>
-                            <li><a href="">Live Stream</a></li>
+                            <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->nama }} <span class="caret"></span>
@@ -178,6 +172,16 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script>
+
+        $('#buat_pesan').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var penerima = button.data('penerima') 
+          var penerima2 = button.data('penerima2') 
+          var modal = $(this)
+          modal.find('.modal-body #penerima').val(penerima);
+          modal.find('.modal-body #penerima2').val(penerima2);
+        })
+
         $('#detail_user').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 

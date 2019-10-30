@@ -25,7 +25,7 @@
                                                 <label for="nama">: {{ $kelas->nama }}</label>
                                             </div>
                                             <div class="col-md-4">
-                                                <button type="submit" class="btn btn-xs btn-warning" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">Edit</button> &nbsp;
+                                                <button type="submit" class="btn btn-xs btn-warning" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</button> &nbsp;
                                                 <!-- <button class="btn btn-xs btn-warning">Edit</button> -->
                                                 <button type="submit" class="btn btn-xs btn-danger" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas">Hapus</button> &nbsp;
                                                 <!-- <button class="btn btn-xs btn-danger">Delete</button> -->

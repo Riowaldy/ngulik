@@ -115,7 +115,7 @@
                         <div class="form-group row">
                             <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" id="nama" name="nama">
+                              <input type="text" class="form-control" id="nama" name="nama" readonly>
                             </div>
                         </div>
                         <div class="form-group row">

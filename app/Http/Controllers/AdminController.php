@@ -10,6 +10,7 @@ use App\Kelas;
 use App\Materi;
 use App\Kelasuser;
 use App\Pengumuman;
+use App\Obrolan;
 use DB;
 
 class AdminController extends Controller
@@ -58,6 +59,20 @@ class AdminController extends Controller
         $url2 = $this->embed();
         return view('detailMateri', compact('materi','url2'));
     }
+    public function obrolan(){
+
+        $obrolans = DB::table('obrolans')
+                    ->select('obrolans.*','users.nama')
+                    ->join('users','users.id','=','obrolans.pengirim')
+                    ->where('obrolans.penerima', '=', Auth::id())
+                    ->get();
+        $obrolans2 = DB::table('obrolans')
+                    ->select('obrolans.*','users.nama')
+                    ->join('users','users.id','=','obrolans.penerima')
+                    ->where('obrolans.pengirim', '=', Auth::id())
+                    ->get();
+        return view('obrolan', compact('obrolans','obrolans2'));
+    }
 
 
 // Embed Youtube Trim
@@ -78,16 +93,17 @@ class AdminController extends Controller
     public function detailKelas(Kelas $kelas)
     {   
         $pengumumans = Pengumuman::all()->where('kelas_id', $kelas->id);
-        $users = Kelasuser::all()->where('kelas_id', $kelas->id);
+        $users = DB::table('users')->where('status', 'pengajar')->get();
 
         // SELECT users.nama FROM users INNER JOIN kelasusers ON users.id = kelasusers.user_id WHERE kelasusers.kelas_id = 2
         $users2 = DB::table('users')
+                ->select('users.*', 'kelasusers.user_id', 'kelasusers.kelas_id')
                 ->join('kelasusers','kelasusers.user_id', '=', 'users.id')
                 ->where('kelasusers.kelas_id', '=', $kelas->id)
                 ->get();
 
         $url2 = $this->embed();
-        return view('detailKelas', compact('kelas','url2','pengumumans','users2'));
+        return view('detailKelas', compact('kelas','url2','pengumumans','users','users2'));
     }
 // Akhir Embed Youtube Trim
 
@@ -181,6 +197,21 @@ class AdminController extends Controller
             'kelas_id' => request('kelas_id'),
             'nama' => request('nama'),
             'deskripsi' => request('deskripsi')
+        ]);
+
+        return back()->with('success');
+    }
+
+    public function pesanStore()
+    {
+        $this->validate(request(), [
+            'isipesan' => 'required'
+        ]);
+
+        Obrolan::create([
+            'pengirim' => request('pengirim'),
+            'penerima' =>request('penerima'),
+            'isipesan' => request('isipesan')
         ]);
 
         return back()->with('success');
