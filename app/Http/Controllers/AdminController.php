@@ -11,6 +11,7 @@ use App\Materi;
 use App\Kelasuser;
 use App\Pengumuman;
 use App\Obrolan;
+use App\Komentar;
 use DB;
 
 class AdminController extends Controller
@@ -49,20 +50,37 @@ class AdminController extends Controller
         // $users = User::all();
         return view('kelas', compact('kelass','kelass2','users','kelasusers','kelasusers2'));
     }
-    public function materi(Kelas $kelas){
+    public function materiVideo(Kelas $kelas){
 
-        $materis = Materi::all()->where('kelas_id', $kelas->id);
+        $materis = Materi::all()->where('kelas_id', $kelas->id)->where('jenis', 'Youtube');
         $url2 = $this->embed();
         $urlyt = $this->embedyt();
         $urldrive = $this->embeddrive();
-        return view('materi', compact('kelas','materis','url2','urldrive','urlyt'));
+        return view('materiVideo', compact('kelas','materis','url2','urldrive','urlyt'));
     }
-    public function detailMateri(Materi $materi)
-    {   
+    public function materiAudio(Kelas $kelas){
+
+        $materis = Materi::all()->where('kelas_id', $kelas->id)->where('jenis', 'Audio');
         $url2 = $this->embed();
         $urlyt = $this->embedyt();
         $urldrive = $this->embeddrive();
-        return view('detailMateri', compact('materi','url2','urldrive','urlyt'));
+        return view('materiAudio', compact('kelas','materis','url2','urldrive','urlyt'));
+    }
+    public function materiTekstual(Kelas $kelas){
+
+        $materis = Materi::all()->where('kelas_id', $kelas->id)->where('jenis', 'Tekstual');
+        $url2 = $this->embed();
+        $urlyt = $this->embedyt();
+        $urldrive = $this->embeddrive();
+        return view('materiTekstual', compact('kelas','materis','url2','urldrive','urlyt'));
+    }
+    public function detailMateri(Kelas $kelas, Materi $materi)
+    {   
+        $komentars = Komentar::all()->where('kelas_id', $kelas->id)->where('materi_id', $materi->id);
+        $url2 = $this->embed();
+        $urlyt = $this->embedyt();
+        $urldrive = $this->embeddrive();
+        return view('detailMateri', compact('kelas','materi','komentars','url2','urldrive','urlyt'));
     }
     public function obrolan(){
 
@@ -253,7 +271,7 @@ class AdminController extends Controller
         return back()->with('success');
     }
 
-    public function materiStore()
+    public function materiVideoStore()
     {
         $dataExplode = explode("=" , request('link'));
         $dataEnd = end($dataExplode);
@@ -271,6 +289,68 @@ class AdminController extends Controller
             'status' => request('status'),
             'deskripsi' => request('deskripsi'),
             'link' => $dataEnd
+        ]);
+
+        return back()->with('success');
+    }
+
+    public function materiAudioStore()
+    {
+        $dataExplode = explode("/" , request('link'));
+        $dataEnd = $dataExplode[5];
+        $this->validate(request(), [
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'link' => 'required'
+        ]);
+
+        Materi::create([
+            'user_id' => request('user_id'),
+            'kelas_id' => request('kelas_id'),
+            'nama' => request('nama'),
+            'jenis' => request('jenis'),
+            'status' => request('status'),
+            'deskripsi' => request('deskripsi'),
+            'link' => $dataEnd
+        ]);
+
+        return back()->with('success');
+    }
+
+    public function materiTekstualStore()
+    {
+        $dataExplode = explode("/" , request('link'));
+        $dataEnd = $dataExplode[5];
+        $this->validate(request(), [
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'link' => 'required'
+        ]);
+
+        Materi::create([
+            'user_id' => request('user_id'),
+            'kelas_id' => request('kelas_id'),
+            'nama' => request('nama'),
+            'jenis' => request('jenis'),
+            'status' => request('status'),
+            'deskripsi' => request('deskripsi'),
+            'link' => $dataEnd
+        ]);
+
+        return back()->with('success');
+    }
+
+    public function komentarStore()
+    {
+        $this->validate(request(), [
+            'isikomentar' => 'required'
+        ]);
+
+        Komentar::create([
+            'kelas_id' => request('kelas_id'),
+            'materi_id' => request('materi_id'),
+            'user_id' => request('user_id'),
+            'isikomentar' => request('isikomentar')
         ]);
 
         return back()->with('success');

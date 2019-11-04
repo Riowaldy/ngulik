@@ -142,12 +142,12 @@
                                                     <a href="">
                                                         <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                     </a>
-                                                    <a href="{{ route('materi') }}">
-                                                        <input type="button" value="Lihat Semua Video" class="btn btn-xs btn-info" />
+                                                    <a href="{{ route('materiVideo', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$url2}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
                                                     <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
                                                 </div>
                                             </div>
@@ -160,10 +160,15 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Audio</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiAudio', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1Vb5knf3ccX69gmie9CHRMHX68Hd2e6XC/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,7 +180,12 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Tekstual</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiTekstual', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
@@ -326,12 +336,12 @@
                                                     <a href="">
                                                         <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                     </a>
-                                                    <a href="{{ route('materi') }}">
-                                                        <input type="button" value="Lihat Semua Video" class="btn btn-xs btn-info" />
+                                                    <a href="{{ route('materiVideo', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$url2}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
                                                     <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
                                                 </div>
                                             </div>
@@ -344,10 +354,15 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Audio</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiAudio', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1Vb5knf3ccX69gmie9CHRMHX68Hd2e6XC/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                         </div>
@@ -359,7 +374,12 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Tekstual</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiTekstual', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
@@ -510,12 +530,12 @@
                                                     <a href="">
                                                         <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                     </a>
-                                                    <a href="{{ route('materi') }}">
-                                                        <input type="button" value="Lihat Semua Video" class="btn btn-xs btn-info" />
+                                                    <a href="{{ route('materiVideo', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$url2}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
                                                     <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
                                                 </div>
                                             </div>
@@ -528,10 +548,15 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Audio</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiAudio', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1Vb5knf3ccX69gmie9CHRMHX68Hd2e6XC/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                         </div>
@@ -543,7 +568,12 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Tekstual</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiTekstual', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
@@ -702,8 +732,8 @@
                                                     <a href="">
                                                         <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                     </a>
-                                                    <a href="{{ route('materi', $kelas) }}">
-                                                        <input type="button" value="Lihat Semua Video" class="btn btn-xs btn-info" />
+                                                    <a href="{{ route('materiVideo', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
@@ -720,7 +750,12 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Audio</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiAudio', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
@@ -735,7 +770,12 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Tekstual</b></button>
+                                                    <a href="">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                    <a href="{{ route('materiTekstual', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
