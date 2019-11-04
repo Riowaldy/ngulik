@@ -620,44 +620,30 @@
                         <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
                         </div>
+                        @foreach ($pengumumans as $pengumuman)
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Latihan 1</label>
+                                            <div class="col-md-3">
+                                                <label for="nama">Judul</label>
                                             </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Latihan Acara Ngulik Pra UTS.</label>
+                                            <div class="col-md-9">
+                                                <label for="nama">{{ $pengumuman->nama }}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <label for="nama">Deskripsi</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label for="nama">{{ $pengumuman->deskripsi }}</label>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Live Streaming</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Ngulik Pra UTS Livestreaming. Waktu : Senin, 01-01-01, 16.00 WIB.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-4">
-                                                <label for="nama">Latihan 2</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">Latihan Acara Ngulik Pra UTS.</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>   
                             </ul>
+                        @endforeach
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -674,14 +660,25 @@
                                                 <label for="nama">Aksi</label>
                                             </div>
                                         </div>
+                                        @foreach ($users3 as $user)
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <label for="nama">{{ $user->nama }}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                            </div>
+                                        </div>
+                                        @endforeach
                                         @foreach ($users2 as $user)
                                         <div class="col-md-12">
                                             <div class="col-md-6">
                                                 <label for="nama">{{ $user->nama }}</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
                                                 <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+
                                             </div>
                                         </div>
                                         @endforeach
@@ -705,12 +702,12 @@
                                                     <a href="">
                                                         <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                     </a>
-                                                    <a href="{{ route('materi') }}">
+                                                    <a href="{{ route('materi', $kelas) }}">
                                                         <input type="button" value="Lihat Semua Video" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$url2}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
                                                     <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
                                                 </div>
                                             </div>
@@ -726,7 +723,7 @@
                                                     <button type="submit" class="btn btn-xs btn-default"><b>Lihat Semua Audio</b></button>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1Vb5knf3ccX69gmie9CHRMHX68Hd2e6XC/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                         </div>

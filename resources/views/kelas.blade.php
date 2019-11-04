@@ -238,6 +238,11 @@
                                             <div class="col-md-2">
                                                 <button type="submit" class="btn btn-xs btn-info" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button>
                                             </div>
+                                            <!-- <div class="col-md-2">
+                                                <a href="{{ route('detailKelas', $kelas->kelas_id) }}">
+                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                </a>
+                                            </div> -->
                                         </div>
                                         <div class="col-md-12">
                                             <div class="col-md-2">

@@ -22,7 +22,7 @@ Route::get('/profil','AdminController@profil')->name('profil');
 Route::get('/pengguna','AdminController@pengguna')->name('pengguna');
 Route::get('/kelas','AdminController@kelas')->name('kelas');
 Route::get('/kelas/{kelas}','AdminController@detailKelas')->name('detailKelas');
-Route::get('/materi','AdminController@materi')->name('materi');
+Route::get('/kelas/{kelas}/materi','AdminController@materi')->name('materi');
 Route::get('/materi/{detail}','AdminController@detailMateri')->name('detailMateri');
 Route::get('/obrolan','AdminController@obrolan')->name('obrolan');
 
@@ -36,6 +36,7 @@ Route::post('/kelasStore','AdminController@kelasStore')->name('kelasStore');
 Route::post('/kelasuserStore','AdminController@kelasuserStore')->name('kelasuserStore');
 Route::post('/pengumumanStore','AdminController@pengumumanStore')->name('pengumumanStore');
 Route::post('/pesanStore','AdminController@pesanStore')->name('pesanStore');
+Route::post('/materiStore','AdminController@materiStore')->name('materiStore');
 
 Route::delete('/hapusKelas','AdminController@hapusKelas')->name('hapusKelas');
 

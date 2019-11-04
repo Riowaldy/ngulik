@@ -40,7 +40,8 @@ class AdminController extends Controller
 
         $kelasusers2 = DB::table('kelass')
                     ->join('kelasusers', function($join){
-                        $join->on('kelass.id', '=', 'kelasusers.kelas_id');
+                        $join->on('kelass.id', '=', 'kelasusers.kelas_id')
+                        ->where('kelasusers.user_id', '!=', Auth::id());
                     })
                     ->get();
         
@@ -48,16 +49,20 @@ class AdminController extends Controller
         // $users = User::all();
         return view('kelas', compact('kelass','kelass2','users','kelasusers','kelasusers2'));
     }
-    public function materi(){
+    public function materi(Kelas $kelas){
 
-        $materis = Materi::all();
+        $materis = Materi::all()->where('kelas_id', $kelas->id);
         $url2 = $this->embed();
-        return view('materi', compact('materis','url2'));
+        $urlyt = $this->embedyt();
+        $urldrive = $this->embeddrive();
+        return view('materi', compact('kelas','materis','url2','urldrive','urlyt'));
     }
     public function detailMateri(Materi $materi)
     {   
         $url2 = $this->embed();
-        return view('detailMateri', compact('materi','url2'));
+        $urlyt = $this->embedyt();
+        $urldrive = $this->embeddrive();
+        return view('detailMateri', compact('materi','url2','urldrive','urlyt'));
     }
     public function obrolan(){
 
@@ -72,6 +77,31 @@ class AdminController extends Controller
                     ->where('obrolans.pengirim', '=', Auth::id())
                     ->get();
         return view('obrolan', compact('obrolans','obrolans2'));
+    }
+    public function detailKelas(Kelas $kelas)
+    {   
+        $pengumumans = Pengumuman::all()->where('kelas_id', $kelas->id);
+        $users = DB::table('users')->where('status', 'pengajar')->get();
+
+        // SELECT users.nama FROM users INNER JOIN kelasusers ON users.id = kelasusers.user_id WHERE kelasusers.kelas_id = 2
+        $users2 = DB::table('users')
+                ->select('users.*', 'kelasusers.user_id', 'kelasusers.kelas_id')
+                ->join('kelasusers','kelasusers.user_id', '=', 'users.id')
+                ->where('kelasusers.kelas_id', '=', $kelas->id)
+                ->where('users.id', '!=', Auth::id())
+                ->get();
+
+        $users3 = DB::table('users')
+                ->select('users.*', 'kelasusers.user_id', 'kelasusers.kelas_id')
+                ->join('kelasusers','kelasusers.user_id', '=', 'users.id')
+                ->where('kelasusers.kelas_id', '=', $kelas->id)
+                ->where('users.id', '=', Auth::id())
+                ->get();
+
+        $url2 = $this->embed();
+        $urlyt = $this->embedyt();
+        $urldrive = $this->embeddrive();
+        return view('detailKelas', compact('kelas','url2','urldrive','urlyt','pengumumans','users','users2','users3'));
     }
 
 
@@ -90,22 +120,28 @@ class AdminController extends Controller
         }
         return $url;
     }
-    public function detailKelas(Kelas $kelas)
-    {   
-        $pengumumans = Pengumuman::all()->where('kelas_id', $kelas->id);
-        $users = DB::table('users')->where('status', 'pengajar')->get();
-
-        // SELECT users.nama FROM users INNER JOIN kelasusers ON users.id = kelasusers.user_id WHERE kelasusers.kelas_id = 2
-        $users2 = DB::table('users')
-                ->select('users.*', 'kelasusers.user_id', 'kelasusers.kelas_id')
-                ->join('kelasusers','kelasusers.user_id', '=', 'users.id')
-                ->where('kelasusers.kelas_id', '=', $kelas->id)
-                ->get();
-
-        $url2 = $this->embed();
-        return view('detailKelas', compact('kelas','url2','pengumumans','users','users2'));
-    }
 // Akhir Embed Youtube Trim
+
+// Embed Trim Manual
+    public function embedyt()
+    {   
+        $url = "https://www.youtube.com/watch?v=Um6f90guss4";
+        $trim = ltrim($url,"https://www.youtube.com/watch?v=");
+        // request('link')
+        // ltrim(request('link'),"https://www.youtube.com/watch?v=")
+        return $trim;
+    }
+    public function embeddrive()
+    {   
+        $url = "https://drive.google.com/file/d/1Vb5knf3ccX69gmie9CHRMHX68Hd2e6XC/view?usp=sharing";
+        $trim = rtrim($url,"view?usp=sharing");
+        // request('link')
+        // rtrim(request('link'),"view?usp=sharing")
+        return $trim;
+    }
+// Akhir Embed Trim Manual
+
+
 
     public function editProfil(Request $request){
       	$edit = \DB::table('users')->select('id')->where('id', $request->input('id'));
@@ -212,6 +248,29 @@ class AdminController extends Controller
             'pengirim' => request('pengirim'),
             'penerima' =>request('penerima'),
             'isipesan' => request('isipesan')
+        ]);
+
+        return back()->with('success');
+    }
+
+    public function materiStore()
+    {
+        $dataExplode = explode("=" , request('link'));
+        $dataEnd = end($dataExplode);
+        $this->validate(request(), [
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'link' => 'required'
+        ]);
+
+        Materi::create([
+            'user_id' => request('user_id'),
+            'kelas_id' => request('kelas_id'),
+            'nama' => request('nama'),
+            'jenis' => request('jenis'),
+            'status' => request('status'),
+            'deskripsi' => request('deskripsi'),
+            'link' => $dataEnd
         ]);
 
         return back()->with('success');
