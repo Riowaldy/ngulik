@@ -189,6 +189,15 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
+                                                    @if($materi->user_id == Auth::id())
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                        </div>
+                                                    @else
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -265,6 +274,15 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
+                                                    @if($materi->user_id == Auth::id())
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                        </div>
+                                                    @else
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -354,6 +372,15 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
+                                                    @if($materi->user_id == Auth::id())
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                        </div>
+                                                    @else
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -430,6 +457,15 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
+                                                    @if($materi->user_id == Auth::id())
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                        </div>
+                                                    @else
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -519,6 +555,15 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
+                                                    @if($materi->user_id == Auth::id())
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                        </div>
+                                                    @else
+                                                        <div class="pull-right" style="margin-top: 25px;">
+
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -595,6 +640,15 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
+                                                    @if($materi->user_id == Auth::id())
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                        </div>
+                                                    @else
+                                                        <div class="pull-right" style="margin-top: 25px;">
+                                                            
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -663,4 +717,41 @@
             </div>
         </div>
     @endif
+<!-- Modal Edit Materi-->
+    <div class="modal fade" id="edit_materi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ubah Materi</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Edit Materi-->
+                <form role="form" action="{{route('editMateri')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_nama">Judul Materi</label>
+                            <input type="text" name="nama" id="nama" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="input_nama">Deskripsi</label>
+                            <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="">
+                        </div>
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-primary">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Edit Materi -->
 @endsection

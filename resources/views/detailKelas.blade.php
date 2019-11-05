@@ -139,17 +139,23 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Video</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiVideo', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
-                                                    <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
+                                                @foreach($materivid as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -160,16 +166,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiAudio', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
+                                                @foreach($materiaud as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -180,16 +192,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiTekstual', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
+                                                @foreach($materiteks as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -333,17 +351,23 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Video</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiVideo', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
-                                                    <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
+                                                @foreach($materivid as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -354,16 +378,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiAudio', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
+                                                @foreach($materiaud as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -374,16 +404,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiTekstual', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
+                                                @foreach($materiteks as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -527,17 +563,23 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Video</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiVideo', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
-                                                    <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
+                                                @foreach($materivid as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -548,16 +590,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiAudio', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
+                                                @foreach($materiaud as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -568,16 +616,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiTekstual', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
+                                                @foreach($materiteks as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -729,17 +783,23 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Video</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiVideo', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$urlyt}}"></iframe>
-                                                    <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Um6f90guss4"></iframe> -->
+                                                @foreach($materivid as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -750,16 +810,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Audio</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiAudio', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="{{$urldrive}}preview" height="200"></iframe>
+                                                @foreach($materiaud as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -770,16 +836,22 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Materi Tekstual</label>
                                                 <div class="pull-right">
-                                                    <a href="">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
                                                     <a href="{{ route('materiTekstual', $kelas) }}">
                                                         <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
                                                     </a>
                                                 </div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/1fqVo9F3kp9bzCuzRjjj58wdFoetQS9HN/preview"></iframe>
+                                                @foreach($materiteks as $materi)
+                                                <div>
+                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

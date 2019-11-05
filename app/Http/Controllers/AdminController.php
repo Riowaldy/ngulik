@@ -32,6 +32,24 @@ class AdminController extends Controller
 
         // SELECT kelass.* FROM kelass INNER JOIN kelasusers ON kelass.id = kelasusers.kelas_id WHERE kelasusers.user_id = 2
 
+        // $kelass3 = DB::table('kelass')
+        //     ->leftjoin('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
+        //     ->select('kelass.*','kelasusers.user_id','kelasusers.kelas_id')
+        //     ->distinct()
+        //     ->get();
+
+        // $kelass3 = DB::table('kelasusers')
+        //     ->rightjoin('kelass', 'kelasusers.kelas_id', '=', 'kelass.id')
+        //     ->select('kelass.*','kelasusers.user_id','kelasusers.kelas_id')
+        //     ->distinct()
+        //     ->get();
+
+        // $kelass3 = DB::table('kelass')
+        //     ->select('kelass.*')
+        //     ->join('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
+        //     ->join('users', 'users.id', '=', 'kelasusers.user_id')
+        //     ->get();
+
         $kelasusers = DB::table('kelass')
                     ->join('kelasusers', function($join){
                         $join->on('kelass.id', '=', 'kelasusers.kelas_id')
@@ -48,11 +66,11 @@ class AdminController extends Controller
         
         $users = DB::table('users')->where('status', 'pengajar')->get();
         // $users = User::all();
-        return view('kelas', compact('kelass','kelass2','users','kelasusers','kelasusers2'));
+        return view('kelas', compact('kelass','kelass2','kelass3','users','kelasusers','kelasusers2'));
     }
     public function materiVideo(Kelas $kelas){
 
-        $materis = Materi::all()->where('kelas_id', $kelas->id)->where('jenis', 'Youtube');
+        $materis = Materi::where('kelas_id', $kelas->id)->where('jenis', 'Youtube')->paginate(6);
         $url2 = $this->embed();
         $urlyt = $this->embedyt();
         $urldrive = $this->embeddrive();
@@ -60,7 +78,7 @@ class AdminController extends Controller
     }
     public function materiAudio(Kelas $kelas){
 
-        $materis = Materi::all()->where('kelas_id', $kelas->id)->where('jenis', 'Audio');
+        $materis = Materi::where('kelas_id', $kelas->id)->where('jenis', 'Audio')->paginate(6);
         $url2 = $this->embed();
         $urlyt = $this->embedyt();
         $urldrive = $this->embeddrive();
@@ -68,7 +86,7 @@ class AdminController extends Controller
     }
     public function materiTekstual(Kelas $kelas){
 
-        $materis = Materi::all()->where('kelas_id', $kelas->id)->where('jenis', 'Tekstual');
+        $materis = Materi::where('kelas_id', $kelas->id)->where('jenis', 'Tekstual')->paginate(6);
         $url2 = $this->embed();
         $urlyt = $this->embedyt();
         $urldrive = $this->embeddrive();
@@ -99,6 +117,9 @@ class AdminController extends Controller
     public function detailKelas(Kelas $kelas)
     {   
         $pengumumans = Pengumuman::all()->where('kelas_id', $kelas->id);
+        $materivid = Materi::all()->where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube');
+        $materiaud = Materi::all()->where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Audio');
+        $materiteks = Materi::all()->where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Tekstual');
         $users = DB::table('users')->where('status', 'pengajar')->get();
 
         // SELECT users.nama FROM users INNER JOIN kelasusers ON users.id = kelasusers.user_id WHERE kelasusers.kelas_id = 2
@@ -119,7 +140,7 @@ class AdminController extends Controller
         $url2 = $this->embed();
         $urlyt = $this->embedyt();
         $urldrive = $this->embeddrive();
-        return view('detailKelas', compact('kelas','url2','urldrive','urlyt','pengumumans','users','users2','users3'));
+        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','url2','urldrive','urlyt','pengumumans','users','users2','users3'));
     }
 
 
@@ -177,6 +198,17 @@ class AdminController extends Controller
         $edit = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
         $edit->update(['nama' => $request->input('nama')]);
         $edit->update(['user_id' => $request->input('user_id')]);
+        $edit->update(['deskripsi' => $request->input('deskripsi')]);
+      return back()->with('success');
+    }
+    public function editStatusMateri(Request $request){
+        $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
+        $edit->update(['status' => $request->input('status')]);
+      return back()->with('success');
+    }
+    public function editMateri(Request $request){
+        $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
+        $edit->update(['nama' => $request->input('nama')]);
         $edit->update(['deskripsi' => $request->input('deskripsi')]);
       return back()->with('success');
     }

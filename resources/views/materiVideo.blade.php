@@ -13,25 +13,32 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        @foreach ($materis as $materi)
-                                        <div class="col-md-4">
-                                            <div>
-                                                <label for="nama">{{ $materi->nama }}</label>
-                                                <div class="pull-right">
-                                                     <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
+                                        <div class="col-md-12">
+                                            @foreach ($materis as $materi)
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <label for="nama">{{ $materi->nama }}</label>
+                                                    <div class="pull-right">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                <div>
+                                                    <label for="nama">{{ $materi->user->nama }}</label>
+                                                </div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 30px;"></div>
                                             </div>
-                                            <div>
-                                                <label for="nama">{{ $materi->user->nama }}</label>
-                                            </div>
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                            </div>
-                                            <div style="margin-bottom: 30px;"></div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
+                                        <div class="col-md-12">
+                                            <div class="text-center">
+                                                {!! $materis->render() !!}
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -59,25 +66,37 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        @foreach ($materis as $materi)
-                                        <div class="col-md-4">
-                                            <div>
-                                                <label for="nama">{{ $materi->nama }}</label>
-                                                <div class="pull-right">
-                                                     <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
+                                        <div class="col-md-12">
+                                            @foreach ($materis as $materi)
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <label for="nama">{{ $materi->nama }}</label>
+                                                    <div class="pull-right">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                        @if($materi->status == 'Biasa')
+                                                            <button type="submit" class="btn btn-xs btn-default" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri">Verifikasi</button>
+                                                        @else
+                                                            <button type="submit" class="btn btn-xs btn-info" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri2">Terverifikasi</button>
+                                                        @endif
+                                                    </div>
                                                 </div>
+                                                <div>
+                                                    <label for="nama">{{ $materi->user->nama }}</label>
+                                                </div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 30px;"></div>
                                             </div>
-                                            <div>
-                                                <label for="nama">{{ $materi->user->nama }}</label>
-                                            </div>
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                            </div>
-                                            <div style="margin-bottom: 30px;"></div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
+                                        <div class="col-md-12">
+                                            <div class="text-center">
+                                                {!! $materis->render() !!}
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -105,25 +124,32 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        @foreach ($materis as $materi)
-                                        <div class="col-md-4">
-                                            <div>
-                                                <label for="nama">{{ $materi->nama }}</label>
-                                                <div class="pull-right">
-                                                     <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
+                                        <div class="col-md-12">
+                                            @foreach ($materis as $materi)
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <label for="nama">{{ $materi->nama }}</label>
+                                                    <div class="pull-right">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                <div>
+                                                    <label for="nama">{{ $materi->user->nama }}</label>
+                                                </div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 30px;"></div>
                                             </div>
-                                            <div>
-                                                <label for="nama">{{ $materi->user->nama }}</label>
-                                            </div>
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                            </div>
-                                            <div style="margin-bottom: 30px;"></div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
+                                        <div class="col-md-12">
+                                            <div class="text-center">
+                                                {!! $materis->render() !!}
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -151,25 +177,32 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        @foreach ($materis as $materi)
-                                        <div class="col-md-4">
-                                            <div>
-                                                <label for="nama">{{ $materi->nama }}</label>
-                                                <div class="pull-right">
-                                                     <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
+                                        <div class="col-md-12">
+                                            @foreach ($materis as $materi)
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <label for="nama">{{ $materi->nama }}</label>
+                                                    <div class="pull-right">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                <div>
+                                                    <label for="nama">{{ $materi->user->nama }}</label>
+                                                </div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 30px;"></div>
                                             </div>
-                                            <div>
-                                                <label for="nama">{{ $materi->user->nama }}</label>
-                                            </div>
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                            </div>
-                                            <div style="margin-bottom: 30px;"></div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
+                                        <div class="col-md-12">
+                                            <div class="text-center">
+                                                {!! $materis->render() !!}
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -232,4 +265,76 @@
         </div>
     </div>
 <!-- Akhir Modal Create Video -->
+
+<!-- Modal Edit Status Materi-->
+    <div class="modal fade" id="edit_statusMateri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ubah Status Materi</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Edit Status Materi-->
+                <form role="form" action="{{route('editStatusMateri')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="status" id="status" class="form-control" value="Terverifikasi">
+                        </div>
+                        <div class="form-group text-center">
+                            <label for="input_nama">Apakah anda ingin merubah status kelas menjadi terverifikasi?</label>
+                        </div> 
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-primary">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Edit Status Materi -->
+
+<!-- Modal Edit Status Materi-->
+    <div class="modal fade" id="edit_statusMateri2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ubah Status Materi</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Edit Status Materi-->
+                <form role="form" action="{{route('editStatusMateri')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="status" id="status" class="form-control" value="Biasa">
+                        </div>
+                        <div class="form-group text-center">
+                            <label for="input_nama">Apakah anda ingin merubah status kelas menjadi Tidak Terverifikasi?</label>
+                        </div> 
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-primary">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Edit Status Materi -->
 @endsection

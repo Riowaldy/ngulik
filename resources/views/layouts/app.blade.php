@@ -227,6 +227,32 @@
           modal.find('.modal-body #user_id').val(user_id);
           modal.find('.modal-body #deskripsi').val(deskripsi);
         })
+
+        $('#edit_statusMateri').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+        })
+
+        $('#edit_statusMateri2').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+        })
+
+        $('#edit_materi').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var nama = button.data('nama')
+          var deskripsi = button.data('deskripsi')
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #nama').val(nama);
+          modal.find('.modal-body #deskripsi').val(deskripsi);
+        })
+
         $('#hapus_kelas').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 

@@ -33,6 +33,8 @@ Route::get('/detailUser','AdminController@detailUser')->name('detailUser');
 Route::post('/editProfil','AdminController@editProfil')->name('editProfil');
 Route::post('/editStatus','AdminController@editStatus')->name('editStatus');
 Route::post('/editKelas','AdminController@editKelas')->name('editKelas');
+Route::post('/editStatusMateri','AdminController@editStatusMateri')->name('editStatusMateri');
+Route::post('/editMateri','AdminController@editMateri')->name('editMateri');
 
 Route::post('/kelasStore','AdminController@kelasStore')->name('kelasStore');
 Route::post('/kelasuserStore','AdminController@kelasuserStore')->name('kelasuserStore');

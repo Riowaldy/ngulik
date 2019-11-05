@@ -9,6 +9,8 @@ class Materi extends Model
 	protected $fillable = [
 		'user_id', 'kelas_id', 'nama', 'jenis', 'status', 'deskripsi', 'link',
     ];
+
+    public $table = "materis";
     
     public function user()
 	{
