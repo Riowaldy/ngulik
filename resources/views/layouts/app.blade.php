@@ -181,6 +181,12 @@
           modal.find('.modal-body #penerima').val(penerima);
           modal.find('.modal-body #penerima2').val(penerima2);
         })
+        $('#gabung_kelas').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var kelas_id = button.data('kelas_id')
+          var modal = $(this)
+          modal.find('.modal-body #kelas_id').val(kelas_id);
+        })
 
         $('#detail_user').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)

@@ -236,12 +236,12 @@
                                                 <label for="nama">{{ $kelas->nama }}</label>
                                             </div>
                                             <div class="col-md-2">
-                                                @if($kelas->user_id == Auth::id())
-                                                    <a href="{{ route('detailKelas', $kelas->kelas_id) }}">
+                                                @if($kelas->id == $data[$length-1])
+                                                    <a href="{{ route('detailKelas', $kelas->id) }}">
                                                         <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                     </a>
                                                 @else
-                                                    <button type="submit" class="btn btn-xs btn-info" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-info" data-kelas_id="{{$kelas->id}}" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button>
                                                 @endif
                                             </div>
                                         </div>
@@ -326,7 +326,7 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">ID Kelas</label>
-                                <input type="text" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
+                                <input type="text" name="kelas_id" id="kelas_id" class="form-control" value="">
                             </div>
                             <div class="form-group">
                                 <label for="">ID User</label>

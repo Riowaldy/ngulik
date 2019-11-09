@@ -29,26 +29,41 @@ class AdminController extends Controller
 
         $kelass = Kelas::all();
         $kelass2 = Kelas::all()->where('user_id', Auth::id());
+        // select * from kelass
+        // where id !=(
+        // select kelass.id from kelass
+        // JOIN kelasusers on kelass.id = kelasusers.kelas_id
+        // join users on kelasusers.user_id = users.id
+        // where kelasusers.user_id = 2)
+        $data2 = DB::table('kelass')
+            ->join('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
+            ->join('users','users.id','=','kelasusers.user_id')
+            ->select('kelass.id')
+            ->where('kelasusers.user_id','!=',Auth::id())
+            ->groupBy('kelass.id')
+            ->havingRaw('count(distinct kelasusers.user_id) = ' . count(Auth::id()))
+            ->pluck('kelass.id');
 
-        // SELECT kelass.* FROM kelass INNER JOIN kelasusers ON kelass.id = kelasusers.kelas_id WHERE kelasusers.user_id = 2
+        $data = DB::table('kelass')
+            ->join('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
+            ->join('users','users.id','=','kelasusers.user_id')
+            ->select('kelass.id')
+            ->where('kelasusers.user_id','=',Auth::id())
+            ->groupBy('kelass.id')
+            ->havingRaw('count(distinct kelasusers.user_id) = ' . count(Auth::id()))
+            ->pluck('kelass.id');
 
-        // $kelass3 = DB::table('kelass')
-        //     ->leftjoin('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
-        //     ->select('kelass.*','kelasusers.user_id','kelasusers.kelas_id')
-        //     ->distinct()
-        //     ->get();
+        $x = 0;
+        $length = count($data);
+        for ($i = 0; $i < $length; $i++) {
+          // print $data[$i];
+        }
 
-        // $kelass3 = DB::table('kelasusers')
-        //     ->rightjoin('kelass', 'kelasusers.kelas_id', '=', 'kelass.id')
-        //     ->select('kelass.*','kelasusers.user_id','kelasusers.kelas_id')
-        //     ->distinct()
-        //     ->get();
 
-        // $kelass3 = DB::table('kelass')
-        //     ->select('kelass.*')
-        //     ->join('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
-        //     ->join('users', 'users.id', '=', 'kelasusers.user_id')
-        //     ->get();
+        $kelass3 = DB::table('kelass')
+            ->leftjoin('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
+            ->select('kelass.*','kelasusers.user_id','kelasusers.kelas_id')
+            ->get();
 
         $kelasusers = DB::table('kelass')
                     ->join('kelasusers', function($join){
@@ -63,10 +78,9 @@ class AdminController extends Controller
                         ->where('kelasusers.user_id', '!=', Auth::id());
                     })
                     ->get();
-        
         $users = DB::table('users')->where('status', 'pengajar')->get();
-        // $users = User::all();
-        return view('kelas', compact('kelass','kelass2','kelass3','users','kelasusers','kelasusers2'));
+        // return $data;
+        return view('kelas', compact('kelass','kelass2','data','data2','x','length','kelass3','users','kelasusers','kelasusers2'));
     }
     public function materiVideo(Kelas $kelas){
 
