@@ -18,34 +18,34 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profil','AdminController@profil')->name('profil');
-Route::get('/pengguna','AdminController@pengguna')->name('pengguna');
-Route::get('/kelas','AdminController@kelas')->name('kelas');
-Route::get('/kelas/{kelas}','AdminController@detailKelas')->name('detailKelas');
-Route::get('/kelas/{kelas}/materiVideo','AdminController@materiVideo')->name('materiVideo');
-Route::get('/kelas/{kelas}/materiAudio','AdminController@materiAudio')->name('materiAudio');
-Route::get('/kelas/{kelas}/materiTekstual','AdminController@materiTekstual')->name('materiTekstual');
-Route::get('/kelas/{kelas}/{materi}','AdminController@detailMateri')->name('detailMateri');
-Route::get('/obrolan','AdminController@obrolan')->name('obrolan');
+Route::get('/profil','UserController@profil')->name('profil');
+Route::get('/pengguna','UserController@pengguna')->name('pengguna');
+Route::get('/kelas','KelasController@kelas')->name('kelas');
+Route::get('/kelas/{kelas}','KelasController@detailKelas')->name('detailKelas');
+Route::get('/kelas/{kelas}/materiVideo','MateriController@materiVideo')->name('materiVideo');
+Route::get('/kelas/{kelas}/materiAudio','MateriController@materiAudio')->name('materiAudio');
+Route::get('/kelas/{kelas}/materiTekstual','MateriController@materiTekstual')->name('materiTekstual');
+Route::get('/kelas/{kelas}/{materi}','MateriController@detailMateri')->name('detailMateri');
+Route::get('/obrolan','ObrolanController@obrolan')->name('obrolan');
 
 Route::get('/detailUser','AdminController@detailUser')->name('detailUser');
 
-Route::post('/editProfil','AdminController@editProfil')->name('editProfil');
-Route::post('/editStatus','AdminController@editStatus')->name('editStatus');
-Route::post('/editKelas','AdminController@editKelas')->name('editKelas');
-Route::post('/editStatusMateri','AdminController@editStatusMateri')->name('editStatusMateri');
-Route::post('/editMateri','AdminController@editMateri')->name('editMateri');
+Route::post('/editProfil','UserController@editProfil')->name('editProfil');
+Route::post('/editStatus','UserController@editStatus')->name('editStatus');
+Route::post('/editKelas','KelasController@editKelas')->name('editKelas');
+Route::post('/editStatusMateri','MateriController@editStatusMateri')->name('editStatusMateri');
+Route::post('/editMateri','MateriController@editMateri')->name('editMateri');
 
-Route::post('/kelasStore','AdminController@kelasStore')->name('kelasStore');
-Route::post('/kelasuserStore','AdminController@kelasuserStore')->name('kelasuserStore');
-Route::post('/pengumumanStore','AdminController@pengumumanStore')->name('pengumumanStore');
-Route::post('/pesanStore','AdminController@pesanStore')->name('pesanStore');
-Route::post('/materiVideoStore','AdminController@materiVideoStore')->name('materiVideoStore');
-Route::post('/materiAudioStore','AdminController@materiAudioStore')->name('materiAudioStore');
-Route::post('/materiTekstualStore','AdminController@materiTekstualStore')->name('materiTekstualStore');
-Route::post('/komentarStore','AdminController@komentarStore')->name('komentarStore');
+Route::post('/kelasStore','KelasController@kelasStore')->name('kelasStore');
+Route::post('/kelasuserStore','KelasController@kelasuserStore')->name('kelasuserStore');
+Route::post('/pengumumanStore','PengumumanController@pengumumanStore')->name('pengumumanStore');
+Route::post('/pesanStore','ObrolanController@pesanStore')->name('pesanStore');
+Route::post('/materiVideoStore','MateriController@materiVideoStore')->name('materiVideoStore');
+Route::post('/materiAudioStore','MateriController@materiAudioStore')->name('materiAudioStore');
+Route::post('/materiTekstualStore','MateriController@materiTekstualStore')->name('materiTekstualStore');
+Route::post('/komentarStore','KomentarController@komentarStore')->name('komentarStore');
 
-Route::delete('/hapusKelas','AdminController@hapusKelas')->name('hapusKelas');
+Route::delete('/hapusKelas','KelasController@hapusKelas')->name('hapusKelas');
 
-Route::get('/changePassword','AdminController@showChangePasswordForm');
-Route::post('/changePassword','AdminController@changePassword')->name('changePassword');
+Route::get('/changePassword','UserController@showChangePasswordForm');
+Route::post('/changePassword','UserController@changePassword')->name('changePassword');

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div style="margin-top:60px;"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -89,6 +90,9 @@
     </footer>
       
     <!-- Akhir footer -->
+<div class="col-sm-12 text-center">
+  <p>&copy; 2019 | Riowaldy Indrawan</p>
+</div>
 @endsection
 
 

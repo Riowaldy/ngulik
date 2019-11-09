@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div style="margin-top:60px;"></div>
     @if(Auth::user()->status == 'admin')
         <div class="container">
             <div class="row">
@@ -383,5 +383,7 @@
             </div>
         </div>
     @endif
-
+<div class="col-sm-12 text-center">
+  <p>&copy; 2019 | Riowaldy Indrawan</p>
+</div>
 @endsection

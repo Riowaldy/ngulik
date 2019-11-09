@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div style="margin-top:60px;"></div>
     @if(Auth::user()->status == 'admin')
         <div class="container">
             <div class="row">

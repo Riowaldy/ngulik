@@ -1,0 +1,69 @@
+html{
+	position: relative;
+}
+body{
+	margin-top: 30px;
+	
+}
+.jumbotron{
+	height: 680px;
+	background-image: url(../img/header.jpg	);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: 0 -100px;
+	overflow: hidden;
+}
+.jumbotron img{
+	width: 250px;
+	height: 250px;
+}
+.jumbotron h1{
+	font-family: cursive;
+	margin-top: 120px;
+}
+.jumbotron p{
+	font-size: 30px;
+	font-family: cursive;
+}
+hr{
+	width: 250px;
+	border-top: 3px solid #999;
+}
+section{
+	min-height: 400px;
+}
+.pKiri, .pKanan{
+	opacity: 0;
+	transform: translate(-50px, 0) rotate(15deg);
+	transition: 1s;
+}
+.pKanan{
+	transform: translate(50px, 0) rotate(-15deg);
+}
+.pKiri.pMuncul, .pKanan.pMuncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
+.portfolio{
+	background-color: rgba(50, 115, 220, 0.3);
+}
+.thumbnail{
+	width: 300px;
+	opacity: 0;
+	transform: translate(0, -40px);
+	transition: .5s;
+}
+.portfolio .thumbnail.muncul{
+	opacity: 1;
+	transform: translate(0,0);
+}
+.contact{
+	min-height: 620px;
+}
+.contact img{
+	height: 200px;
+}
+.find img{
+	height: 50px;
+	margin-top: 50px;
+}

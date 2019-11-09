@@ -1,95 +1,203 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en" id="home">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
 
-        <title>Laravel</title>
+    <title>NGULIK | Sistem Informasi</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
 
-            .full-height {
-                height: 100vh;
-            }
+      <!-- navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="#home" class="navbar-brand page-scroll">NGULIK</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="#about" class="page-scroll">Tentang</a></li>
+                <li><a href="#portfolio" class="page-scroll">Kegiatan</a></li>
+                <li><a href="#contact" class="page-scroll">Kontak</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="page-scroll">
+                @if (Route::has('login'))
+                        @auth
+                            <a href="{{ url('/kelas') }}">Kembali</a>
+                        @else
+                            <a href="{{ route('login') }}">Login</a>
+                        @endauth
+                @endif
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <!-- akhir navbar -->
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
+   
+    <!-- jumbotron -->
+    <div class="jumbotron text-center page-scroll">
+      <img src="img/himasifo.png">
+      <h1>NGULIK SISTEM INFORMASI</h1>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+      <p>Platform Pembelajaran Non Formal</p>
+    </div>
+    <!-- akhir jumbotron -->
 
-            .content {
-                text-align: center;
-            }
+    <!-- about -->
+      <section class="about" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h2>Tentang</h2>
+              <hr>
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-sm-4 col-sm-offset-2 ">
+              <p class="pKiri text-justify">Himpunan Mahasiswa Sistem Informasi Universitas Pembangunan Nasional “Veteran” Jawa Timur mengadakan pembelajaran non formal di luar jam aktif perkuliahan sebelum Ujian Tengah Semester atau Ujian Akhir Semester berlangsung yang ditujukan untuk mengulas pembelajaran saat perkuliahan. Pembelajaran ini merupakan program kerja departemen penelitian dan pengembangan. Pembelajaran non formal ini biasa disebut dengan Ngulik SI yang dihadiri oleh mahasiswa dan diajar oleh mahasiswa yang telah menguasai materi mata kuliah tersebut.</p>
+            </div>
+            <div class="col-sm-4">
+              <p class="pKanan text-justify">Departemen Penelitian dan Pengembangan bergerak di bidang akademik yaitu pengembangan kemampuan dan penalaran mahasiswa jurusan Sistem Informasi. Dengan adanya departemen ini, diharapkan dapat meningkatkan kualitas mahasiswa Sistem Informasi sehingga tercipta lingkungan akademik yang kompeten dan dinamis.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!-- akhir about -->
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+    <!-- portfolio -->
+      <section class="portfolio" id="portfolio">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h2>Kegiatan</h2>
+              <hr>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <div class="col-sm-4 col-sm-offset-1 thumbnail">
+                        <img src="img/2.jpg">
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1 colpkanan text-justify">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="col-sm-12">
+                    <div class="col-sm-4 col-sm-offset-1 thumbnail">
+                        <img src="img/2.jpg">
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-1 colpkanan text-justify">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
+        
+      </section>
+    <!-- akhir portfolio -->
+
+    <!-- contact -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h2>Kontak</h2>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 text-center">
+              <img src="img/upn.png">
+            </div>
+            <div class="col-sm-3 text-center">
+                <img src="img/himasifo.png">
+            </div>
+            <div class="col-sm-6">
+                <div class="list-group">
+                  <a class="list-group-item active text-center">
+                    Ngulik | Sistem Informasi
+                  </a>
+                  <a class="list-group-item">Departemen Penelitian dan Pengembangan</a>
+                  <a class="list-group-item">Jurusan Sistem Informasi</a>
+                  <a class="list-group-item">Fakultas Ilmu Komputer</a>
+                  <a class="list-group-item">Universitas Pembangunan Nasional "Veteran" Jawa Timur</a>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 find text-center">
+                <h2>Ikuti Kami</h2>
+                <hr>
+                <div class="col-sm-3 text-center">
+                  <a href="https://www.facebook.com/himasifoupnvjatim"><img src="img/facebook.png"></a>
+                </div>
+                <div class="col-sm-3 text-center">
+                  <a href="https://www.instagram.com/himasifo_upnvjatim/"><img src="img/instagram.png"></a>
+                </div>
+                <div class="col-sm-3 text-center">
+                  <a href="https://www.youtube.com/channel/UComN7Zo6fWi9NSw6uXTzjhQ"><img src="img/youtube.png"></a>
+                </div>
+                <div class="col-sm-3 text-center">
+                  <a href="http://www.himasifo-upnjatim.com/"><img src="img/website.png"></a>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+      <div class="col-sm-12 text-center">
+          <p>&copy; 2019 | Riowaldy Indrawan</p>
+      </div>
+    <!-- akhir contact -->
+
+    <!-- footer -->
+    
+    
+      
+    <!-- Akhir footer -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="js/script.js"></script>
+  </body>
 </html>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div style="margin-top:60px;"></div>
     @if(Auth::user()->status == 'admin')
         <div class="container">
             <div class="row">
@@ -642,225 +642,251 @@
             </div>
         </div>
     @else
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <b>Informasi Kelas</b>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Nama Kelas</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">{{ $kelas->nama }}</label>
-                                            </div>
-                                            <div class="col-md-3">
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Kode Kelas</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">NGULIK{{ $kelas->id }}</label>
-                                            </div>
-                                            <div class="col-md-3">
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Pengajar</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">{{ $kelas->user->nama }}</label>
-                                            </div>
-                                            <div class="col-md-3">
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">{{ $kelas->deskripsi }}</label>
-                                            </div>
-                                            <div class="col-md-3">
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <b>Pengumuman Kelas</b>
-                        </div>
-                        @foreach ($pengumumans as $pengumuman)
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Judul</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <label for="nama">{{ $pengumuman->nama }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <label for="nama">{{ $pengumuman->deskripsi }}</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        @endforeach
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <b>Informasi Anggota Kelas</b>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">Nama</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">Aksi</label>
-                                            </div>
-                                        </div>
-                                        @foreach ($users3 as $user)
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">{{ $user->nama }}</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                        @foreach ($users2 as $user)
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">{{ $user->nama }}</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
 
+        @forelse($kelasusers as $reply)
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Informasi Kelas</b>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
+                                            <div class="col-md-12">
+                                                <div class="col-md-3">
+                                                    <label for="nama">Nama Kelas</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama">{{ $kelas->nama }}</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-3">
+                                                    <label for="nama">Kode Kelas</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama">NGULIK{{ $kelas->id }}</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-3">
+                                                    <label for="nama">Pengajar</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama">{{ $kelas->user->nama }}</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-3">
+                                                    <label for="nama">Deskripsi</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama">{{ $kelas->deskripsi }}</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    
+                                                </div>
                                             </div>
                                         </div>
-                                        @endforeach
-                                    </div>
-                                </li>
-                            </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <b>Materi Kelas Terbaik</b>
+                                    </li>
+                                </ul>
                         </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Pengumuman Kelas</b>
+                            </div>
+                            @foreach ($pengumumans as $pengumuman)
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
                                             <div class="col-md-12">
-                                                <label for="nama">Materi Video</label>
-                                                <div class="pull-right">
-                                                    <a href="{{ route('materiVideo', $kelas) }}">
-                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                    </a>
+                                                <div class="col-md-3">
+                                                    <label for="nama">Judul</label>
                                                 </div>
-                                                @foreach($materivid as $materi)
-                                                <div>
-                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
+                                                <div class="col-md-9">
+                                                    <label for="nama">{{ $pengumuman->nama }}</label>
                                                 </div>
-                                                <div style="margin-bottom: 5px;"></div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-3">
+                                                    <label for="nama">Deskripsi</label>
                                                 </div>
-                                                <div style="margin-bottom: 5px;"></div>
-                                                @endforeach
-                                                
+                                                <div class="col-md-9">
+                                                    <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
+                                    </li>
+                                </ul>
+                            @endforeach
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Informasi Anggota Kelas</b>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
                                             <div class="col-md-12">
-                                                <label for="nama">Materi Audio</label>
-                                                <div class="pull-right">
-                                                    <a href="{{ route('materiAudio', $kelas) }}">
-                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                    </a>
+                                                <div class="col-md-6">
+                                                    <label for="nama">Nama</label>
                                                 </div>
-                                                @foreach($materiaud as $materi)
-                                                <div>
-                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
+                                                <div class="col-md-6">
+                                                    <label for="nama">Aksi</label>
                                                 </div>
-                                                <div style="margin-bottom: 5px;"></div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                            </div>
+                                            @foreach ($users3 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <label for="nama">{{ $user->nama }}</label>
                                                 </div>
-                                                <div style="margin-bottom: 5px;"></div>
-                                                @endforeach
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                            @foreach ($users2 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <label for="nama">{{ $user->nama }}</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Materi Kelas Terbaik</b>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <label for="nama">Materi Video</label>
+                                                    <div class="pull-right">
+                                                        <a href="{{ route('materiVideo', $kelas) }}">
+                                                            <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
+                                                    @foreach($materivid as $materi)
+                                                    <div>
+                                                        <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
+                                                    <div style="margin-bottom: 5px;"></div>
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    </div>
+                                                    <div style="margin-bottom: 5px;"></div>
+                                                    @endforeach
+                                                    
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
                                             <div class="col-md-12">
-                                                <label for="nama">Materi Tekstual</label>
-                                                <div class="pull-right">
-                                                    <a href="{{ route('materiTekstual', $kelas) }}">
-                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                    </a>
+                                                <div class="col-md-12">
+                                                    <label for="nama">Materi Audio</label>
+                                                    <div class="pull-right">
+                                                        <a href="{{ route('materiAudio', $kelas) }}">
+                                                            <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
+                                                    @foreach($materiaud as $materi)
+                                                    <div>
+                                                        <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
+                                                    <div style="margin-bottom: 5px;"></div>
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    </div>
+                                                    <div style="margin-bottom: 5px;"></div>
+                                                    @endforeach
                                                 </div>
-                                                @foreach($materiteks as $materi)
-                                                <div>
-                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
-                                                </div>
-                                                <div style="margin-bottom: 5px;"></div>
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
-                                                </div>
-                                                <div style="margin-bottom: 5px;"></div>
-                                                @endforeach
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <label for="nama">Materi Tekstual</label>
+                                                    <div class="pull-right">
+                                                        <a href="{{ route('materiTekstual', $kelas) }}">
+                                                            <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
+                                                    @foreach($materiteks as $materi)
+                                                    <div>
+                                                        <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
+                                                    <div style="margin-bottom: 5px;"></div>
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    </div>
+                                                    <div style="margin-bottom: 5px;"></div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @empty
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Informasi Kelas</b>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12 text-center">
+                                            <h3>Anda belum terdaftar dalam kelas.</h3>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-md btn-info" data-kelas_id="{{$kelas->id}}" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforelse
     @endif
 
 <!-- Modal Create Pengumuman-->
@@ -1034,4 +1060,43 @@
         </div>
     </div>
 <!-- Akhir Modal Update Kelas -->
+
+<!-- Modal Gabung Kelas-->
+    <div class="modal fade" id="gabung_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Gabung Kelas</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Gabung Kelas -->
+                    <form role="form" action="{{route('kelasuserStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id }}">
+                            </div>
+                            <div class="form-group text-center">
+                                <label for="input_nama">Apakah anda ingin bergabung ke dalam kelas ini?</label>
+                            </div>     
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Gabung Kelas -->
+<div class="col-sm-12 text-center">
+  <p>&copy; 2019 | Riowaldy Indrawan</p>
+</div>
 @endsection

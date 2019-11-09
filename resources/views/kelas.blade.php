@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div style="margin-top:60px;"></div>
     @if(Auth::user()->status == 'admin')
         <div class="container">
             <div class="row">
@@ -176,6 +176,7 @@
             </div>
         </div>
     @else
+
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -236,13 +237,9 @@
                                                 <label for="nama">{{ $kelas->nama }}</label>
                                             </div>
                                             <div class="col-md-2">
-                                                @if($kelas->id == $data[$length-1])
-                                                    <a href="{{ route('detailKelas', $kelas->id) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
-                                                @else
-                                                    <button type="submit" class="btn btn-xs btn-info" data-kelas_id="{{$kelas->id}}" data-toggle="modal" data-target="#gabung_kelas"><b>Gabung Kelas</b></button>
-                                                @endif
+                                                <a href="{{ route('detailKelas', $kelas->id) }}">
+                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -421,4 +418,7 @@
             </div>
         </div>
     </div>
+<div class="col-sm-12 text-center">
+  <p>&copy; 2019 | Riowaldy Indrawan</p>
+</div>  
 @endsection
