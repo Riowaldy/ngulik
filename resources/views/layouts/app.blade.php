@@ -199,6 +199,19 @@
           modal.find('.modal-body #email').val(email);
         })
 
+        $('#detail_pengumuman').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var user_id = button.data('user_id') 
+          var nama = button.data('nama')
+          var deskripsi = button.data('deskripsi') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #user_id').val(user_id);
+          modal.find('.modal-body #nama').val(nama);
+          modal.find('.modal-body #deskripsi').val(deskripsi);
+        })
+
         $('#edit_profil').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 
@@ -259,7 +272,34 @@
           modal.find('.modal-body #deskripsi').val(deskripsi);
         })
 
+        $('#edit_pengumuman').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id') 
+          var nama = button.data('nama')
+          var deskripsi = button.data('deskripsi') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #nama').val(nama);
+          modal.find('.modal-body #deskripsi').val(deskripsi);
+        })
+
         $('#hapus_kelas').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+        })
+
+        $('#hapus_materi').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var kelas_id = button.data('kelas_id') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #kelas_id').val(kelas_id);
+        })
+
+        $('#hapus_pengumuman').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 
           var modal = $(this)

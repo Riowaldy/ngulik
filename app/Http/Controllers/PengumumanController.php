@@ -37,4 +37,28 @@ class PengumumanController extends Controller
     }
 
 // End Insert
+
+// Update
+
+    public function editPengumuman(Request $request){
+        $edit = \DB::table('pengumumans')->select('id')->where('id', $request->input('id'));
+        $edit->update(['nama' => $request->input('nama')]);
+        $edit->update(['deskripsi' => $request->input('deskripsi')]);
+      return back()->with('success');
+    }
+
+// End Update
+
+// Delete
+
+    public function hapusPengumuman(Request $request)
+    {
+      $delete = \DB::table('pengumumans')->select('id')->where('id', $request->input('id'));
+
+      $delete->delete();
+      return back()->with('success');
+    }
+
+// End Delete
+
 }

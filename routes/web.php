@@ -28,13 +28,12 @@ Route::get('/kelas/{kelas}/materiTekstual','MateriController@materiTekstual')->n
 Route::get('/kelas/{kelas}/{materi}','MateriController@detailMateri')->name('detailMateri');
 Route::get('/obrolan','ObrolanController@obrolan')->name('obrolan');
 
-Route::get('/detailUser','AdminController@detailUser')->name('detailUser');
-
 Route::post('/editProfil','UserController@editProfil')->name('editProfil');
 Route::post('/editStatus','UserController@editStatus')->name('editStatus');
 Route::post('/editKelas','KelasController@editKelas')->name('editKelas');
 Route::post('/editStatusMateri','MateriController@editStatusMateri')->name('editStatusMateri');
 Route::post('/editMateri','MateriController@editMateri')->name('editMateri');
+Route::post('/editPengumuman','PengumumanController@editPengumuman')->name('editPengumuman');
 
 Route::post('/kelasStore','KelasController@kelasStore')->name('kelasStore');
 Route::post('/kelasuserStore','KelasController@kelasuserStore')->name('kelasuserStore');
@@ -46,6 +45,8 @@ Route::post('/materiTekstualStore','MateriController@materiTekstualStore')->name
 Route::post('/komentarStore','KomentarController@komentarStore')->name('komentarStore');
 
 Route::delete('/hapusKelas','KelasController@hapusKelas')->name('hapusKelas');
+Route::delete('/hapusMateri','MateriController@hapusMateri')->name('hapusMateri');
+Route::delete('/hapusPengumuman','PengumumanController@hapusPengumuman')->name('hapusPengumuman');
 
 Route::get('/changePassword','UserController@showChangePasswordForm');
 Route::post('/changePassword','UserController@changePassword')->name('changePassword');

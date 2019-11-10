@@ -192,6 +192,7 @@
                                                     @if($materi->user_id == Auth::id())
                                                         <div class="pull-right" style="margin-top: 25px;">
                                                             <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
                                                         </div>
                                                     @else
                                                         <div class="pull-right" style="margin-top: 25px;">
@@ -277,6 +278,7 @@
                                                     @if($materi->user_id == Auth::id())
                                                         <div class="pull-right" style="margin-top: 25px;">
                                                             <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
                                                         </div>
                                                     @else
                                                         <div class="pull-right" style="margin-top: 25px;">
@@ -375,6 +377,7 @@
                                                     @if($materi->user_id == Auth::id())
                                                         <div class="pull-right" style="margin-top: 25px;">
                                                             <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
                                                         </div>
                                                     @else
                                                         <div class="pull-right" style="margin-top: 25px;">
@@ -460,6 +463,7 @@
                                                     @if($materi->user_id == Auth::id())
                                                         <div class="pull-right" style="margin-top: 25px;">
                                                             <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
                                                         </div>
                                                     @else
                                                         <div class="pull-right" style="margin-top: 25px;">
@@ -558,6 +562,7 @@
                                                     @if($materi->user_id == Auth::id())
                                                         <div class="pull-right" style="margin-top: 25px;">
                                                             <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
                                                         </div>
                                                     @else
                                                         <div class="pull-right" style="margin-top: 25px;">
@@ -618,7 +623,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -643,6 +648,7 @@
                                                     @if($materi->user_id == Auth::id())
                                                         <div class="pull-right" style="margin-top: 25px;">
                                                             <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
+                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
                                                         </div>
                                                     @else
                                                         <div class="pull-right" style="margin-top: 25px;">
@@ -703,7 +709,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -754,6 +760,40 @@
         </div>
     </div>
 <!-- Akhir Modal Edit Materi -->
+
+<!-- Modal Delete -->
+    <div class="modal fade" id="hapus_materi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete -->
+                    <form role="form" action="{{ route('hapusMateri') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                                <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin menghapus materi ini?</p>
+                            </div>
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Delete</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Delete -->
 <div class="col-sm-12 text-center">
   <p>&copy; 2019 | Riowaldy Indrawan</p>
 </div>

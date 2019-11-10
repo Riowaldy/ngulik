@@ -76,19 +76,22 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Judul</label>
-                                            </div>
                                             <div class="col-md-9">
                                                 <label for="nama">{{ $pengumuman->nama }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-9">
                                                 <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                @if($pengumuman->user_id == Auth::id())
+                                                    <button class="btn btn-xs btn-info dropdown-toggle" type="button" data-toggle="dropdown">Aksi
+                                                    <span class="caret"></span></button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman"><h6>Detail</h6></a></li>
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman"><h6>Edit</h6></a></li>
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman"><h6>Hapus</h6></a></li>
+                                                    </ul>
+                                                @else
+                                                   <button type="submit" class="btn btn-xs btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman"><b>Detail</b></button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -288,19 +291,22 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Judul</label>
-                                            </div>
                                             <div class="col-md-9">
                                                 <label for="nama">{{ $pengumuman->nama }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-9">
                                                 <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                @if($pengumuman->user_id == Auth::id())
+                                                    <button class="btn btn-xs btn-info dropdown-toggle" type="button" data-toggle="dropdown">Aksi
+                                                    <span class="caret"></span></button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman"><h6>Detail</h6></a></li>
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman"><h6>Edit</h6></a></li>
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman"><h6>Hapus</h6></a></li>
+                                                    </ul>
+                                                @else
+                                                   <button type="submit" class="btn btn-xs btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman"><b>Detail</b></button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -500,19 +506,22 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Judul</label>
-                                            </div>
                                             <div class="col-md-9">
                                                 <label for="nama">{{ $pengumuman->nama }}</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-3">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-9">
                                                 <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                @if($pengumuman->user_id == Auth::id())
+                                                    <button class="btn btn-xs btn-info dropdown-toggle" type="button" data-toggle="dropdown">Aksi
+                                                    <span class="caret"></span></button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman"><h6>Detail</h6></a></li>
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman"><h6>Edit</h6></a></li>
+                                                        <li><a href="#" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman"><h6>Hapus</h6></a></li>
+                                                    </ul>
+                                                @else
+                                                   <button type="submit" class="btn btn-xs btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman"><b>Detail</b></button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -919,7 +928,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="input_nama">Deskripsi</label>
-                                <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi Pengumuman"></textarea>s
+                                <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi Pengumuman"></textarea>
                             </div> 
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary">Save</button>
@@ -1047,8 +1056,8 @@
                         </div>   
                         <div class="form-group">
                             <label for="input_nama">Deskripsi</label>
-                            <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="">
-                        </div>   
+                            <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi"></textarea>
+                        </div>  
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">Save</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -1096,6 +1105,118 @@
         </div>
     </div>
 <!-- Akhir Modal Gabung Kelas -->
+
+<!-- Modal Detail Pengumuman-->
+    <div class="modal fade" id="detail_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Detail Pengumuman</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Detail Pengumuman -->
+                    <form role="form" action="" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Pengirim</label>
+                                <input type="text" name="user_id" id="user_id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Judul</label>
+                                <input type="text" name="nama" id="nama" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="input_nama">Deskripsi</label>
+                                <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi" readonly=""></textarea>
+                            </div>  
+                            <div class="box-footer text-center">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Detail Pengumuman -->
+
+<!-- Modal Update Kelas-->
+    <div class="modal fade" id="edit_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ubah Pengumuman</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Update Kelas-->
+                <form role="form" action="{{route('editPengumuman')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_nama">Judul Pengumuman</label>
+                            <input type="text" name="nama" id="nama" class="form-control" value="">
+                        </div> 
+                        <div class="form-group">
+                            <label for="input_nama">Deskripsi</label>
+                            <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi"></textarea>
+                        </div>  
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Update Kelas -->
+
+<!-- Modal Delete Pengumuman -->
+    <div class="modal fade" id="hapus_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete Pengumuman -->
+                    <form role="form" action="{{ route('hapusPengumuman') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin menghapus pengumuman ini?</p>
+                            </div>
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Delete</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Delete Pengumuman -->
 <div class="col-sm-12 text-center">
   <p>&copy; 2019 | Riowaldy Indrawan</p>
 </div>

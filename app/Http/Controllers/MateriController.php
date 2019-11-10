@@ -130,4 +130,16 @@ class MateriController extends Controller
     }
 
 // End Insert
+
+// Delete
+
+    public function hapusMateri(Request $request)
+    {
+      $delete = \DB::table('materis')->select('id')->where('id', $request->input('id'));
+      $kelas = $request->input('kelas_id');
+      $delete->delete();
+      return redirect()->route('detailKelas', ['kelas' => $kelas]);
+    }
+
+// End Delete
 }
