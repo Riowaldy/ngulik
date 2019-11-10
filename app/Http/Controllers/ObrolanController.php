@@ -20,11 +20,12 @@ class ObrolanController extends Controller
 // View
 
     public function obrolan(){
-
+        // SELECT * FROM `obrolans` WHERE `penerima`= 2 GROUP BY `pengirim`
         $obrolans = DB::table('obrolans')
                     ->select('obrolans.*','users.nama')
                     ->join('users','users.id','=','obrolans.pengirim')
                     ->where('obrolans.penerima', '=', Auth::id())
+                    ->groupBy('obrolans.pengirim')
                     ->get();
         $obrolans2 = DB::table('obrolans')
                     ->select('obrolans.*','users.nama')
@@ -32,6 +33,20 @@ class ObrolanController extends Controller
                     ->where('obrolans.pengirim', '=', Auth::id())
                     ->get();
         return view('obrolan', compact('obrolans','obrolans2'));
+    }
+    public function detailObrolan(){
+        $obrolans = DB::table('obrolans')
+                    ->select('obrolans.*','users.nama')
+                    ->join('users','users.id','=','obrolans.pengirim')
+                    ->where('obrolans.penerima', '=', Auth::id())
+                    ->groupBy('obrolans.pengirim')
+                    ->get();
+        $obrolans2 = DB::table('obrolans')
+                    ->select('obrolans.*','users.nama')
+                    ->join('users','users.id','=','obrolans.penerima')
+                    ->where('obrolans.pengirim', '=', Auth::id())
+                    ->get();
+        return view('detailObrolan', compact('obrolans','obrolans2'));
     }
 
 // End View

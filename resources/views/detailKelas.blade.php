@@ -77,8 +77,12 @@
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-9">
-                                                <label for="nama">{{ $pengumuman->nama }}</label>
-                                                <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                                <div>
+                                                    <label for="nama">{{ $pengumuman->nama }}</label>
+                                                </div>
+                                                <div>
+                                                    <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                                </div>
                                             </div>
                                             <div class="col-md-3">
                                                 @if($pengumuman->user_id == Auth::id())
@@ -98,6 +102,9 @@
                                 </li>
                             </ul>
                         @endforeach
+                        <div class="text-center">
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                        </div>
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -158,6 +165,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                </div>
                                                 
                                             </div>
                                         </div>
@@ -185,6 +195,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -211,6 +224,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -292,8 +308,12 @@
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-9">
-                                                <label for="nama">{{ $pengumuman->nama }}</label>
-                                                <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                                <div>
+                                                    <label for="nama">{{ $pengumuman->nama }}</label>
+                                                </div>
+                                                <div>
+                                                    <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                                </div>
                                             </div>
                                             <div class="col-md-3">
                                                 @if($pengumuman->user_id == Auth::id())
@@ -313,6 +333,10 @@
                                 </li>
                             </ul>
                         @endforeach
+                        <div class="text-center">
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                        </div>
+                        
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -373,7 +397,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
-                                                
+                                                <div class="text-center">
+                                                    {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -400,6 +426,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -426,6 +455,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -507,8 +539,12 @@
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-9">
-                                                <label for="nama">{{ $pengumuman->nama }}</label>
-                                                <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                                <div>
+                                                    <label for="nama">{{ $pengumuman->nama }}</label>
+                                                </div>
+                                                <div>
+                                                    <label for="nama">{{ $pengumuman->deskripsi }}</label>
+                                                </div>
                                             </div>
                                             <div class="col-md-3">
                                                 @if($pengumuman->user_id == Auth::id())
@@ -528,6 +564,9 @@
                                 </li>
                             </ul>
                         @endforeach
+                        <div class="text-center">
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                        </div>
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -588,6 +627,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                </div>
                                                 
                                             </div>
                                         </div>
@@ -615,6 +657,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -641,6 +686,9 @@
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                                 @endforeach
+                                                <div class="text-center">
+                                                    {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -720,18 +768,10 @@
                                     <li class="list-group-item">
                                         <div class="panel-body">
                                             <div class="col-md-12">
-                                                <div class="col-md-3">
-                                                    <label for="nama">Judul</label>
-                                                </div>
-                                                <div class="col-md-9">
+                                                <div>
                                                     <label for="nama">{{ $pengumuman->nama }}</label>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="col-md-3">
-                                                    <label for="nama">Deskripsi</label>
-                                                </div>
-                                                <div class="col-md-9">
+                                                <div>
                                                     <label for="nama">{{ $pengumuman->deskripsi }}</label>
                                                 </div>
                                             </div>
@@ -739,6 +779,9 @@
                                     </li>
                                 </ul>
                             @endforeach
+                            <div class="text-center">
+                                {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                            </div>
                         </div>
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -809,6 +852,9 @@
                                                     </div>
                                                     <div style="margin-bottom: 5px;"></div>
                                                     @endforeach
+                                                    <div class="text-center">
+                                                        {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                    </div>
                                                     
                                                 </div>
                                             </div>
@@ -836,6 +882,9 @@
                                                     </div>
                                                     <div style="margin-bottom: 5px;"></div>
                                                     @endforeach
+                                                    <div class="text-center">
+                                                        {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -862,6 +911,9 @@
                                                     </div>
                                                     <div style="margin-bottom: 5px;"></div>
                                                     @endforeach
+                                                    <div class="text-center">
+                                                        {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

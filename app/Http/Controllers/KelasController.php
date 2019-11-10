@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Pagination\Environment;
 use App\User;
 use App\Kelas;
 use App\Materi;
@@ -43,10 +44,11 @@ class KelasController extends Controller
 
     public function detailKelas(Kelas $kelas)
     {   
-        $pengumumans = Pengumuman::all()->where('kelas_id', $kelas->id);
-        $materivid = Materi::all()->where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube');
-        $materiaud = Materi::all()->where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Audio');
-        $materiteks = Materi::all()->where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Tekstual');
+        $pengumumans = Pengumuman::where('kelas_id', $kelas->id)->paginate(3, ['*'], 'p');
+        $materivid = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube')->paginate(1, ['*'], 'mv');
+
+        $materiaud = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Audio')->paginate(1, ['*'], 'ma');
+        $materiteks = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Tekstual')->paginate(1, ['*'], 'mt');
         $users = DB::table('users')->where('status', 'pengajar')->get();
 
         $users2 = DB::table('users')

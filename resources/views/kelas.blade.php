@@ -21,27 +21,27 @@
                                             <div class="col-md-2">
                                                 <label for="nama">Nama Kelas</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">: {{ $kelas->nama }}</label>
                                             </div>
-                                            <div class="col-md-4">
-                                                <button type="submit" class="btn btn-xs btn-warning" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</button> &nbsp;
-                                                <!-- <button class="btn btn-xs btn-warning">Edit</button> -->
-                                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas">Hapus</button> &nbsp;
-                                                <!-- <button class="btn btn-xs btn-danger">Delete</button> -->
-                                                <a href="{{ route('detailKelas', $kelas) }}">
-                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                </a>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-xs btn-info dropdown-toggle" type="button" data-toggle="dropdown">Aksi
+                                                    <span class="caret"></span></button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas"><h6>Edit</h6></a></li>
+                                                        <li><a href="#" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas"><h6>Hapus</h6></a></li>
+                                                        <li><a href="{{ route('detailKelas', $kelas) }}"><h6>Detail</h6></a></li>
+                                                    </ul>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="col-md-2">
                                                 <label for="nama">Pengajar</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">: {{ $kelas->user->nama }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 
                                             </div>
                                         </div>
@@ -49,10 +49,10 @@
                                             <div class="col-md-2">
                                                 <label for="nama">Deskripsi</label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <label for="nama">: {{ $kelas->deskripsi }}</label>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 
                                             </div>
                                         </div>

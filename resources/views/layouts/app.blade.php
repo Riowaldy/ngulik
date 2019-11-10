@@ -212,6 +212,13 @@
           modal.find('.modal-body #deskripsi').val(deskripsi);
         })
 
+        $('#obrolan').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var pengirim = button.data('pengirim')
+          var modal = $(this)
+          modal.find('.modal-body #pengirim').val(pengirim);
+        })
+
         $('#edit_profil').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 

@@ -27,6 +27,7 @@ Route::get('/kelas/{kelas}/materiAudio','MateriController@materiAudio')->name('m
 Route::get('/kelas/{kelas}/materiTekstual','MateriController@materiTekstual')->name('materiTekstual');
 Route::get('/kelas/{kelas}/{materi}','MateriController@detailMateri')->name('detailMateri');
 Route::get('/obrolan','ObrolanController@obrolan')->name('obrolan');
+Route::get('/detailObrolan','ObrolanController@detailObrolan')->name('detailObrolan');
 
 Route::post('/editProfil','UserController@editProfil')->name('editProfil');
 Route::post('/editStatus','UserController@editStatus')->name('editStatus');
