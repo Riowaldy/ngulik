@@ -176,10 +176,12 @@
         $('#buat_pesan').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var penerima = button.data('penerima') 
-          var penerima2 = button.data('penerima2') 
+          var pengirim = button.data('pengirim')
+          var nama = button.data('nama') 
           var modal = $(this)
           modal.find('.modal-body #penerima').val(penerima);
-          modal.find('.modal-body #penerima2').val(penerima2);
+          modal.find('.modal-body #pengirim').val(pengirim);
+          modal.find('.modal-body #nama').val(nama);
         })
         $('#gabung_kelas').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
@@ -215,8 +217,10 @@
         $('#obrolan').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var pengirim = button.data('pengirim')
+          var isipesan = button.data('isipesan')
           var modal = $(this)
           modal.find('.modal-body #pengirim').val(pengirim);
+          modal.find('.modal-body #isipesan').val(isipesan);
         })
 
         $('#edit_profil').on('show.bs.modal', function (event) {
@@ -313,5 +317,7 @@
           modal.find('.modal-body #id').val(id);
         })
     </script>
+
+    @yield('footer')
 </body>
 </html>

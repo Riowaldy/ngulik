@@ -78,7 +78,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -154,7 +154,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -174,6 +174,14 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Halaman Detail Materi</b>
+                            @if($materi->user_id == Auth::id())
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-warning" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">&nbsp;Hapus&nbsp;</button> 
+                            </div>
+                                    
+                            @else
+                            @endif
                         </div>
                         @if($materi->jenis == 'Youtube')
                             <ul class="list-group list-group-flush">
@@ -189,16 +197,6 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
-                                                    @if($materi->user_id == Auth::id())
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
-                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
-                                                        </div>
-                                                    @else
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            
-                                                        </div>
-                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -253,7 +251,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -275,16 +273,6 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
-                                                    @if($materi->user_id == Auth::id())
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
-                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
-                                                        </div>
-                                                    @else
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            
-                                                        </div>
-                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -339,7 +327,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -359,6 +347,14 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Halaman Detail Materi</b>
+                            @if($materi->user_id == Auth::id())
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-warning" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">&nbsp;Hapus&nbsp;</button> 
+                            </div>
+                                    
+                            @else
+                            @endif
                         </div>
                         @if($materi->jenis == 'Youtube')
                             <ul class="list-group list-group-flush">
@@ -374,16 +370,6 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
-                                                    @if($materi->user_id == Auth::id())
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
-                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
-                                                        </div>
-                                                    @else
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            
-                                                        </div>
-                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -438,7 +424,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -460,16 +446,6 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
-                                                    @if($materi->user_id == Auth::id())
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
-                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
-                                                        </div>
-                                                    @else
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            
-                                                        </div>
-                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -524,7 +500,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -544,6 +520,14 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Halaman Detail Materi</b>
+                            @if($materi->user_id == Auth::id())
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-warning" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">&nbsp;Hapus&nbsp;</button> 
+                            </div>
+                                    
+                            @else
+                            @endif
                         </div>
                         @if($materi->jenis == 'Youtube')
                             <ul class="list-group list-group-flush">
@@ -559,16 +543,6 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
-                                                    @if($materi->user_id == Auth::id())
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
-                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
-                                                        </div>
-                                                    @else
-                                                        <div class="pull-right" style="margin-top: 25px;">
-
-                                                        </div>
-                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -623,7 +597,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -645,16 +619,6 @@
                                             <div class="col-md-6">
                                                 <div class="text-center">
                                                     <label for="nama"><h2>{{ $materi->nama }}</h2></label>
-                                                    @if($materi->user_id == Auth::id())
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            <button type="submit" class="btn btn-sm btn-info" data-id="{{$materi->id}}" data-nama="{{$materi->nama}}" data-deskripsi="{{$materi->deskripsi}}" data-toggle="modal" data-target="#edit_materi">Edit</button>
-                                                            <button type="submit" class="btn btn-xs btn-danger" data-id="{{$materi->id}}" data-kelas_id="{{$materi->kelas_id}}" data-toggle="modal" data-target="#hapus_materi">Hapus</button> &nbsp;
-                                                        </div>
-                                                    @else
-                                                        <div class="pull-right" style="margin-top: 25px;">
-                                                            
-                                                        </div>
-                                                    @endif
                                                 </div>
                                                 <div class="text-justify">
                                                     <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
@@ -709,7 +673,7 @@
                                                         <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
                                                     </div> 
                                                     <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+                                                        <button type="submit" class="btn btn-primary">Komentar</button>
                                                     </div>
                                                 </div>
                                             </form>

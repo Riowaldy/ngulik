@@ -24,22 +24,15 @@ class KelasController extends Controller
 
         $kelass = Kelas::all();
         $kelass2 = Kelas::all()->where('user_id', Auth::id());
-
-        $kelass3 = DB::table('kelass')
-            ->leftjoin('kelasusers', 'kelass.id', '=', 'kelasusers.kelas_id')
-            ->select('kelass.*','kelasusers.user_id','kelasusers.kelas_id')
-            ->get();
-
         $kelasusers = DB::table('kelass')
                     ->join('kelasusers', function($join){
                         $join->on('kelass.id', '=', 'kelasusers.kelas_id')
                         ->where('kelasusers.user_id', '=', Auth::id());
                     })
                     ->get();
-
         $users = DB::table('users')->where('status', 'pengajar')->get();
-        // return $data;
-        return view('kelas', compact('kelass','kelass2','data','data2','x','length','kelass3','users','kelasusers'));
+
+        return view('kelas', compact('kelass','kelass2','users','kelasusers'));
     }
 
     public function detailKelas(Kelas $kelas)

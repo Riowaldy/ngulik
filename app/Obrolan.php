@@ -12,6 +12,11 @@ class Obrolan extends Model
 
     protected $table = 'obrolans';
 
+	protected $dates = [
+	    'created_at',
+	    'updated_at',
+	];
+
     public function user()
 	{
 	    return $this->belongsTo('App\User');

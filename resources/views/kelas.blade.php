@@ -10,7 +10,7 @@
                         <div class="panel-heading">
                             <b>Halaman Kelas Admin</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_kelas"><b>Buat Kelas</b></button>
+                                <button type="submit" class="btn btn-sm btn-default" data-toggle="modal" data-target="#buat_kelas" style="margin-top: -4px;"><b>Buat Kelas</b></button>
                             </div>
                         </div>
                         @foreach ($kelass as $kelas)
@@ -18,42 +18,26 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Nama Kelas</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">: {{ $kelas->nama }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <button class="btn btn-xs btn-info dropdown-toggle" type="button" data-toggle="dropdown">Aksi
-                                                    <span class="caret"></span></button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas"><h6>Edit</h6></a></li>
-                                                        <li><a href="#" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas"><h6>Hapus</h6></a></li>
-                                                        <li><a href="{{ route('detailKelas', $kelas) }}"><h6>Detail</h6></a></li>
-                                                    </ul>
-                                            </div>
+                                            <label for="nama">Nama Kelas&emsp;:</label>
+                                            <label for="nama">{{ $kelas->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Pengajar</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">: {{ $kelas->user->nama }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                
-                                            </div>
+                                            <label for="nama">Pengajar&emsp;&emsp;&nbsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->user->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Deskripsi</label>
+                                            <label for="nama">Deskripsi&emsp;&emsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->deskripsi }}</label>
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-bottom: -20px;">
+                                            <div class="col-md-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'">
+                                                <a style="color: white;"><b>Detail</b></a>
                                             </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">: {{ $kelas->deskripsi }}</label>
+                                            <div class="col-md-4 btn btn-sm btn-warning" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">
+                                               <a style="color: white;"><b>Ubah</b></a>
                                             </div>
-                                            <div class="col-md-2">
-                                                
+                                            <div class="col-md-4 btn btn-sm btn-danger" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas">
+                                                <a style="color: white;"><b>Hapus</b></a>
                                             </div>
                                         </div>
                                     </div>
@@ -77,38 +61,20 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Nama Kelas</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">: {{ $kelas->nama }}</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <a href="{{ route('detailKelas', $kelas) }}">
-                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                </a>
-                                            </div>
+                                            <label for="nama">Nama Kelas&emsp;:</label>
+                                            <label for="nama">{{ $kelas->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Pengajar</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">: {{ $kelas->user->nama }}</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                
-                                            </div>
+                                            <label for="nama">Pengajar&emsp;&emsp;&nbsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->user->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nama">: {{ $kelas->deskripsi }}</label>
-                                            </div>
-                                            <div class="col-md-4">
-                                                
+                                            <label for="nama">Deskripsi&emsp;&emsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->deskripsi }}</label>
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-bottom: -20px;">
+                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'">
+                                                <a style="color: white;"><b>Detail</b></a>
                                             </div>
                                         </div>
                                     </div>
@@ -133,38 +99,20 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Nama Kelas</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->nama }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="{{ route('detailKelas', $kelas) }}">
-                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                </a>
-                                            </div>
+                                            <label for="nama">Nama Kelas&emsp;:</label>
+                                            <label for="nama">{{ $kelas->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Pengajar</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->user->nama }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                
-                                            </div>
+                                            <label for="nama">Pengajar&emsp;&emsp;&nbsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->user->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->deskripsi }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                
+                                            <label for="nama">Deskripsi&emsp;&emsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->deskripsi }}</label>
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-bottom: -20px;">
+                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'">
+                                                <a style="color: white;"><b>Detail</b></a>
                                             </div>
                                         </div>
                                     </div>
@@ -190,27 +138,16 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Kelas</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->nama }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="{{ route('detailKelas', $kelas->kelas_id) }}">
-                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                </a>
-                                            </div>
+                                            <label for="nama">Nama Kelas&emsp;:</label>
+                                            <label for="nama">{{ $kelas->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->deskripsi }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                
+                                            <label for="nama">Deskripsi&emsp;&emsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->deskripsi }}</label>
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-bottom: -20px;">
+                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->kelas_id) }}'">
+                                                <a style="color: white;"><b>Detail</b></a>
                                             </div>
                                         </div>
                                     </div>
@@ -230,27 +167,16 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Kelas</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->nama }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="{{ route('detailKelas', $kelas->id) }}">
-                                                    <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                </a>
-                                            </div>
+                                            <label for="nama">Nama Kelas&emsp;:</label>
+                                            <label for="nama">{{ $kelas->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="col-md-2">
-                                                <label for="nama">Deskripsi</label>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <label for="nama">{{ $kelas->deskripsi }}</label>
-                                            </div>
-                                            <div class="col-md-2">
-                                                
+                                            <label for="nama">Deskripsi&emsp;&emsp;&nbsp;:</label>
+                                            <label for="nama">{{ $kelas->deskripsi }}</label>
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-bottom: -20px;">
+                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->id) }}'">
+                                                <a style="color: white;"><b>Detail</b></a>
                                             </div>
                                         </div>
                                     </div>
