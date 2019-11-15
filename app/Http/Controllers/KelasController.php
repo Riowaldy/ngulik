@@ -38,30 +38,29 @@ class KelasController extends Controller
     public function detailKelas(Kelas $kelas)
     {   
         $pengumumans = Pengumuman::where('kelas_id', $kelas->id)->paginate(3, ['*'], 'p');
-        $materivid = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube')->paginate(1, ['*'], 'mv');
 
+        $materivid = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube')->paginate(1, ['*'], 'mv');
         $materiaud = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Audio')->paginate(1, ['*'], 'ma');
         $materiteks = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Tekstual')->paginate(1, ['*'], 'mt');
-        $users = DB::table('users')->where('status', 'pengajar')->get();
 
+        $users = DB::table('users')->where('status', 'pengajar')->get();
         $users2 = DB::table('users')
                 ->select('users.*', 'kelasusers.user_id', 'kelasusers.kelas_id')
                 ->join('kelasusers','kelasusers.user_id', '=', 'users.id')
                 ->where('kelasusers.kelas_id', '=', $kelas->id)
                 ->where('users.id', '!=', Auth::id())
                 ->get();
-
         $users3 = DB::table('users')
                 ->select('users.*', 'kelasusers.user_id', 'kelasusers.kelas_id')
                 ->join('kelasusers','kelasusers.user_id', '=', 'users.id')
                 ->where('kelasusers.kelas_id', '=', $kelas->id)
                 ->where('users.id', '=', Auth::id())
                 ->get();
-        
+        $users4 = DB::table('users')->where('id', $kelas->user_id)->get();
         $kelasusers = Kelasuser::all()->where('kelas_id', $kelas->id)->where('user_id', Auth::id());
         // return $kelasusers;
 
-        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','pengumumans','users','users2','users3','kelasusers'));
+        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','pengumumans','users','users2','users3','users4','kelasusers'));
     }
 
 // End View

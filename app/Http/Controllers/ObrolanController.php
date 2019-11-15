@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Collection;
 use App\User;
 use App\Kelas;
 use App\Materi;
@@ -19,37 +20,53 @@ class ObrolanController extends Controller
 
 // View
 
-    public function obrolan(Request $request){
+    public function obrolan(){
         // SELECT * FROM `obrolans` WHERE `penerima`= 2 GROUP BY `pengirim`
         $obrolans = DB::table('obrolans')
                     ->select('obrolans.*','users.nama')
+                    ->orderBy('obrolans.id','DESC')
+                    ->groupBy('obrolans.pengirim')
                     ->join('users','users.id','=','obrolans.pengirim')
                     ->where('obrolans.penerima', '=', Auth::id())
                     ->get();
         $obrolans2 = DB::table('obrolans')
                     ->select('obrolans.*','users.nama')
+                    ->orderBy('obrolans.id','DESC')
                     ->join('users','users.id','=','obrolans.penerima')
                     ->where('obrolans.pengirim', '=', Auth::id())
                     ->get();
 
-        $obrolans3 = DB::table('obrolans')
-                    ->select('obrolans.*','users.nama')
-                    ->join('users','users.id','=','obrolans.pengirim')
-                    ->where('obrolans.penerima', Auth::id())
-                    ->where('obrolans.pengirim', $request->input('pengirim'))
-                    ->get();
-        $x = $request->input('pengirim');
-        // dd($x);
-        return view('obrolan', compact('obrolans','obrolans2','obrolans3'));
+        return view('obrolan', compact('obrolans','obrolans2'));
     }
-    public function detailObrolan(){
-        $obrolans3 = DB::table('obrolans')
-                    ->select('obrolans.*','users.nama')
+    public function detailObrolan(Obrolan $obrolan){
+        // SELECT * FROM `obrolans` WHERE (`pengirim`= 1 and `penerima`= 2) or (`pengirim`= 2 and `penerima`= 1)
+
+        $obrolans = DB::table('obrolans')
+                    ->orderBy('obrolans.id','desc')
+                    ->join('users','users.id','=','obrolans.pengirim')
+                    ->where('obrolans.penerima', $obrolan->pengirim)
+                    ->where('obrolans.pengirim', Auth::id())
+                    ->orwhere('obrolans.penerima', Auth::id())
+                    ->where('obrolans.pengirim', $obrolan->pengirim)
+                    ->take(5)
+                    ->get();
+        $reverse =$obrolans->reverse();
+        $obrolans2 = DB::table('obrolans')
+                    ->orderBy('obrolans.id')
                     ->join('users','users.id','=','obrolans.pengirim')
                     ->where('obrolans.penerima', Auth::id())
-                    ->orWhere('obrolans.pengirim', Auth::id())
+                    ->where('obrolans.pengirim', $obrolan->pengirim)
+                    ->take(1)
                     ->get();
-        return view('detailObrolan', compact('obrolans3'));
+        $obrolans3 = DB::table('obrolans')
+                    ->select('obrolans.*','users.nama')
+                    ->orderBy('obrolans.id','DESC')
+                    ->groupBy('obrolans.pengirim')
+                    ->join('users','users.id','=','obrolans.pengirim')
+                    ->where('obrolans.penerima', '=', Auth::id())
+                    ->get();
+
+        return view('detailObrolan', compact('obrolans','obrolans2','obrolans3','reverse'));
     }
 
 // End View

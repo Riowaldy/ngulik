@@ -83,29 +83,104 @@
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <b>Informasi Anggota Kelas</b>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        
-                                        @foreach ($users2 as $user)
-                                        <div class="col-md-12">
-                                            <div class="col-md-7">
-                                                <label for="nama">{{ $user->nama }}</label>
+                            <div class="panel-heading">
+                                <b>Informasi Anggota Kelas</b>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
+                                            @foreach ($users4 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar)
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar) 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                </div>
                                             </div>
-                                            <div class="col-md-5">
-                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
-                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail</b></button>
+                                            @endforeach
+                                            @foreach ($users3 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                </div>
                                             </div>
+                                            @endforeach
+                                            @foreach ($users2 as $user)
+
+                                            <div class="col-md-12">
+
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                </div>
+                                            </div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
-                                        
-                                    </div>
-                                </li>
-                            </ul>
-                    </div>
+                                    </li>
+                                </ul>
+                        </div>
                 </div>
                 <div class="col-md-6">
                     <div class="panel panel-primary">
@@ -120,8 +195,8 @@
                                                 <label for="nama">Materi Video</label>
                                                 <div class="pull-right">
                                                     <a href="{{ route('materiVideo', $kelas) }}">
-                                                    <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                </a>
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                             </div>
                                             @foreach($materivid as $materi)
@@ -284,27 +359,104 @@
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <b>Informasi Anggota Kelas</b>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        @foreach ($users2 as $user)
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">{{ $user->nama }}</label>
+                            <div class="panel-heading">
+                                <b>Informasi Anggota Kelas</b>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
+                                            @foreach ($users4 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar)
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar) 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
-                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                            @endforeach
+                                            @foreach ($users3 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                </div>
                                             </div>
+                                            @endforeach
+                                            @foreach ($users2 as $user)
+
+                                            <div class="col-md-12">
+
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                </div>
+                                            </div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
-                                    </div>
-                                </li>
-                            </ul>
-                    </div>
+                                    </li>
+                                </ul>
+                        </div>
                 </div>
                 <div class="col-md-6">
                     <div class="panel panel-primary">
@@ -483,27 +635,108 @@
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <b>Informasi Anggota Kelas</b>
-                        </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        @foreach ($users2 as $user)
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <label for="nama">{{ $user->nama }}</label>
+                            <div class="panel-heading">
+                                <b>Informasi Anggota Kelas</b>
+                            </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
+                                            @foreach ($users4 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar)
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar) 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($user->id == Auth::id())
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    @else
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    @endif
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-penerima="{{$user->id}}" data-penerima2="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
-                                                <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                            @endforeach
+                                            @foreach ($users3 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                </div>
                                             </div>
+                                            @endforeach
+                                            @foreach ($users2 as $user)
+
+                                            <div class="col-md-12">
+
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                </div>
+                                            </div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
-                                    </div>
-                                </li>
-                            </ul>
-                    </div>
+                                    </li>
+                                </ul>
+                        </div>
                 </div>
                 <div class="col-md-6">
                     <div class="panel panel-primary">
@@ -668,10 +901,57 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         <div class="panel-body">
+                                            @foreach ($users4 as $user)
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar)
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $kelas->user->nama }} (Pengajar) 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                </div>
+                                            </div>
+                                            @endforeach
                                             @foreach ($users3 as $user)
                                             <div class="col-md-12">
                                                 <div class="col-md-6">
-                                                    <label for="nama">{{ $user->nama }}</label>
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6">
                                                     <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
@@ -679,9 +959,29 @@
                                             </div>
                                             @endforeach
                                             @foreach ($users2 as $user)
+
                                             <div class="col-md-12">
+
                                                 <div class="col-md-6">
-                                                    <label for="nama">{{ $user->nama }}</label>
+                                                    @if(Cache::has('user-is-online-' . $user->id))
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: yellow;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @else
+                                                        <label for="nama">{{ $user->nama }} 
+                                                            <span class="dot" 
+                                                            style="height: 10px;
+                                                              width: 10px;
+                                                              background-color: red;
+                                                              border-radius: 50%;
+                                                              display: inline-block;"></span>
+                                                        </label>
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6">
                                                     <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>

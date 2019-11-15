@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- ajax -->
+     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -182,7 +187,21 @@
           modal.find('.modal-body #penerima').val(penerima);
           modal.find('.modal-body #pengirim').val(pengirim);
           modal.find('.modal-body #nama').val(nama);
-        })
+
+          // var pengirim = modal.find('.modal-body #pengirim').val(penerima);
+
+
+          // $.post("/obrolan",
+          // {
+          //   value: pengirim
+          // },
+          // function(data){
+          //   alert(data);
+          // })
+            
+
+          })
+
         $('#gabung_kelas').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var kelas_id = button.data('kelas_id')

@@ -60,28 +60,7 @@
                                                 </div>
                                             </div>
                                             @endforeach
-                                            <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
-                                                <div class="box-body">
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="materi_id" id="materi_id" class="form-control" value="{{ $materi->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
-                                                    </div> 
-                                                    <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Komentar</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            
                                         </div>
                                     </div>
                                 </li>

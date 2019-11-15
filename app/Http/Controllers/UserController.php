@@ -12,12 +12,24 @@ use App\Kelasuser;
 use App\Pengumuman;
 use App\Obrolan;
 use App\Komentar;
+use Cache;
 use DB;
 
 class UserController extends Controller
 {
 
 // View
+    public function userOnlineStatus()
+    {
+        $users = DB::table('users')->get();
+    
+        foreach ($users as $user) {
+            if (Cache::has('user-is-online-' . $user->id))
+                echo "User " . $user->nama . " is online.";
+            else
+                echo "User " . $user->nama . " is offline.";
+        }
+    }
 
 	public function profil(){
         $profil = Auth::user();
