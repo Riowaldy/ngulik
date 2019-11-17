@@ -13,6 +13,7 @@ use App\Kelasuser;
 use App\Pengumuman;
 use App\Obrolan;
 use App\Komentar;
+use App\Livestream;
 use DB;
 
 class KelasController extends Controller
@@ -37,11 +38,13 @@ class KelasController extends Controller
 
     public function detailKelas(Kelas $kelas)
     {   
+        $livestreams = Livestream::all()->where('kelas_id', $kelas->id);
         $pengumumans = Pengumuman::where('kelas_id', $kelas->id)->paginate(3, ['*'], 'p');
 
         $materivid = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube')->paginate(1, ['*'], 'mv');
         $materiaud = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Audio')->paginate(1, ['*'], 'ma');
         $materiteks = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Tekstual')->paginate(1, ['*'], 'mt');
+        $materigit = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Github')->paginate(1, ['*'], 'mg');
 
         $users = DB::table('users')->where('status', 'pengajar')->get();
         $users2 = DB::table('users')
@@ -58,9 +61,8 @@ class KelasController extends Controller
                 ->get();
         $users4 = DB::table('users')->where('id', $kelas->user_id)->get();
         $kelasusers = Kelasuser::all()->where('kelas_id', $kelas->id)->where('user_id', Auth::id());
-        // return $kelasusers;
 
-        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','pengumumans','users','users2','users3','users4','kelasusers'));
+        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','materigit','pengumumans','livestreams','users','users2','users3','users4','kelasusers'));
     }
 
 // End View
@@ -115,9 +117,19 @@ class KelasController extends Controller
 
     public function hapusKelas(Request $request)
     {
-      $delete = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
+        $deleteKelasuser = \DB::table('kelasusers')->select('id')->where('kelas_id', $request->input('id'));
+        $deleteMateri = \DB::table('materis')->select('id')->where('kelas_id', $request->input('id'));
+        $deletePengumuman = \DB::table('pengumumans')->select('id')->where('kelas_id', $request->input('id'));
+        $deleteKomentar = \DB::table('komentars')->select('id')->where('kelas_id', $request->input('id'));
+        $deleteLivestream = \DB::table('livestreams')->select('id')->where('kelas_id', $request->input('id'));
+        $delete = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
 
-      $delete->delete();
+        $deleteKelasuser->delete();
+        $deleteMateri->delete();
+        $deletePengumuman->delete();
+        $deleteKomentar->delete();
+        $deleteLivestream->delete();
+        $delete->delete();
       return back()->with('success');
     }
 

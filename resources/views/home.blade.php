@@ -7,17 +7,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Dashboard Admin</div>
-
-                        <div class="panel-body">
-                            @if (session('status'))
-                                <div class="alert alert-success">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-
-                            You are logged in!
-                        </div>
+                        <div class="panel-heading">Ngulik | Sistem Informasi</div>
                     </div>
                 </div>
             </div>
@@ -27,17 +17,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Dashboard Moderator</div>
-
-                        <div class="panel-body">
-                            @if (session('status'))
-                                <div class="alert alert-success">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-
-                            You are logged in!
-                        </div>
+                        <div class="panel-heading">Ngulik | Sistem Informasi</div>
                     </div>
                 </div>
             </div>
@@ -47,17 +27,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Dashboard Pengajar</div>
-
-                        <div class="panel-body">
-                            @if (session('status'))
-                                <div class="alert alert-success">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-
-                            You are logged in!
-                        </div>
+                        <div class="panel-heading">Ngulik | Sistem Informasi</div>
                     </div>
                 </div>
             </div>
@@ -67,17 +37,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Dashboard Murid</div>
-
-                        <div class="panel-body">
-                            @if (session('status'))
-                                <div class="alert alert-success">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
-
-                            You are logged in!
-                        </div>
+                        <div class="panel-heading">Ngulik | Sistem Informasi</div>
                     </div>
                 </div>
             </div>

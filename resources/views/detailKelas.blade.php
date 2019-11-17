@@ -5,6 +5,33 @@
     @if(Auth::user()->status == 'admin')
         <div class="container">
             <div class="row">
+                @forelse($livestreams as $reply)
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Live Streaming</b>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body text-center">
+                                        <div>
+                                            <label>Live Stream Sedang Berlangsung</label>
+                                        </div>
+                                        @foreach($livestreams as $livestream)
+                                        <div>
+                                            <a href="{{ route('detailLivestream',[$kelas, $livestream]) }}">
+                                                <button type="submit" class="btn btn-sm btn-danger"><b>Lihat</b></button>
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @empty
+                    
+                @endforelse
                 <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -79,7 +106,7 @@
                             </ul>
                         @endforeach
                         <div class="text-center">
-                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -212,7 +239,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -241,7 +268,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -271,7 +298,35 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <label for="nama">Github Code</label>
+                                                <div class="pull-right">
+                                                    <a href="{{ route('materiGithub', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @foreach($materigit as $materi)
+                                            <div class="col-md-12">
+                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
+                                                    <a style="color: white;"><b>Detail</b></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="margin-top: 10px;">
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                            </div>
+                                            @endforeach
+                                            <div class="text-center">
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -284,6 +339,46 @@
     @elseif(Auth::user()->status == 'moderator')
         <div class="container">
             <div class="row">
+                @forelse($livestreams as $reply)
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Live Streaming</b>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body text-center">
+                                        <div>
+                                            <label>Live Stream Sedang Berlangsung</label>
+                                        </div>
+                                        @foreach($livestreams as $livestream)
+                                        <div>
+                                            <a href="{{ route('detailLivestream',[$kelas, $livestream]) }}">
+                                                <button type="submit" class="btn btn-sm btn-danger"><b>Lihat</b></button>
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Live Streaming</b>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body text-center">
+                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buat_livestream"><b>Mulai Live Stream</b></button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @endforelse
                 <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -355,7 +450,7 @@
                             </ul>
                         @endforeach
                         <div class="text-center">
-                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -488,7 +583,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -517,7 +612,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -547,7 +642,35 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <label for="nama">Github Code</label>
+                                                <div class="pull-right">
+                                                    <a href="{{ route('materiGithub', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @foreach($materigit as $materi)
+                                            <div class="col-md-12">
+                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
+                                                    <a style="color: white;"><b>Detail</b></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="margin-top: 10px;">
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                            </div>
+                                            @endforeach
+                                            <div class="text-center">
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -560,6 +683,46 @@
     @elseif(Auth::user()->status == 'pengajar')
         <div class="container">
             <div class="row">
+                @forelse($livestreams as $reply)
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Live Streaming</b>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body text-center">
+                                        <div>
+                                            <label>Live Stream Sedang Berlangsung</label>
+                                        </div>
+                                        @foreach($livestreams as $livestream)
+                                        <div>
+                                            <a href="{{ route('detailLivestream',[$kelas, $livestream]) }}">
+                                                <button type="submit" class="btn btn-sm btn-danger"><b>Lihat</b></button>
+                                            </a>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <b>Live Streaming</b>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body text-center">
+                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buat_livestream"><b>Mulai Live Stream</b></button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @endforelse
                 <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -631,7 +794,7 @@
                             </ul>
                         @endforeach
                         <div class="text-center">
-                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -768,7 +931,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -797,7 +960,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -827,7 +990,35 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <label for="nama">Github Code</label>
+                                                <div class="pull-right">
+                                                    <a href="{{ route('materiGithub', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @foreach($materigit as $materi)
+                                            <div class="col-md-12">
+                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
+                                                    <a style="color: white;"><b>Detail</b></a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="margin-top: 10px;">
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                            </div>
+                                            @endforeach
+                                            <div class="text-center">
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -842,6 +1033,33 @@
         @forelse($kelasusers as $reply)
             <div class="container">
                 <div class="row">
+                    @forelse($livestreams as $reply)
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <b>Live Streaming</b>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="panel-body text-center">
+                                            <div>
+                                                <label>Live Stream Sedang Berlangsung</label>
+                                            </div>
+                                            @foreach($livestreams as $livestream)
+                                            <div>
+                                                <a href="{{ route('detailLivestream',[$kelas, $livestream]) }}">
+                                                    <button type="submit" class="btn btn-sm btn-danger"><b>Lihat</b></button>
+                                                </a>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    @empty
+                        
+                    @endforelse
                     <div class="col-md-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -891,7 +1109,7 @@
                                 </ul>
                             @endforeach
                             <div class="text-center">
-                                {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                             </div>
                         </div>
                         <div class="panel panel-primary">
@@ -1024,7 +1242,7 @@
                                                 </div>
                                                 @endforeach
                                                 <div class="text-center">
-                                                    {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                    {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                                 </div>
                                             </div>
                                         </div>
@@ -1053,7 +1271,7 @@
                                                 </div>
                                                 @endforeach
                                                 <div class="text-center">
-                                                    {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                    {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
                                                 </div>
                                             </div>
                                         </div>
@@ -1083,7 +1301,35 @@
                                                 </div>
                                                 @endforeach
                                                 <div class="text-center">
-                                                    {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage()])->links()}} 
+                                                    {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="panel-body">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <label for="nama">Github Code</label>
+                                                    <div class="pull-right">
+                                                        <a href="{{ route('materiGithub', $kelas) }}">
+                                                            <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                @foreach($materigit as $materi)
+                                                <div class="col-md-12">
+                                                    <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
+                                                        <a style="color: white;"><b>Detail</b></a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-top: 10px;">
+                                                    <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                    <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                                </div>
+                                                @endforeach
+                                                <div class="text-center">
+                                                    {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
                                                 </div>
                                             </div>
                                         </div>
@@ -1124,11 +1370,8 @@
     <div class="modal fade" id="buat_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Tambah Pengumuman</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Buat Pengumuman</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -1152,9 +1395,9 @@
                                 <label for="input_nama">Deskripsi</label>
                                 <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi Pengumuman"></textarea>
                             </div> 
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Buat</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             </div>
                         </div>
                     </form>
@@ -1168,11 +1411,8 @@
     <div class="modal fade" id="buat_pesan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Kirim Pesan</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Buat Pesan</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -1196,9 +1436,9 @@
                                 <label for="input_nama">Isi Pesan</label>
                                 <textarea name="isipesan" id="isipesan" rows="5" class="form-control" placeholder="Tulis Isi Pesan"></textarea>
                             </div> 
-                            <div class="box-footer">
+                            <div class="box-footer text-center">
                                 <button type="submit" class="btn btn-primary">Kirim</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             </div>
                         </div>
                     </form>
@@ -1212,11 +1452,8 @@
     <div class="modal fade" id="detail_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Detail User</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Detail Pengguna</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -1234,9 +1471,8 @@
                                 <label for="">Email</label>
                                 <input type="text" name="email" id="email" class="form-control" value="" readonly>
                             </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="box-footer text-center">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                             </div>
                         </div>
                     </form>
@@ -1250,11 +1486,8 @@
     <div class="modal fade" id="edit_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Kelas</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Kelas</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -1280,8 +1513,8 @@
                             <label for="input_nama">Deskripsi</label>
                             <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi"></textarea>
                         </div>  
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-warning">Ubah</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -1296,11 +1529,8 @@
     <div class="modal fade" id="gabung_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Gabung Kelas</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Gabung Kelas</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -1316,9 +1546,9 @@
                             <div class="form-group text-center">
                                 <label for="input_nama">Apakah anda ingin bergabung ke dalam kelas ini?</label>
                             </div>     
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Gabung</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Batal&nbsp;&nbsp;&nbsp;</button>
                             </div>
                         </div>
                     </form>
@@ -1332,11 +1562,8 @@
     <div class="modal fade" id="detail_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Detail Pengumuman</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Detail Pengumuman</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -1359,7 +1586,7 @@
                                 <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi" readonly=""></textarea>
                             </div>  
                             <div class="box-footer text-center">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                             </div>
                         </div>
                     </form>
@@ -1369,19 +1596,16 @@
     </div>
 <!-- Akhir Modal Detail Pengumuman -->
 
-<!-- Modal Update Kelas-->
+<!-- Modal Update Pengumuman-->
     <div class="modal fade" id="edit_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Ubah Pengumuman</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Pengumuman</b></h4>
                 </div>
                 <div class="modal-body">
                           
-    <!--Form Dalam Modal Update Kelas-->
+    <!--Form Dalam Modal Update Pengumuman-->
                 <form role="form" action="{{route('editPengumuman')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                     <div class="box-body">
                         <div class="form-group">
@@ -1395,9 +1619,9 @@
                             <label for="input_nama">Deskripsi</label>
                             <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi"></textarea>
                         </div>  
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-warning">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                         </div>
                     </div>
                 </form>
@@ -1405,17 +1629,15 @@
             </div>
         </div>
     </div>
-<!-- Akhir Modal Update Kelas -->
+<!-- Akhir Modal Update Pengumuman -->
 
 <!-- Modal Delete Pengumuman -->
     <div class="modal fade" id="hapus_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Pengumuman</b></h4>
+                </div>
                 <div class="modal-body">
                           
     <!--Form Dalam Modal Delete Pengumuman -->
@@ -1428,9 +1650,9 @@
                             <div class="modal-body">
                                 <p class="text-center">Apakah anda yakin ingin menghapus pengumuman ini?</p>
                             </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Delete</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
                             </div>
                         
                     </form>
@@ -1439,6 +1661,44 @@
         </div>
     </div>
 <!-- Akhir Modal Delete Pengumuman -->
+
+<!-- Modal Create Livestream-->
+    <div class="modal fade" id="buat_livestream" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Mulai Livestream</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Create Livestream -->
+                    <form role="form" action="{{route('livestreamStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
+                            </div> 
+                            <div class="form-group">
+                                <label for="">Link</label>
+                                <input type="text" name="link" id="link" class="form-control" placeholder="Tulis Link Profil Youtube Anda">
+                                <label for="">Contoh Link : https://www.youtube.com/channel/ABCDEFG?view_as=subscriber</label>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Mulai</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Create Livestream -->
 <div class="col-sm-12 text-center">
   <p>&copy; 2019 | Riowaldy Indrawan</p>
 </div>

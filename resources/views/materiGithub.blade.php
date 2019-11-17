@@ -8,7 +8,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <b>Halaman Materi Admin</b>
+                            <b>Halaman Materi Pengajar</b>
                         </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
@@ -19,7 +19,7 @@
                                                 <div>
                                                     <label for="nama">{{ $materi->nama }}</label>
                                                     <div class="pull-right">
-                                                        <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
                                                             <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                         </a>
                                                     </div>
@@ -28,7 +28,8 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -42,7 +43,6 @@
                                     </div>
                                 </li>
                             </ul>
-                            
                     </div>
                 </div>
             </div>
@@ -53,45 +53,49 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <b>Halaman Materi Moderator</b>
+                            <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Tekstual (GDrive)</button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Coding (Github)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        @foreach ($materis as $materi)
-                                        <div class="col-md-4">
-                                            <div>
-                                                <label for="nama">{{ $materi->nama }}</label>
-                                                <div class="pull-right">
-                                                    <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
-                                                        <input type="button" value="Detail" class="btn btn-xs btn-info" />
-                                                    </a>
-                                                    @if($materi->status == 'Biasa')
-                                                        <button type="submit" class="btn btn-xs btn-default" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri">Verifikasi</button>
-                                                    @else
-                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri2">Terverifikasi</button>
-                                                    @endif
+                                        <div class="col-md-12">
+                                            @foreach ($materis as $materi)
+                                            <div class="col-md-4">
+                                                <div>
+                                                    <label for="nama">{{ $materi->nama }}</label>
+                                                    <div class="pull-right">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                            <input type="button" value="Detail" class="btn btn-xs btn-info" />
+                                                        </a>
+                                                        @if($materi->status == 'Biasa')
+                                                            <button type="submit" class="btn btn-xs btn-default" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri">Verifikasi</button>
+                                                        @else
+                                                            <button type="submit" class="btn btn-xs btn-info" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri2">Terverifikasi</button>
+                                                        @endif
+                                                    </div>
                                                 </div>
+                                                <div>
+                                                    <label for="nama">{{ $materi->user->nama }}</label>
+                                                </div>
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                                </div>
+                                                <div style="margin-bottom: 30px;"></div>
                                             </div>
-                                            <div>
-                                                <label for="nama">{{ $materi->user->nama }}</label>
-                                            </div>
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
-                                            </div>
-                                            <div style="margin-bottom: 30px;"></div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
-                                        <div class="text-center">
-                                            {!! $materis->render() !!}
+                                        <div class="col-md-12">
+                                            <div class="text-center">
+                                                {!! $materis->render() !!}
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
-                            
                     </div>
                 </div>
             </div>
@@ -104,7 +108,7 @@
                         <div class="panel-heading">
                             <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Tekstual (GDrive)</button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Coding (Github)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -116,7 +120,7 @@
                                                 <div>
                                                     <label for="nama">{{ $materi->nama }}</label>
                                                     <div class="pull-right">
-                                                        <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
                                                             <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                         </a>
                                                     </div>
@@ -125,7 +129,8 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -139,7 +144,6 @@
                                     </div>
                                 </li>
                             </ul>
-                            
                     </div>
                 </div>
             </div>
@@ -150,9 +154,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <b>Halaman Materi Murid</b>
+                            <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Tekstual (GDrive)</button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Coding (Github)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -164,7 +168,7 @@
                                                 <div>
                                                     <label for="nama">{{ $materi->nama }}</label>
                                                     <div class="pull-right">
-                                                        <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
                                                             <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                         </a>
                                                     </div>
@@ -173,7 +177,8 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -187,14 +192,13 @@
                                     </div>
                                 </li>
                             </ul>
-                            
                     </div>
                 </div>
             </div>
         </div>
     @endif
 
-<!-- Modal Create Tekstual-->
+<!-- Modal Create Github-->
     <div class="modal fade" id="buat_video" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -203,8 +207,8 @@
                 </div>
                 <div class="modal-body">
                           
-    <!--Form Dalam Modal Create Tekstual -->
-                    <form role="form" action="{{route('materiTekstualStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+    <!--Form Dalam Modal Create Github -->
+                    <form role="form" action="{{route('materiGithubStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                         <div class="box-body">
                             <div class="form-group">
                                 <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
@@ -220,7 +224,7 @@
                                 <input type="text" name="nama" id="nama" class="form-control" placeholder="Tulis Judul Materi">
                             </div> 
                             <div class="form-group">
-                                <input type="hidden" name="jenis" id="jenis" class="form-control" value="Tekstual">
+                                <input type="hidden" name="jenis" id="jenis" class="form-control" value="Github">
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="status" id="status" class="form-control" value="Biasa">
@@ -230,10 +234,12 @@
                                 <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi Materi"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="input_nama">Link</label>
-                                <input type="text" name="link" id="link" class="form-control" placeholder="Tulis Link Materi">
-                                <label>Contoh link : https://drive.google.com/file/d/123ABCDE/view?usp=sharing</label>
-                                <label>Contoh link 2 : https://drive.google.com/file/d/123ABCDE/view?usp=drive_open</label>
+                                <label for="input_nama">Nama User Github</label>
+                                <input type="text" name="link1" id="link1" class="form-control" placeholder="Tulis User Name Github">
+                            </div>
+                            <div class="form-group">
+                                <label for="input_nama">Nama Repositori Github</label>
+                                <input type="text" name="link2" id="link2" class="form-control" placeholder="Tulis Nama Repositori">
                             </div>
                             <div class="box-footer text-center">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
@@ -245,7 +251,7 @@
             </div>
         </div>
     </div>
-<!-- Akhir Modal Create Tekstual -->
+<!-- Akhir Modal Create Github -->
 
 <!-- Modal Edit Status Materi-->
     <div class="modal fade" id="edit_statusMateri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

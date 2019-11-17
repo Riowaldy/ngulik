@@ -10,70 +10,23 @@
                         <div class="panel-heading">
                             <b>Halaman Detail Materi</b>
                         </div>
-                        @if($materi->jenis == 'Youtube')
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-6">
+                                                @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                                </div>      
-                                                <div style="margin-bottom: 30px;"></div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="text-center">
-                                                    <label for="nama"><h2>{{ $materi->nama }}</h2></label>
                                                 </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
-                                                </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Deskripsi : {{ $materi->deskripsi }}</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="text-center">
-                                                <label><h3>Komentar</h3></label>
-                                            </div>
-                                            @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
-                                                <div>
-                                                    <label>{{ $komentar->user->nama }}</label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->isikomentar }}</h5></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div>
-                                                    <label></label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                            
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        @else
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
+                                                @elseif($materi->jenis == 'Github')
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                                @else
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
-                                                </div>      
+                                                </div> 
+                                                @endif   
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
                                             <div class="col-md-6">
@@ -141,7 +94,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -162,91 +114,23 @@
                             @else
                             @endif
                         </div>
-                        @if($materi->jenis == 'Youtube')
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-6">
+                                                @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                                </div>      
-                                                <div style="margin-bottom: 30px;"></div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="text-center">
-                                                    <label for="nama"><h2>{{ $materi->nama }}</h2></label>
                                                 </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
-                                                </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Deskripsi : {{ $materi->deskripsi }}</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="text-center">
-                                                <label><h3>Komentar</h3></label>
-                                            </div>
-                                            @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
-                                                <div>
-                                                    <label>{{ $komentar->user->nama }}</label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->isikomentar }}</h5></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div>
-                                                    <label></label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                            <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
-                                                <div class="box-body">
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="materi_id" id="materi_id" class="form-control" value="{{ $materi->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
-                                                    </div> 
-                                                    <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Komentar</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        @else
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
+                                                @elseif($materi->jenis == 'Github')
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                                @else
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
-                                                </div>      
+                                                </div> 
+                                                @endif     
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
                                             <div class="col-md-6">
@@ -314,7 +198,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -335,91 +218,23 @@
                             @else
                             @endif
                         </div>
-                        @if($materi->jenis == 'Youtube')
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-6">
+                                                @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                                </div>      
-                                                <div style="margin-bottom: 30px;"></div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="text-center">
-                                                    <label for="nama"><h2>{{ $materi->nama }}</h2></label>
                                                 </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
-                                                </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Deskripsi : {{ $materi->deskripsi }}</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="text-center">
-                                                <label><h3>Komentar</h3></label>
-                                            </div>
-                                            @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
-                                                <div>
-                                                    <label>{{ $komentar->user->nama }}</label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->isikomentar }}</h5></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div>
-                                                    <label></label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                            <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
-                                                <div class="box-body">
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="materi_id" id="materi_id" class="form-control" value="{{ $materi->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
-                                                    </div> 
-                                                    <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Komentar</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        @else
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
+                                                @elseif($materi->jenis == 'Github')
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                                @else
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
-                                                </div>      
+                                                </div> 
+                                                @endif     
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
                                             <div class="col-md-6">
@@ -487,7 +302,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -508,91 +322,23 @@
                             @else
                             @endif
                         </div>
-                        @if($materi->jenis == 'Youtube')
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="col-md-6">
+                                                @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                                </div>      
-                                                <div style="margin-bottom: 30px;"></div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="text-center">
-                                                    <label for="nama"><h2>{{ $materi->nama }}</h2></label>
                                                 </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Pengirim : {{ $materi->user->nama }}</label>
-                                                </div>
-                                                <div class="text-justify">
-                                                    <label for="nama">Deskripsi : {{ $materi->deskripsi }}</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="text-center">
-                                                <label><h3>Komentar</h3></label>
-                                            </div>
-                                            @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
-                                                <div>
-                                                    <label>{{ $komentar->user->nama }}</label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->isikomentar }}</h5></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div>
-                                                    <label></label>
-                                                </div>
-                                                <div>
-                                                    <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                            <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
-                                                <div class="box-body">
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="materi_id" id="materi_id" class="form-control" value="{{ $materi->id }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea name="isikomentar" id="isikomentar" rows="5" class="form-control" placeholder="Tulis komentar"></textarea>
-                                                    </div> 
-                                                    <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">Komentar</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        @else
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
+                                                @elseif($materi->jenis == 'Github')
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                                @else
                                                 <div class="embed-responsive embed-responsive-16by9">
                                                     <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
-                                                </div>      
+                                                </div> 
+                                                @endif    
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
                                             <div class="col-md-6">
@@ -660,7 +406,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -670,11 +415,8 @@
     <div class="modal fade" id="edit_materi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Ubah Materi</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Materi</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -693,7 +435,7 @@
                             <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="">
                         </div>
                         <div class="box-footer text-center">
-                            <button type="submit" class="btn btn-primary">Ubah</button>
+                            <button type="submit" class="btn btn-warning">Ubah</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         </div>
                     </div>
@@ -708,11 +450,9 @@
     <div class="modal fade" id="hapus_materi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Materi</b></h4>
+                </div>
                 <div class="modal-body">
                           
     <!--Form Dalam Modal Delete -->
@@ -726,9 +466,9 @@
                             <div class="modal-body">
                                 <p class="text-center">Apakah anda yakin ingin menghapus materi ini?</p>
                             </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Delete</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
                             </div>
                         
                     </form>

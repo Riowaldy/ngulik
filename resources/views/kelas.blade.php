@@ -193,11 +193,8 @@
     <div class="modal fade" id="buat_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Buat Kelas</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Buat Kelas</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -220,9 +217,9 @@
                                 <label for="input_nama">Deskripsi</label>
                                 <textarea name="deskripsi" id="deskripsi" rows="5" class="form-control" placeholder="Tulis Deskripsi Kelas"></textarea>
                             </div>      
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Buat</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             </div>
                         </div>
                     </form>
@@ -232,50 +229,12 @@
     </div>
     <!-- Akhir Modal Create Kelas -->
 
-    <!-- Modal Gabung Kelas-->
-    <div class="modal fade" id="gabung_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Gabung Kelas</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                          
-    <!--Form Dalam Modal Gabung Kelas -->
-                    <form role="form" action="{{route('kelasuserStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="">ID Kelas</label>
-                                <input type="text" name="kelas_id" id="kelas_id" class="form-control" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="">ID User</label>
-                                <input type="text" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id }}">
-                            </div>     
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Modal Gabung Kelas -->
-
     <!-- Modal Update-->
     <div class="modal fade" id="edit_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Kelas</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Kelas</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -301,9 +260,9 @@
                             <label for="input_nama">Deskripsi</label>
                             <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="">
                         </div>   
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-warning">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         </div>
                     </div>
                 </form>
@@ -317,11 +276,9 @@
     <div class="modal fade" id="hapus_kelas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Kelas</b></h4>
+                </div>
                 <div class="modal-body">
                           
     <!--Form Dalam Modal Delete -->
@@ -334,9 +291,9 @@
                             <div class="modal-body">
                                 <p class="text-center">Apakah anda yakin ingin menghapus kelas ini?</p>
                             </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Delete</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
                             </div>
                         
                     </form>

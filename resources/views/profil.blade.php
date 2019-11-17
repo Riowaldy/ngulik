@@ -10,7 +10,7 @@
 		                	<b>Profil Pengguna</b>
 		                	<div class="pull-right">
 	                			{{ csrf_field() }}
-	                			<button type="button" class="btn btn-xs btn-default" data-id="{{$profil->id}}" data-nama="{{$profil->nama}}" data-email="{{$profil->email}}" data-toggle="modal" data-target="#edit_profil" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> &nbsp;
+	                			<button type="button" class="btn btn-xs btn-default" data-id="{{$profil->id}}" data-nama="{{$profil->nama}}" data-email="{{$profil->email}}" data-toggle="modal" data-target="#edit_profil" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ubah&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button> &nbsp;
 	                		</div>
 		                </div>
 		                <div class="panel-body">
@@ -26,7 +26,7 @@
 		                	<label for="created_at" class="col-sm-6 col-form-label">: {{ Auth::user()->created_at->diffForHumans() }}</label>   	
 		                </div>
 		                <div class="panel-footer">
-			  				<a href="{{ route('changePassword') }}" class="btn btn-primary" role="button">Change Password</a>
+			  				<a href="{{ route('changePassword') }}" class="btn btn-primary" role="button">Ganti Password</a>
 		                </div>
 	            </div>
 			</div>
@@ -36,11 +36,8 @@
 	<div class="modal fade" id="edit_profil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title text-center" id="myModalLabel">Edit Profile</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					    <span aria-hidden="true">&times;</span>
-					</button>
+				<div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+					<h4 class="modal-title text-center" id="myModalLabel">Ubah Profil</h4>
 				</div>
 				<div class="modal-body">
 					      
@@ -63,12 +60,12 @@
 							    </div>
 							</div>
 							<div class="form-group row">
-							    <div class="col-md-10 col-md-offset-2">
+							    <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">
-                                        Save
+                                        Simpan
                                     </button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                        Close
+                                        Batal
                                     </button>
                                 </div>
 							</div>

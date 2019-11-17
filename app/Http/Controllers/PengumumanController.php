@@ -12,6 +12,7 @@ use App\Kelasuser;
 use App\Pengumuman;
 use App\Obrolan;
 use App\Komentar;
+use App\Livestream;
 use DB;
 
 class PengumumanController extends Controller

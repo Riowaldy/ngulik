@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
+<div style="margin-top:60px;"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-primary">
                         <div class="panel-heading text-center">
-                            <b>Change password</b>
+                            <b>Ganti password</b>
                         </div>
                         <div class="panel-body">
                             @if (session('error'))
@@ -61,7 +62,7 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">
-                                            Change Password
+                                            Ganti Password
                                         </button>
                                     </div>
                                 </div>

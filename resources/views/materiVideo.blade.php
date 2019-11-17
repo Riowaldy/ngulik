@@ -54,13 +54,7 @@
                         <div class="panel-heading">
                             <b>Halaman Materi Moderator</b>
                             <div class="pull-right">
-                                <div class="dropdown">
-                                    <button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tambahkan Materi
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" data-toggle="modal" data-target="#buat_video"><h6>Materi Video (Youtube)</h6></a></li>
-                                    </ul>
-                                </div>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Video (Youtube)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -72,7 +66,7 @@
                                                 <div>
                                                     <label for="nama">{{ $materi->nama }}</label>
                                                     <div class="pull-right">
-                                                         <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
+                                                        <a href="{{ route('detailMateri',[$kelas, $materi]) }}">
                                                             <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                         </a>
                                                         @if($materi->status == 'Biasa')
@@ -112,13 +106,7 @@
                         <div class="panel-heading">
                             <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
-                                <div class="dropdown">
-                                    <button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tambahkan Materi
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" data-toggle="modal" data-target="#buat_video"><h6>Materi Video (Youtube)</h6></a></li>
-                                    </ul>
-                                </div>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Video (Youtube)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -165,13 +153,7 @@
                         <div class="panel-heading">
                             <b>Halaman Materi Murid</b>
                             <div class="pull-right">
-                                <div class="dropdown">
-                                    <button class="btn btn-xs btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tambahkan Materi
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" data-toggle="modal" data-target="#buat_video"><h6>Materi Video (Youtube)</h6></a></li>
-                                    </ul>
-                                </div>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Video (Youtube)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -216,11 +198,8 @@
     <div class="modal fade" id="buat_video" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Tambah Materi</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Tambah Materi</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -253,10 +232,11 @@
                             <div class="form-group">
                                 <label for="input_nama">Link</label>
                                 <input type="text" name="link" id="link" class="form-control" placeholder="Tulis Link Materi">
+                                <label>Contoh link : https://www.youtube.com/watch?v=ABCDEFGHIJK</label>
                             </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             </div>
                         </div>
                     </form>
@@ -270,11 +250,8 @@
     <div class="modal fade" id="edit_statusMateri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Ubah Status Materi</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Status Materi</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -291,8 +268,8 @@
                             <label for="input_nama">Apakah anda ingin merubah status kelas menjadi terverifikasi?</label>
                         </div> 
                         <div class="box-footer text-center">
-                            <button type="submit" class="btn btn-primary">Yes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-warning">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         </div>
                     </div>
                 </form>
@@ -306,11 +283,8 @@
     <div class="modal fade" id="edit_statusMateri2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Ubah Status Materi</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Status Materi</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -327,8 +301,8 @@
                             <label for="input_nama">Apakah anda ingin merubah status kelas menjadi Tidak Terverifikasi?</label>
                         </div> 
                         <div class="box-footer text-center">
-                            <button type="submit" class="btn btn-primary">Yes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-warning">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         </div>
                     </div>
                 </form>

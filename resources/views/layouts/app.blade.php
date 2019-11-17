@@ -64,7 +64,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Edit Profile</a>
+                                        <a href="{{ route('profil') }}">Ubah Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -91,7 +91,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Edit Profile</a>
+                                        <a href="{{ route('profil') }}">Ubah Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -118,7 +118,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Edit Profile</a>
+                                        <a href="{{ route('profil') }}">Ubah Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -145,7 +145,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Edit Profile</a>
+                                        <a href="{{ route('profil') }}">Ubah Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -175,6 +175,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="jquery.min.js"></script>
+    <script src="repo.min.js"></script>
 
     <script>
 
@@ -313,6 +315,15 @@
           modal.find('.modal-body #deskripsi').val(deskripsi);
         })
 
+        $('#edit_livestream').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var link = button.data('link')
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #link').val(link);
+        })
+
         $('#hapus_kelas').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 
@@ -335,8 +346,17 @@
           var modal = $(this)
           modal.find('.modal-body #id').val(id);
         })
+
+        $('#hapus_livestream').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var kelas_id = button.data('kelas_id') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #kelas_id').val(kelas_id);
+        })
+
     </script>
 
-    @yield('footer')
 </body>
 </html>

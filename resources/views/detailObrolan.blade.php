@@ -319,11 +319,8 @@
     <div class="modal fade" id="buat_pesan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Balas Pesan</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Balas Pesan</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -343,9 +340,9 @@
                                 <label for="input_nama">Tulis Pesan</label>
                                 <textarea name="isipesan" id="isipesan" rows="5" class="form-control" placeholder="Tulis Isi Pesan"></textarea>
                             </div> 
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             </div>
                         </div>
                     </form>
