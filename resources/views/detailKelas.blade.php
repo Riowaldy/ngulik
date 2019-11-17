@@ -37,7 +37,9 @@
                         <div class="panel-heading">
                             <b>Informasi Kelas</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</button>
+                                <button type="submit" class="btn btn-xs btn-default" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Edit</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -67,7 +69,7 @@
                         <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>Tambah Pengumuman</b></button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
                             </div>
                         </div>
                         @foreach ($pengumumans as $pengumuman)
@@ -234,7 +236,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -263,7 +265,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -292,7 +294,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                             </div>
@@ -578,7 +580,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -607,7 +609,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -636,7 +638,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                             </div>
@@ -926,7 +928,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -955,7 +957,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -984,7 +986,7 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                             </div>
@@ -1237,7 +1239,7 @@
                                                 </div>
                                                 <div class="col-md-12" style="margin-top: 10px;">
                                                     <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                        <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                     </div>
                                                 </div>
                                                 @endforeach
@@ -1266,7 +1268,7 @@
                                                 </div>
                                                 <div class="col-md-12" style="margin-top: 10px;">
                                                     <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                        <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                     </div>
                                                 </div>
                                                 @endforeach
@@ -1295,7 +1297,7 @@
                                                 </div>
                                                 <div class="col-md-12" style="margin-top: 10px;">
                                                     <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                        <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                     </div>
                                                     <div style="margin-bottom: 5px;"></div>
                                                 </div>

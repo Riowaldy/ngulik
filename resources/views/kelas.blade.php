@@ -10,7 +10,9 @@
                         <div class="panel-heading">
                             <b>Halaman Kelas Admin</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-sm btn-default" data-toggle="modal" data-target="#buat_kelas" style="margin-top: -4px;"><b>Buat Kelas</b></button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_kelas">
+                                    <b>Buat Kelas</b>
+                                </button>
                             </div>
                         </div>
                         @foreach ($kelass as $kelas)
@@ -30,14 +32,17 @@
                                             <label for="nama">{{ $kelas->deskripsi }}</label>
                                         </div>
                                         <div class="col-md-12 text-center" style="margin-bottom: -20px;">
-                                            <div class="col-md-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'">
-                                                <a style="color: white;"><b>Detail</b></a>
+                                            <div class="col-xs-4 col-md-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'" id="kelasdetail">
+                                                <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                             </div>
-                                            <div class="col-md-4 btn btn-sm btn-warning" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas">
-                                               <a style="color: white;"><b>Ubah</b></a>
+                                            <div class="col-xs-4 col-md-4 btn btn-sm btn-warning" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas" id="kelasdetail">
+                                               <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
                                             </div>
-                                            <div class="col-md-4 btn btn-sm btn-danger" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas">
-                                                <a style="color: white;"><b>Hapus</b></a>
+                                            <div class="col-xs-4 col-md-4 btn btn-sm btn-danger" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas" id="kelasdetail">
+                                                <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
                                             </div>
                                         </div>
                                     </div>
@@ -73,8 +78,9 @@
                                             <label for="nama">{{ $kelas->deskripsi }}</label>
                                         </div>
                                         <div class="col-md-12 text-center" style="margin-bottom: -20px;">
-                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'">
-                                                <a style="color: white;"><b>Detail</b></a>
+                                            <div class="col-xs-12 col-md-6 col-md-offset-3 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'" id="kelasdetail">
+                                                <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                             </div>
                                         </div>
                                     </div>
@@ -111,8 +117,9 @@
                                             <label for="nama">{{ $kelas->deskripsi }}</label>
                                         </div>
                                         <div class="col-md-12 text-center" style="margin-bottom: -20px;">
-                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'">
-                                                <a style="color: white;"><b>Detail</b></a>
+                                            <div class="col-xs-12 col-md-6 col-md-offset-3 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas) }}'" id="kelasdetail">
+                                                <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                             </div>
                                         </div>
                                     </div>
@@ -146,8 +153,9 @@
                                             <label for="nama">{{ $kelas->deskripsi }}</label>
                                         </div>
                                         <div class="col-md-12 text-center" style="margin-bottom: -20px;">
-                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->kelas_id) }}'">
-                                                <a style="color: white;"><b>Detail</b></a>
+                                            <div class="col-xs-12 col-md-6 col-md-offset-3 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->kelas_id) }}'" id="kelasdetail">
+                                                <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                             </div>
                                         </div>
                                     </div>
@@ -175,8 +183,9 @@
                                             <label for="nama">{{ $kelas->deskripsi }}</label>
                                         </div>
                                         <div class="col-md-12 text-center" style="margin-bottom: -20px;">
-                                            <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->id) }}'">
-                                                <a style="color: white;"><b>Detail</b></a>
+                                            <div class="col-xs-12 col-md-6 col-md-offset-3 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->id) }}'" id="kelasdetail">
+                                                <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                             </div>
                                         </div>
                                     </div>

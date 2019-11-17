@@ -28,7 +28,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -80,7 +80,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -127,7 +127,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -174,7 +174,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>

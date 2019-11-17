@@ -17,14 +17,14 @@
                                             <div class="col-md-6">
                                                 @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
                                                 </div>
                                                 @elseif($materi->jenis == 'Github')
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
                                                 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                                 @else
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div> 
                                                 @endif   
                                                 <div style="margin-bottom: 30px;"></div>

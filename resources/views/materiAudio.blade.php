@@ -28,7 +28,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -80,7 +80,7 @@
                                                 <label for="nama">{{ $materi->user->nama }}</label>
                                             </div>
                                             <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                             </div>
                                             <div style="margin-bottom: 30px;"></div>
                                         </div>
@@ -125,7 +125,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -172,7 +172,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
