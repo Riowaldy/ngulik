@@ -37,7 +37,7 @@
                                                 <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                             </div>
                                             <div class="col-xs-4 col-md-4 btn btn-sm btn-warning" data-id="{{$kelas->id}}" data-nama="{{$kelas->nama}}" data-user_id="{{$kelas->user_id}}" data-deskripsi="{{$kelas->deskripsi}}" data-toggle="modal" data-target="#edit_kelas" id="kelasdetail">
-                                               <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                <span class="before"><b><i class="fas fa-edit"></i></b></span>
                                                 <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
                                             </div>
                                             <div class="col-xs-4 col-md-4 btn btn-sm btn-danger" data-id="{{$kelas->id}}" data-toggle="modal" data-target="#hapus_kelas" id="kelasdetail">

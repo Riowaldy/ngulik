@@ -74,7 +74,7 @@ class KelasController extends Controller
         $edit->update(['nama' => $request->input('nama')]);
         $edit->update(['user_id' => $request->input('user_id')]);
         $edit->update(['deskripsi' => $request->input('deskripsi')]);
-      return back()->with('success');
+      return back()->with('success','Berhasil Di Edit');
     }
 
 // End Update

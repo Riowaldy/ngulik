@@ -51,7 +51,7 @@
                                                 <label><h3>Komentar</h3></label>
                                             </div>
                                             @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
+                                            <div class="col-xs-8 col-md-10">
                                                 <div>
                                                     <label>{{ $komentar->user->nama }}</label>
                                                 </div>
@@ -59,7 +59,7 @@
                                                     <label><h5>{{ $komentar->isikomentar }}</h5></label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-xs-4 col-md-2">
                                                 <div>
                                                     <label></label>
                                                 </div>
@@ -155,7 +155,7 @@
                                                 <label><h3>Komentar</h3></label>
                                             </div>
                                             @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
+                                            <div class="col-xs-8 col-md-10">
                                                 <div>
                                                     <label>{{ $komentar->user->nama }}</label>
                                                 </div>
@@ -163,7 +163,7 @@
                                                     <label><h5>{{ $komentar->isikomentar }}</h5></label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-xs-4 col-md-2">
                                                 <div>
                                                     <label></label>
                                                 </div>
@@ -259,7 +259,7 @@
                                                 <label><h3>Komentar</h3></label>
                                             </div>
                                             @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
+                                            <div class="col-xs-8 col-md-10">
                                                 <div>
                                                     <label>{{ $komentar->user->nama }}</label>
                                                 </div>
@@ -267,7 +267,7 @@
                                                     <label><h5>{{ $komentar->isikomentar }}</h5></label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-xs-4 col-md-2">
                                                 <div>
                                                     <label></label>
                                                 </div>
@@ -363,7 +363,7 @@
                                                 <label><h3>Komentar</h3></label>
                                             </div>
                                             @foreach($komentars as $komentar)
-                                            <div class="col-md-10">
+                                            <div class="col-xs-8 col-md-10">
                                                 <div>
                                                     <label>{{ $komentar->user->nama }}</label>
                                                 </div>
@@ -371,7 +371,7 @@
                                                     <label><h5>{{ $komentar->isikomentar }}</h5></label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-xs-4 col-md-2">
                                                 <div>
                                                     <label></label>
                                                 </div>

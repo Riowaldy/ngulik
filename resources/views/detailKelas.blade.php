@@ -86,18 +86,22 @@
                                                 </div>
                                                 <div class="text-center" style="margin-bottom: -20px;">
                                                  @if($pengumuman->user_id == Auth::id())
-                                                    <div class="col-md-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman">
-                                                        <a style="color: white;"><b>Detail</b></a>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                     </div>
-                                                    <div class="col-md-4 btn btn-sm btn-warning" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman">
-                                                        <a style="color: white;"><b>Ubah</b></a>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-warning" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
                                                     </div>
-                                                    <div class="col-md-4 btn btn-sm btn-danger" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman">
-                                                        <a style="color: white;"><b>Hapus</b></a>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-danger" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
                                                     </div>
                                                 @else
-                                                    <div class="col-md-12 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman">
-                                                        <a style="color: white;"><b>Detail</b></a>
+                                                    <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                     </div>
                                                 @endif
                                                 </div>
@@ -230,8 +234,9 @@
                                             </div>
                                             @foreach($materivid as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -259,8 +264,9 @@
                                             </div>
                                             @foreach($materiaud as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -288,8 +294,9 @@
                                             </div>
                                             @foreach($materiteks as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -318,8 +325,9 @@
                                             </div>
                                             @foreach($materigit as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -374,7 +382,10 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body text-center">
-                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buat_livestream"><b>Mulai Live Stream</b></button>
+                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buat_livestream" id="kelasdetail">
+                                            <span class="before"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-video"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
+                                            <span class="after"><b><i class="fas fa-video"></i> Mulai Live Stream</b></span>
+                                        </button>
                                     </div>
                                 </li>
                             </ul>
@@ -413,7 +424,7 @@
                         <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>Tambah Pengumuman</b></button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
                             </div>
                         </div>
                         @foreach ($pengumumans as $pengumuman)
@@ -429,19 +440,23 @@
                                                     <label for="nama">{{ $pengumuman->deskripsi }}</label>
                                                 </div>
                                                 <div class="text-center" style="margin-bottom: -20px;">
-                                                 @if($pengumuman->user_id == Auth::id())
-                                                    <div class="col-md-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman">
-                                                        <a style="color: white;"><b>Detail</b></a>
+                                                @if($pengumuman->user_id == Auth::id())
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                     </div>
-                                                    <div class="col-md-4 btn btn-sm btn-warning" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman">
-                                                        <a style="color: white;"><b>Ubah</b></a>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-warning" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
                                                     </div>
-                                                    <div class="col-md-4 btn btn-sm btn-danger" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman">
-                                                        <a style="color: white;"><b>Hapus</b></a>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-danger" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
                                                     </div>
                                                 @else
-                                                    <div class="col-md-12 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman">
-                                                        <a style="color: white;"><b>Detail</b></a>
+                                                    <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                     </div>
                                                 @endif
                                                 </div>
@@ -568,14 +583,15 @@
                                                 <label for="nama">Materi Video</label>
                                                 <div class="pull-right">
                                                     <a href="{{ route('materiVideo', $kelas) }}">
-                                                    <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                </a>
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                             </div>
                                             @foreach($materivid as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -603,8 +619,9 @@
                                             </div>
                                             @foreach($materiaud as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -632,8 +649,9 @@
                                             </div>
                                             @foreach($materiteks as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -662,8 +680,9 @@
                                             </div>
                                             @foreach($materigit as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -718,7 +737,10 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body text-center">
-                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buat_livestream"><b>Mulai Live Stream</b></button>
+                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buat_livestream" id="kelasdetail">
+                                            <span class="before"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-video"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
+                                            <span class="after"><b><i class="fas fa-video"></i> Mulai Live Stream</b></span>
+                                        </button>
                                     </div>
                                 </li>
                             </ul>
@@ -757,7 +779,7 @@
                         <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>Tambah Pengumuman</b></button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
                             </div>
                         </div>
                         @foreach ($pengumumans as $pengumuman)
@@ -773,19 +795,23 @@
                                                     <label for="nama">{{ $pengumuman->deskripsi }}</label>
                                                 </div>
                                                 <div class="text-center" style="margin-bottom: -20px;">
-                                                 @if($pengumuman->user_id == Auth::id())
-                                                    <div class="col-md-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman">
-                                                        <a style="color: white;"><b>Detail</b></a>
+                                                @if($pengumuman->user_id == Auth::id())
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                     </div>
-                                                    <div class="col-md-4 btn btn-sm btn-warning" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman">
-                                                        <a style="color: white;"><b>Ubah</b></a>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-warning" data-id="{{$pengumuman->id}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#edit_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
                                                     </div>
-                                                    <div class="col-md-4 btn btn-sm btn-danger" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman">
-                                                        <a style="color: white;"><b>Hapus</b></a>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-danger" data-id="{{$pengumuman->id}}" data-toggle="modal" data-target="#hapus_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
                                                     </div>
                                                 @else
-                                                    <div class="col-md-12 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman">
-                                                        <a style="color: white;"><b>Detail</b></a>
+                                                    <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" data-id="{{$pengumuman->id}}" data-user_id="{{$pengumuman->user->nama}}" data-nama="{{$pengumuman->nama}}" data-deskripsi="{{$pengumuman->deskripsi}}" data-toggle="modal" data-target="#detail_pengumuman" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                     </div>
                                                 @endif
                                                 </div>
@@ -916,14 +942,15 @@
                                                 <label for="nama">Materi Video</label>
                                                 <div class="pull-right">
                                                     <a href="{{ route('materiVideo', $kelas) }}">
-                                                    <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                </a>
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
                                                 </div>
                                             </div>
                                             @foreach($materivid as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -951,8 +978,9 @@
                                             </div>
                                             @foreach($materiaud as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -980,8 +1008,9 @@
                                             </div>
                                             @foreach($materiteks as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -1010,8 +1039,9 @@
                                             </div>
                                             @foreach($materigit as $materi)
                                             <div class="col-md-12">
-                                                <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                    <a style="color: white;"><b>Detail</b></a>
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
@@ -1216,128 +1246,132 @@
                     </div>
                     <div class="col-md-6">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <b>Materi Kelas Terbaik</b>
-                            </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <div class="panel-body">
-                                            <div class="col-md-12">
-                                                <div class="col-md-12">
-                                                    <label for="nama">Materi Video</label>
-                                                    <div class="pull-right">
-                                                        <a href="{{ route('materiVideo', $kelas) }}">
-                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                    </a>
-                                                    </div>
-                                                </div>
-                                                @foreach($materivid as $materi)
-                                                <div class="col-md-12">
-                                                    <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                        <a href="" style="color: white;"><b>Detail</b></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12" style="margin-top: 10px;">
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                                <div class="text-center">
-                                                    {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="panel-body">
-                                            <div class="col-md-12">
-                                                <div class="col-md-12">
-                                                    <label for="nama">Materi Audio</label>
-                                                    <div class="pull-right">
-                                                        <a href="{{ route('materiAudio', $kelas) }}">
-                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                    </a>
-                                                    </div>
-                                                </div>
-                                                @foreach($materiaud as $materi)
-                                                <div class="col-md-12">
-                                                    <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                        <a href="" style="color: white;"><b>Detail</b></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12" style="margin-top: 10px;">
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                                <div class="text-center">
-                                                    {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="panel-body">
-                                            <div class="col-md-12">
-                                                <div class="col-md-12">
-                                                    <label for="nama">Materi Tekstual</label>
-                                                    <div class="pull-right">
-                                                        <a href="{{ route('materiTekstual', $kelas) }}">
-                                                            <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                @foreach($materiteks as $materi)
-                                                <div class="col-md-12">
-                                                    <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                        <a href="" style="color: white;"><b>Detail</b></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12" style="margin-top: 10px;">
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
-                                                    </div>
-                                                    <div style="margin-bottom: 5px;"></div>
-                                                </div>
-                                                @endforeach
-                                                <div class="text-center">
-                                                    {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="panel-body">
-                                            <div class="col-md-12">
-                                                <div class="col-md-12">
-                                                    <label for="nama">Github Code</label>
-                                                    <div class="pull-right">
-                                                        <a href="{{ route('materiGithub', $kelas) }}">
-                                                            <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                @foreach($materigit as $materi)
-                                                <div class="col-md-12">
-                                                    <div class="col-md-12 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'">
-                                                        <a style="color: white;"><b>Detail</b></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12" style="margin-top: 10px;">
-                                                    <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
-                                                    <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-                                                </div>
-                                                @endforeach
-                                                <div class="text-center">
-                                                    {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                        <div class="panel-heading">
+                            <b>Materi Kelas Terbaik</b>
                         </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <label for="nama">Materi Video</label>
+                                                <div class="pull-right">
+                                                    <a href="{{ route('materiVideo', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @foreach($materivid as $materi)
+                                            <div class="col-md-12">
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="margin-top: 10px;">
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                            <div class="text-center">
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <label for="nama">Materi Audio</label>
+                                                <div class="pull-right">
+                                                    <a href="{{ route('materiAudio', $kelas) }}">
+                                                    <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                </a>
+                                                </div>
+                                            </div>
+                                            @foreach($materiaud as $materi)
+                                            <div class="col-md-12">
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="margin-top: 10px;">
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                            <div class="text-center">
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <label for="nama">Materi Tekstual</label>
+                                                <div class="pull-right">
+                                                    <a href="{{ route('materiTekstual', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @foreach($materiteks as $materi)
+                                            <div class="col-md-12">
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="margin-top: 10px;">
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                </div>
+                                                <div style="margin-bottom: 5px;"></div>
+                                            </div>
+                                            @endforeach
+                                            <div class="text-center">
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <label for="nama">Github Code</label>
+                                                <div class="pull-right">
+                                                    <a href="{{ route('materiGithub', $kelas) }}">
+                                                        <input type="button" value="Lihat Semua" class="btn btn-xs btn-info" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @foreach($materigit as $materi)
+                                            <div class="col-md-12">
+                                                <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-info" onclick="location.href='{{ route('detailMateri',[$kelas, $materi]) }}'" id="kelasdetail">
+                                                    <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                    <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12" style="margin-top: 10px;">
+                                                <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
+                                                <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+                                            </div>
+                                            @endforeach
+                                            <div class="text-center">
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                    </div>
                     </div>
                 </div>
             </div>

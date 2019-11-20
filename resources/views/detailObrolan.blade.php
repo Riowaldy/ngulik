@@ -39,7 +39,7 @@
                             @foreach ($reverse as $obrolan)
                                     <div class="panel-body">
                                         @if($obrolan->pengirim !== Auth::id())
-                                        <div class="col-md-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-md-6" style="margin-top: -20px;">
                                             <div class="col-md-12">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -49,7 +49,7 @@
                                         </div>
                                         
                                         @else
-                                        <div class="col-md-6 col-md-offset-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -68,7 +68,7 @@
                                 <li class="list-group-item" style="margin-top: -20px;">
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
-                                        <div class="col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
+                                        <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
                                             <a style="color: white;"><b>Balas Pesan</b></a>
                                         </div>
                                         @endforeach
@@ -116,7 +116,7 @@
                             @foreach ($reverse as $obrolan)
                                     <div class="panel-body">
                                         @if($obrolan->pengirim !== Auth::id())
-                                        <div class="col-md-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-md-6" style="margin-top: -20px;">
                                             <div class="col-md-12">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -126,7 +126,7 @@
                                         </div>
                                         
                                         @else
-                                        <div class="col-md-6 col-md-offset-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -145,7 +145,7 @@
                                 <li class="list-group-item" style="margin-top: -20px;">
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
-                                        <div class="col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
+                                        <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
                                             <a style="color: white;"><b>Balas Pesan</b></a>
                                         </div>
                                         @endforeach
@@ -193,7 +193,7 @@
                             @foreach ($reverse as $obrolan)
                                     <div class="panel-body">
                                         @if($obrolan->pengirim !== Auth::id())
-                                        <div class="col-md-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-md-6" style="margin-top: -20px;">
                                             <div class="col-md-12">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -203,7 +203,7 @@
                                         </div>
                                         
                                         @else
-                                        <div class="col-md-6 col-md-offset-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -222,7 +222,7 @@
                                 <li class="list-group-item" style="margin-top: -20px;">
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
-                                        <div class="col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
+                                        <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
                                             <a style="color: white;"><b>Balas Pesan</b></a>
                                         </div>
                                         @endforeach
@@ -270,7 +270,7 @@
                             @foreach ($reverse as $obrolan)
                                     <div class="panel-body">
                                         @if($obrolan->pengirim !== Auth::id())
-                                        <div class="col-md-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-md-6" style="margin-top: -20px;">
                                             <div class="col-md-12">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -280,7 +280,7 @@
                                         </div>
                                         
                                         @else
-                                        <div class="col-md-6 col-md-offset-6" style="margin-top: -20px;">
+                                        <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
@@ -299,7 +299,7 @@
                                 <li class="list-group-item" style="margin-top: -20px;">
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
-                                        <div class="col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
+                                        <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
                                             <a style="color: white;"><b>Balas Pesan</b></a>
                                         </div>
                                         @endforeach

@@ -24,7 +24,7 @@
                                 {{ csrf_field() }}
 
                                 <div class="form-group{{ $errors->has('current-password') ? ' has-error' : '' }}">
-                                    <label for="new-password" class="col-md-4 control-label">Current Password</label>
+                                    <label for="new-password" class="col-md-4 control-label">Password Saat Ini</label>
 
                                     <div class="col-md-6">
                                         <input id="current-password" type="password" class="form-control" name="current-password" required>
@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('new-password') ? ' has-error' : '' }}">
-                                    <label for="new-password" class="col-md-4 control-label">New Password</label>
+                                    <label for="new-password" class="col-md-4 control-label">Password Baru</label>
 
                                     <div class="col-md-6">
                                         <input id="new-password" type="password" class="form-control" name="new-password" required>
@@ -52,7 +52,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="new-password-confirm" class="col-md-4 control-label">Confirm New Password</label>
+                                    <label for="new-password-confirm" class="col-md-4 control-label">Konfirmasi Password Baru</label>
 
                                     <div class="col-md-6">
                                         <input id="new-password-confirm" type="password" class="form-control" name="new-password_confirmation" required>

@@ -15,20 +15,18 @@ div#kelasdetail:hover{
 	transform: translateY(-2px);
 }
 
-button#kelasbuat{
-	margin-top: -4px;
-	color: #7997f7;
-}
-button#kelasbuat span.after{
+button#kelasdetail{
+	color: white;
+}button#kelasdetail span.after{
 	display: none;
 }
-button#kelasbuat:hover span.before{
+button#kelasdetail:hover span.before{
 	display: none;
 }
-button#kelasbuat:hover span.after{
+button#kelasdetail:hover span.after{
 	display: inline;
 }
-button#kelasbuat:hover{
-	margin-top: -4px;
+button#kelasdetail:hover{
 	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	transform: translateY(-2px);
 }

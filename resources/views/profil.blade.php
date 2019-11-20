@@ -14,16 +14,16 @@
 	                		</div>
 		                </div>
 		                <div class="panel-body">
-		                	<label for="nama" class="col-sm-3 col-form-label">Nama</label>
-		                	<label for="nama" class="col-sm-6 col-form-label">: {{ Auth::user()->nama }}</label> 	
+		                	<label for="nama" class="col-xs-3 col-form-label">Nama</label>
+		                	<label for="nama" class="col-xs-6 col-form-label">: {{ Auth::user()->nama }}</label> 	
 		                </div>
 		                <div class="panel-body">
-		                	<label for="email" class="col-sm-3 col-form-label">Email</label>
-		                	<label for="email" class="col-sm-6 col-form-label">: {{ Auth::user()->email }}</label>	
+		                	<label for="email" class="col-xs-3 col-form-label">Email</label>
+		                	<label for="email" class="col-xs-6 col-form-label">: {{ Auth::user()->email }}</label>	
 		                </div>
 		                <div class="panel-body">
-		                	<label for="created_at" class="col-sm-3 col-form-label">Bergabung Sejak</label>
-		                	<label for="created_at" class="col-sm-6 col-form-label">: {{ Auth::user()->created_at->diffForHumans() }}</label>   	
+		                	<label for="created_at" class="col-xs-3 col-form-label">Bergabung Sejak</label>
+		                	<label for="created_at" class="col-xs-6 col-form-label">: {{ Auth::user()->created_at->diffForHumans() }}</label>
 		                </div>
 		                <div class="panel-footer">
 			  				<a href="{{ route('changePassword') }}" class="btn btn-primary" role="button">Ganti Password</a>
