@@ -23,7 +23,7 @@
                                             </div>
                                             <div class="col-xs-2 col-md-2">
                                                 <!-- <label for="nama">({{ $user->status }})</label> -->
-                                                <button type="button" class="btn btn-xs btn-danger" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-status="{{$user->status}}" data-toggle="modal" data-target="#edit_status" ><b>Hapus</b></button>
+                                                <button type="button" class="btn btn-xs btn-danger" data-id="{{$user->id}}" data-toggle="modal" data-target="#hapus_pengguna" ><b>Hapus</b></button>
                                             </div>
                                         </div>
                                     </div>
@@ -91,6 +91,36 @@
     </div>
 </div>
 <!-- Akhir Modal -->
+
+<!-- Modal Delete -->
+    <div class="modal fade" id="hapus_pengguna" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Pengguna</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete -->
+                    <form role="form" action="{{ route('hapusPengguna') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin menghapus pengguna ini?</p>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 <div class="col-sm-12 text-center">
   <p>&copy; 2019 | Riowaldy Indrawan</p>
 </div>

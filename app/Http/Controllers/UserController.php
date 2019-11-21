@@ -88,4 +88,28 @@ class UserController extends Controller
 
 // End Update
 
+// Delete
+
+
+    public function hapusPengguna(Request $request)
+    {
+        $deleteKelasuser = \DB::table('kelasusers')->select('id')->where('user_id', $request->input('id'));
+        $deleteMateri = \DB::table('materis')->select('id')->where('user_id', $request->input('id'));
+        $deletePengumuman = \DB::table('pengumumans')->select('id')->where('user_id', $request->input('id'));
+        $deleteKomentar = \DB::table('komentars')->select('id')->where('user_id', $request->input('id'));
+        $deleteLivestream = \DB::table('livestreams')->select('id')->where('user_id', $request->input('id'));
+        $deleteObrolan = \DB::table('obrolans')->select('id')->where('pengirim', $request->input('id'))->where('penerima', $request->input('id'));
+        $delete = \DB::table('users')->select('id')->where('id', $request->input('id'));
+
+        $deleteKelasuser->delete();
+        $deleteMateri->delete();
+        $deletePengumuman->delete();
+        $deleteKomentar->delete();
+        $deleteLivestream->delete();
+        $deleteObrolan->delete();
+        $delete->delete();
+      return back()->with('success');
+    }
+
+// End Delete
 }

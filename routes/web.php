@@ -54,6 +54,7 @@ Route::delete('/hapusKelas','KelasController@hapusKelas')->name('hapusKelas');
 Route::delete('/hapusMateri','MateriController@hapusMateri')->name('hapusMateri');
 Route::delete('/hapusPengumuman','PengumumanController@hapusPengumuman')->name('hapusPengumuman');
 Route::delete('/hapusLivestream','LivestreamController@hapusLivestream')->name('hapusLivestream');
+Route::delete('/hapusPengguna','UserController@hapusPengguna')->name('hapusPengguna');
 
 Route::get('/changePassword','UserController@showChangePasswordForm');
 Route::post('/changePassword','UserController@changePassword')->name('changePassword');
