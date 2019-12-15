@@ -43,8 +43,9 @@ class MateriController extends Controller
     }
     public function detailMateri(Kelas $kelas, Materi $materi)
     {   
-        $komentars = Komentar::all()->where('kelas_id', $kelas->id)->where('materi_id', $materi->id);
-        return view('detailMateri', compact('kelas','materi','komentars'));
+        $materi2 = Materi::selectMateri();
+        $komentars = Komentar::selectKomentar()->where('kelas_id', $kelas->id)->where('materi_id', $materi->id);
+        return view('detailMateri', compact('kelas','materi','materi2','komentars'));
     }
 
 // End View
@@ -52,15 +53,21 @@ class MateriController extends Controller
 // Update
 
     public function editStatusMateri(Request $request){
-        $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
-        $edit->update(['status' => $request->input('status')]);
-      return back()->with('success');
+        // $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
+        // $edit->update(['status' => $request->input('status')]);
+
+        $edit = Materi::selectMateri()->where('id', request('id'));
+        $edit = Materi::updateStatusMateri();
+        return back()->with('success');
     }
     public function editMateri(Request $request){
-        $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
-        $edit->update(['nama' => $request->input('nama')]);
-        $edit->update(['deskripsi' => $request->input('deskripsi')]);
-      return back()->with('success');
+        // $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
+        // $edit->update(['nama' => $request->input('nama')]);
+        // $edit->update(['deskripsi' => $request->input('deskripsi')]);
+
+        $edit = Materi::selectMateri()->where('id', request('id'));
+        $edit = Materi::updateMateri();
+        return back()->with('success');
     }
 
 // End Update
@@ -69,69 +76,75 @@ class MateriController extends Controller
 
     public function materiVideoStore()
     {
-        $dataExplode = explode("=" , request('link'));
-        $dataEnd = end($dataExplode);
+        // $dataExplode = explode("=" , request('link'));
+        // $dataEnd = end($dataExplode);
         $this->validate(request(), [
             'nama' => 'required',
             'deskripsi' => 'required',
             'link' => 'required'
         ]);
 
-        Materi::create([
-            'user_id' => request('user_id'),
-            'kelas_id' => request('kelas_id'),
-            'nama' => request('nama'),
-            'jenis' => request('jenis'),
-            'status' => request('status'),
-            'deskripsi' => request('deskripsi'),
-            'link' => $dataEnd
-        ]);
+        // Materi::create([
+        //     'user_id' => request('user_id'),
+        //     'kelas_id' => request('kelas_id'),
+        //     'nama' => request('nama'),
+        //     'jenis' => request('jenis'),
+        //     'status' => request('status'),
+        //     'deskripsi' => request('deskripsi'),
+        //     'link' => $dataEnd
+        // ]);
+
+        Materi::createMateriVideo();
 
         return back()->with('success');
     }
 
     public function materiAudioStore()
     {
-        $dataExplode = explode("/" , request('link'));
-        $dataEnd = $dataExplode[5];
+        // $dataExplode = explode("/" , request('link'));
+        // $dataEnd = $dataExplode[5];
         $this->validate(request(), [
             'nama' => 'required',
             'deskripsi' => 'required',
             'link' => 'required'
         ]);
 
-        Materi::create([
-            'user_id' => request('user_id'),
-            'kelas_id' => request('kelas_id'),
-            'nama' => request('nama'),
-            'jenis' => request('jenis'),
-            'status' => request('status'),
-            'deskripsi' => request('deskripsi'),
-            'link' => $dataEnd
-        ]);
+        // Materi::create([
+        //     'user_id' => request('user_id'),
+        //     'kelas_id' => request('kelas_id'),
+        //     'nama' => request('nama'),
+        //     'jenis' => request('jenis'),
+        //     'status' => request('status'),
+        //     'deskripsi' => request('deskripsi'),
+        //     'link' => $dataEnd
+        // ]);
+
+        Materi::createMateriAudio();
 
         return back()->with('success');
     }
 
     public function materiTekstualStore()
     {
-        $dataExplode = explode("/" , request('link'));
-        $dataEnd = $dataExplode[5];
+        // $dataExplode = explode("/" , request('link'));
+        // $dataEnd = $dataExplode[5];
         $this->validate(request(), [
             'nama' => 'required',
             'deskripsi' => 'required',
             'link' => 'required'
         ]);
 
-        Materi::create([
-            'user_id' => request('user_id'),
-            'kelas_id' => request('kelas_id'),
-            'nama' => request('nama'),
-            'jenis' => request('jenis'),
-            'status' => request('status'),
-            'deskripsi' => request('deskripsi'),
-            'link' => $dataEnd
-        ]);
+        // Materi::create([
+        //     'user_id' => request('user_id'),
+        //     'kelas_id' => request('kelas_id'),
+        //     'nama' => request('nama'),
+        //     'jenis' => request('jenis'),
+        //     'status' => request('status'),
+        //     'deskripsi' => request('deskripsi'),
+        //     'link' => $dataEnd
+        // ]);
+
+        Materi::createMateriTekstual();
 
         return back()->with('success');
     }
@@ -146,15 +159,17 @@ class MateriController extends Controller
             'link2' => 'required'
         ]);
 
-        Materi::create([
-            'user_id' => request('user_id'),
-            'kelas_id' => request('kelas_id'),
-            'nama' => request('nama'),
-            'jenis' => request('jenis'),
-            'status' => request('status'),
-            'deskripsi' => request('deskripsi'),
-            'link' => request('link1').'/'.request('link2')
-        ]);
+        // Materi::create([
+        //     'user_id' => request('user_id'),
+        //     'kelas_id' => request('kelas_id'),
+        //     'nama' => request('nama'),
+        //     'jenis' => request('jenis'),
+        //     'status' => request('status'),
+        //     'deskripsi' => request('deskripsi'),
+        //     'link' => request('link1').'/'.request('link2')
+        // ]);
+
+        Materi::createMateriGithub();
 
         return back()->with('success');
     }
@@ -166,13 +181,15 @@ class MateriController extends Controller
     public function hapusMateri(Request $request)
     {
         $deleteKomentar = \DB::table('komentars')->select('id')->where('materi_id', $request->input('id'));
-        $delete = \DB::table('materis')->select('id')->where('id', $request->input('id'));
+        // $delete = \DB::table('materis')->select('id')->where('id', $request->input('id'));
+        $delete = Materi::selectMateri()->where('id', request('id'));
 
         $kelas = $request->input('kelas_id');
         
         $deleteKomentar->delete();
-        $delete->delete();
-      return redirect()->route('detailKelas', ['kelas' => $kelas]);
+        // $delete->delete();
+        $delete = Materi::deleteMateri();
+        return redirect()->route('detailKelas', ['kelas' => $kelas]);
     }
 
 // End Delete

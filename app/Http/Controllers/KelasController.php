@@ -23,15 +23,15 @@ class KelasController extends Controller
 
     public function kelas(){
 
-        $kelass = Kelas::all();
-        $kelass2 = Kelas::all()->where('user_id', Auth::id());
+        $kelass = Kelas::selectKelas();
+        $kelass2 = Kelas::selectKelas()->where('user_id', Auth::id());
         $kelasusers = DB::table('kelass')
                     ->join('kelasusers', function($join){
                         $join->on('kelass.id', '=', 'kelasusers.kelas_id')
                         ->where('kelasusers.user_id', '=', Auth::id());
                     })
                     ->get();
-        $users = DB::table('users')->where('status', 'pengajar')->get();
+        $users = User::selectUser()->where('status', 'pengajar');
 
         return view('kelas', compact('kelass','kelass2','users','kelasusers'));
     }
@@ -39,6 +39,7 @@ class KelasController extends Controller
     public function detailKelas(Kelas $kelas)
     {   
         $livestreams = Livestream::all()->where('kelas_id', $kelas->id);
+        $pengumumans2 = Pengumuman::selectPengumuman();
         $pengumumans = Pengumuman::where('kelas_id', $kelas->id)->paginate(3, ['*'], 'p');
 
         $materivid = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube')->paginate(1, ['*'], 'mv');
@@ -62,20 +63,27 @@ class KelasController extends Controller
         $users4 = DB::table('users')->where('id', $kelas->user_id)->get();
         $kelasusers = Kelasuser::all()->where('kelas_id', $kelas->id)->where('user_id', Auth::id());
 
-        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','materigit','pengumumans','livestreams','users','users2','users3','users4','kelasusers'));
+        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','materigit','pengumumans','pengumumans2','livestreams','users','users2','users3','users4','kelasusers'));
     }
 
 // End View
 
 // Update
 
-    public function editKelas(Request $request){
-        $edit = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
-        $edit->update(['nama' => $request->input('nama')]);
-        $edit->update(['user_id' => $request->input('user_id')]);
-        $edit->update(['deskripsi' => $request->input('deskripsi')]);
-      return back()->with('success','Berhasil Di Edit');
+    // public function editKelas(Request $request){
+    //     $edit = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
+    //     $edit->update(['nama' => $request->input('nama')]);
+    //     $edit->update(['user_id' => $request->input('user_id')]);
+    //     $edit->update(['deskripsi' => $request->input('deskripsi')]);
+    //     return back()->with('success','Berhasil Di Edit');
+    // }
+
+    public function editKelas(){
+        $edit = Kelas::selectKelas()->where('id', request('id'));
+        $edit = Kelas::updateKelas();
+        return back()->with('success','Berhasil Di Edit');
     }
+
 
 // End Update
 
@@ -88,11 +96,13 @@ class KelasController extends Controller
             'deskripsi' => 'required'
         ]);
 
-        Kelas::create([
-            'nama' => request('nama'),
-            'user_id' => request('user_id'),
-            'deskripsi' => request('deskripsi')
-        ]);
+        // Kelas::create([
+        //     'nama' => request('nama'),
+        //     'user_id' => request('user_id'),
+        //     'deskripsi' => request('deskripsi')
+        // ]);
+
+        Kelas::createKelas();
 
         return redirect() -> route('kelas')->with('success');
     }
@@ -122,13 +132,23 @@ class KelasController extends Controller
         $deletePengumuman = \DB::table('pengumumans')->select('id')->where('kelas_id', $request->input('id'));
         $deleteKomentar = \DB::table('komentars')->select('id')->where('kelas_id', $request->input('id'));
         $deleteLivestream = \DB::table('livestreams')->select('id')->where('kelas_id', $request->input('id'));
-        $delete = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
+        // $delete = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
+        $delete = Kelas::selectKelas()->where('id', request('id'));
 
         $deleteKelasuser->delete();
         $deleteMateri->delete();
         $deletePengumuman->delete();
         $deleteKomentar->delete();
         $deleteLivestream->delete();
+        // $delete->delete();
+        $delete = Kelas::deleteKelas();
+      return back()->with('success');
+    }
+
+    public function hapusKelasuser(Request $request)
+    {
+        $delete = \DB::table('kelasusers')->select('id')->where('id', $request->input('kelas_id'))->where('user_id', $request->input('user_id'));
+
         $delete->delete();
       return back()->with('success');
     }

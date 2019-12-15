@@ -54,7 +54,7 @@
                         <div class="panel-heading">
                             <b>Halaman Materi Moderator</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Video (Youtube)</button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Video (Youtube)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -106,7 +106,7 @@
                         <div class="panel-heading">
                             <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Video (Youtube)</button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Video (Youtube)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -153,7 +153,7 @@
                         <div class="panel-heading">
                             <b>Halaman Materi Murid</b>
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Materi Video (Youtube)</button>
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Video (Youtube)</button>
                             </div>
                         </div>
                             <ul class="list-group list-group-flush">

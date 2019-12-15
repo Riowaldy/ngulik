@@ -22,4 +22,18 @@ class Obrolan extends Model
 	    return $this->belongsTo('App\User');
 	}
 
+	public static function selectObrolan()
+	{
+		return Obrolan::all();
+	}
+
+	public static function createPesan()
+	{
+		return 	Obrolan::create([
+		            'pengirim' => request('pengirim'),
+		            'penerima' =>request('penerima'),
+		            'isipesan' => request('isipesan')
+		        ]);
+	}
+
 }

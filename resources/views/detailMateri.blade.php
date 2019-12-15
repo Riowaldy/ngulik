@@ -60,9 +60,25 @@
                                                 </div>
                                             </div>
                                             <div class="col-xs-4 col-md-2">
+                                                @if($komentar->user_id == Auth::id())
+                                                <div>
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-isikomentar="{{$komentar->isikomentar}}" data-toggle="modal" data-target="#edit_komentar">Edit</a>
+                                                            </li>
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-toggle="modal" data-target="#hapus_komentar">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                @else
                                                 <div>
                                                     <label></label>
                                                 </div>
+                                                @endif
                                                 <div>
                                                     <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
                                                 </div>
@@ -164,9 +180,25 @@
                                                 </div>
                                             </div>
                                             <div class="col-xs-4 col-md-2">
+                                                @if($komentar->user_id == Auth::id())
+                                                <div>
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-isikomentar="{{$komentar->isikomentar}}" data-toggle="modal" data-target="#edit_komentar">Edit</a>
+                                                            </li>
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-toggle="modal" data-target="#hapus_komentar">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                @else
                                                 <div>
                                                     <label></label>
                                                 </div>
+                                                @endif
                                                 <div>
                                                     <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
                                                 </div>
@@ -268,9 +300,25 @@
                                                 </div>
                                             </div>
                                             <div class="col-xs-4 col-md-2">
+                                                @if($komentar->user_id == Auth::id())
+                                                <div>
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-isikomentar="{{$komentar->isikomentar}}" data-toggle="modal" data-target="#edit_komentar">Edit</a>
+                                                            </li>
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-toggle="modal" data-target="#hapus_komentar">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                @else
                                                 <div>
                                                     <label></label>
                                                 </div>
+                                                @endif
                                                 <div>
                                                     <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
                                                 </div>
@@ -372,9 +420,25 @@
                                                 </div>
                                             </div>
                                             <div class="col-xs-4 col-md-2">
+                                                @if($komentar->user_id == Auth::id())
+                                                <div>
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-isikomentar="{{$komentar->isikomentar}}" data-toggle="modal" data-target="#edit_komentar">Edit</a>
+                                                            </li>
+                                                            <li>
+                                                                <a data-id="{{$komentar->id}}" data-toggle="modal" data-target="#hapus_komentar">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                @else
                                                 <div>
                                                     <label></label>
                                                 </div>
+                                                @endif
                                                 <div>
                                                     <label><h5>{{ $komentar->created_at->diffForHumans() }}</h5></label>
                                                 </div>
@@ -446,6 +510,36 @@
     </div>
 <!-- Akhir Modal Edit Materi -->
 
+<!-- Modal Edit Komentar-->
+    <div class="modal fade" id="edit_komentar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Komentar</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Edit Komentar-->
+                <form role="form" action="{{route('editKomentar')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="isikomentar" id="isikomentar" class="form-control" value="">
+                        </div>
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-warning">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Edit Komentar -->
+
 <!-- Modal Delete -->
     <div class="modal fade" id="hapus_materi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -477,6 +571,37 @@
         </div>
     </div>
 <!-- Akhir Modal Delete -->
+
+<!-- Modal Delete Komentar -->
+    <div class="modal fade" id="hapus_komentar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Komentar</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete Komentar -->
+                    <form role="form" action="{{ route('hapusKomentar') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin menghapus komentar ini?</p>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Delete Komentar -->
 <div class="col-sm-12 text-center">
   <p>&copy; 2019 | Riowaldy Indrawan</p>
 </div>

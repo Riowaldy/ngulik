@@ -41,7 +41,7 @@
                                         @if($obrolan->pengirim !== Auth::id())
                                         <div class="col-xs-6 col-md-6" style="margin-top: -20px;">
                                             <div class="col-md-12">
-                                                <label for="nama">{{ $obrolan->nama }}</label>
+                                                <label for="nama">{{ $obrolan->nama }}</label> 
                                             </div>
                                             <div class="col-md-12" style="background-color: #e1e8e7; border-radius: 7px; margin-top: -5px; margin-left: 15px; padding: 10px 5px;">
                                                 <label for="nama">{{ $obrolan->isipesan }}</label>
@@ -51,6 +51,16 @@
                                         @else
                                         <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
+                                                <div class="pull-left">
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$obrolan->id}}" data-toggle="modal" data-target="#hapus_pesan">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
                                             <div class="col-md-12" style="background-color: #66add9; border-radius: 7px; margin-top: -5px;  padding: 10px 5px; color: white;">
@@ -69,7 +79,7 @@
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
                                         <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
-                                            <a style="color: white;"><b>Balas Pesan</b></a>
+                                            <a style="color: white;"><b>Tulis Pesan</b></a>
                                         </div>
                                         @endforeach
                                     </div>
@@ -128,6 +138,16 @@
                                         @else
                                         <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
+                                                <div class="pull-left">
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$obrolan->id}}" data-toggle="modal" data-target="#hapus_pesan">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
                                             <div class="col-md-12" style="background-color: #66add9; border-radius: 7px; margin-top: -5px;  padding: 10px 5px; color: white;">
@@ -146,7 +166,7 @@
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
                                         <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
-                                            <a style="color: white;"><b>Balas Pesan</b></a>
+                                            <a style="color: white;"><b>Tulis Pesan</b></a>
                                         </div>
                                         @endforeach
                                     </div>
@@ -205,6 +225,16 @@
                                         @else
                                         <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
+                                                <div class="pull-left">
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$obrolan->id}}" data-toggle="modal" data-target="#hapus_pesan">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
                                             <div class="col-md-12" style="background-color: #66add9; border-radius: 7px; margin-top: -5px;  padding: 10px 5px; color: white;">
@@ -223,7 +253,7 @@
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
                                         <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
-                                            <a style="color: white;"><b>Balas Pesan</b></a>
+                                            <a style="color: white;"><b>Tulis Pesan</b></a>
                                         </div>
                                         @endforeach
                                     </div>
@@ -282,6 +312,16 @@
                                         @else
                                         <div class="col-xs-6 col-xs-offset-6 col-md-6 col-md-offset-6" style="margin-top: -20px;">
                                             <div class="col-md-12 text-right" style="margin-left: 15px;">
+                                                <div class="pull-left">
+                                                    <div class="btn-group dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&#x25cf;&#x25cf;&#x25cf;</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a data-id="{{$obrolan->id}}" data-toggle="modal" data-target="#hapus_pesan">Hapus</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                                 <label for="nama">{{ $obrolan->nama }}</label>
                                             </div>
                                             <div class="col-md-12" style="background-color: #66add9; border-radius: 7px; margin-top: -5px;  padding: 10px 5px; color: white;">
@@ -300,7 +340,7 @@
                                     <div class="panel-body">
                                         @foreach ($obrolans2 as $obrolan)
                                         <div class="col-xs-12 col-md-12 btn btn-sm btn-info" data-toggle="modal" data-penerima="{{$obrolan->pengirim}}" data-pengirim="{{Auth::id()}}" value="{{$obrolan->pengirim}}" name="pengirim" data-target="#buat_pesan" style="margin-top: -10px; margin-bottom: -5px;">
-                                            <a style="color: white;"><b>Balas Pesan</b></a>
+                                            <a style="color: white;"><b>Tulis Pesan</b></a>
                                         </div>
                                         @endforeach
                                     </div>
@@ -320,7 +360,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
-                    <h4 class="modal-title" id="myModalLabel"><b>Balas Pesan</b></h4>
+                    <h4 class="modal-title" id="myModalLabel"><b>Tulis Pesan</b></h4>
                 </div>
                 <div class="modal-body">
                           
@@ -351,6 +391,37 @@
         </div>
     </div>
 <!-- Akhir Modal Create Pesan -->
+
+<!-- Modal Delete Pesan -->
+    <div class="modal fade" id="hapus_pesan" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Pesan</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete Pesan -->
+                    <form role="form" action="{{ route('hapusPesan') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin menghapus pesan ini?</p>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Delete Pesan -->
 @endsection
 
 

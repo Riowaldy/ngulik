@@ -153,9 +153,13 @@
                                             <label for="nama">{{ $kelas->deskripsi }}</label>
                                         </div>
                                         <div class="col-md-12 text-center" style="margin-bottom: -20px;">
-                                            <div class="col-xs-12 col-md-6 col-md-offset-3 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->kelas_id) }}'" id="kelasdetail">
+                                            <div class="col-xs-6 col-md-6 btn btn-sm btn-info" onclick="location.href='{{ route('detailKelas', $kelas->kelas_id) }}'" id="kelasdetail">
                                                 <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
                                                 <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6 btn btn-sm btn-danger" data-kelas_id="{{$kelas->id}}" data-user_id="{{Auth::id()}}" data-toggle="modal" data-target="#hapus_kelasuser" id="kelasdetail">
+                                                <span class="before"><b><i class="fas fa-times-circle"></i></b></span>
+                                                <span class="after"><b><i class="fas fa-times-circle"></i>Keluar</b></span>
                                             </div>
                                         </div>
                                     </div>
@@ -259,7 +263,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Pilih Pengajar</label>
-                            <select name="user_id" id="" class="form-control">
+                            <select name="user_id" id="user_id" class="form-control">
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}"> {{ $user->nama }} </option>
                                 @endforeach
@@ -302,6 +306,42 @@
                             </div>
                             <div class="box-footer text-center">
                                 <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete Kelasuser-->
+    <div class="modal fade" id="hapus_kelasuser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Keluar Kelas</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete Kelasuser-->
+                    <form role="form" action="{{ route('hapusKelasuser') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" id="user_id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin keluar dari kelas ini?</p>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Keluar</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
                             </div>
                         

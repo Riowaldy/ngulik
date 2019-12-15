@@ -38,6 +38,7 @@ Route::post('/editStatusMateri','MateriController@editStatusMateri')->name('edit
 Route::post('/editMateri','MateriController@editMateri')->name('editMateri');
 Route::post('/editPengumuman','PengumumanController@editPengumuman')->name('editPengumuman');
 Route::post('/editLivestream','LivestreamController@editLivestream')->name('editLivestream');
+Route::post('/editKomentar','KomentarController@editKomentar')->name('editKomentar');
 
 Route::post('/kelasStore','KelasController@kelasStore')->name('kelasStore');
 Route::post('/kelasuserStore','KelasController@kelasuserStore')->name('kelasuserStore');
@@ -51,10 +52,13 @@ Route::post('/komentarStore','KomentarController@komentarStore')->name('komentar
 Route::post('/livestreamStore','livestreamController@livestreamStore')->name('livestreamStore');
 
 Route::delete('/hapusKelas','KelasController@hapusKelas')->name('hapusKelas');
+Route::delete('/hapusKelasuser','KelasController@hapusKelasuser')->name('hapusKelasuser');
 Route::delete('/hapusMateri','MateriController@hapusMateri')->name('hapusMateri');
 Route::delete('/hapusPengumuman','PengumumanController@hapusPengumuman')->name('hapusPengumuman');
 Route::delete('/hapusLivestream','LivestreamController@hapusLivestream')->name('hapusLivestream');
 Route::delete('/hapusPengguna','UserController@hapusPengguna')->name('hapusPengguna');
+Route::delete('/hapusKomentar','KomentarController@hapusKomentar')->name('hapusKomentar');
+Route::delete('/hapusPesan','ObrolanController@hapusPesan')->name('hapusPesan');
 
 Route::get('/changePassword','UserController@showChangePasswordForm');
 Route::post('/changePassword','UserController@changePassword')->name('changePassword');

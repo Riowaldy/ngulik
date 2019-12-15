@@ -63,7 +63,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Ubah Profil</a>
+                                        <a href="{{ route('profil') }}">Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -90,7 +90,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Ubah Profil</a>
+                                        <a href="{{ route('profil') }}">Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -117,7 +117,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Ubah Profil</a>
+                                        <a href="{{ route('profil') }}">Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -144,7 +144,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('profil') }}">Ubah Profil</a>
+                                        <a href="{{ route('profil') }}">Profil</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -324,11 +324,28 @@
           modal.find('.modal-body #link').val(link);
         })
 
+        $('#edit_komentar').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var isikomentar = button.data('isikomentar')
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #isikomentar').val(isikomentar);
+        })
+
         $('#hapus_kelas').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 
           var modal = $(this)
           modal.find('.modal-body #id').val(id);
+        })
+        $('#hapus_kelasuser').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var kelas_id = button.data('kelas_id')
+          var user_id = button.data('user_id') 
+          var modal = $(this)
+          modal.find('.modal-body #kelas_id').val(kelas_id);
+          modal.find('.modal-body #user_id').val(user_id);
         })
 
         $('#hapus_pengguna').on('show.bs.modal', function (event) {
@@ -362,6 +379,22 @@
           modal.find('.modal-body #id').val(id);
           modal.find('.modal-body #kelas_id').val(kelas_id);
         })
+
+        $('#hapus_komentar').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+        })
+
+        $('#hapus_pesan').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+        })
+
+
 
     </script>
 
