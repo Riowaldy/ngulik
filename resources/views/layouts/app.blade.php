@@ -54,6 +54,7 @@
                         @if(Auth::user()->status == 'admin')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
+                            <li><a href="{{ route('kelas') }}">Laporan</a></li>
                             <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li><a href="{{ route('pengguna') }}">Pengguna</a></li>
                             <li class="dropdown">
@@ -189,19 +190,6 @@
           modal.find('.modal-body #penerima').val(penerima);
           modal.find('.modal-body #pengirim').val(pengirim);
           modal.find('.modal-body #nama').val(nama);
-
-          // var pengirim = modal.find('.modal-body #pengirim').val(penerima);
-
-
-          // $.post("/obrolan",
-          // {
-          //   value: pengirim
-          // },
-          // function(data){
-          //   alert(data);
-          // })
-            
-
           })
 
         $('#gabung_kelas').on('show.bs.modal', function (event) {
@@ -209,6 +197,24 @@
           var kelas_id = button.data('kelas_id')
           var modal = $(this)
           modal.find('.modal-body #kelas_id').val(kelas_id);
+        })
+
+        $('#kirim_tugas_vid').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var tugas_id = button.data('tugas_id')
+          var jenis = button.data('jenis')
+          var modal = $(this)
+          modal.find('.modal-body #tugas_id').val(tugas_id);
+          modal.find('.modal-body #jenis').val(jenis);
+        })
+
+        $('#kirim_tugas_doc').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var tugas_id = button.data('tugas_id')
+          var jenis = button.data('jenis')
+          var modal = $(this)
+          modal.find('.modal-body #tugas_id').val(tugas_id);
+          modal.find('.modal-body #jenis').val(jenis);
         })
 
         $('#detail_user').on('show.bs.modal', function (event) {
@@ -264,6 +270,15 @@
           modal.find('.modal-body #id').val(id);
           modal.find('.modal-body #nama').val(nama);
           modal.find('.modal-body #status').val(status);
+        })
+
+        $('#edit_nilai').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id') 
+          var nilai = button.data('nilai') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #nilai').val(nilai);
         })
 
         $('#edit_kelas').on('show.bs.modal', function (event) {
@@ -324,6 +339,19 @@
           modal.find('.modal-body #link').val(link);
         })
 
+        $('#edit_tugas').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var judul = button.data('judul')
+          var isitugas = button.data('isitugas')
+          var jenis = button.data('jenis')
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #judul').val(judul);
+          modal.find('.modal-body #isitugas').val(isitugas);
+          modal.find('.modal-body #jenis').val(jenis);
+        })
+
         $('#edit_komentar').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id')
@@ -365,6 +393,13 @@
         })
 
         $('#hapus_pengumuman').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+        })
+
+        $('#hapus_tugas').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 
           var modal = $(this)

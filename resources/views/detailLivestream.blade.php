@@ -174,7 +174,7 @@
                             @if($livestream->user_id == Auth::id())
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-warning" data-id="{{$livestream->id}}" data-link="https://www.youtube.com/channel/{{$livestream->link}}?view_as=subscriber" data-toggle="modal" data-target="#edit_livestream">&nbsp;&nbsp;&nbsp;Ubah&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$livestream->id}}" data-kelas_id="{{$livestream->kelas_id}}" data-toggle="modal" data-target="#hapus_livestream">&nbsp;Akhiri Lives Strea&nbsp;</button> 
+                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$livestream->id}}" data-kelas_id="{{$livestream->kelas_id}}" data-toggle="modal" data-target="#hapus_livestream">&nbsp;Akhiri Lives Stream&nbsp;</button> 
                             </div>
                             @else
                             <div class="pull-right">
@@ -379,7 +379,7 @@
                                 <p class="text-center">Apakah anda yakin ingin mengakhiri live stream ini?</p>
                             </div>
                             <div class="box-footer text-center">
-                                <button type="submit" class="btn btn-primary">Ya</button>
+                                <button type="submit" class="btn btn-danger">Akhiri</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                             </div>
                         

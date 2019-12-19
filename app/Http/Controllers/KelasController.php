@@ -14,6 +14,8 @@ use App\Pengumuman;
 use App\Obrolan;
 use App\Komentar;
 use App\Livestream;
+use App\Tugas;
+use App\Tugasuser;
 use DB;
 
 class KelasController extends Controller
@@ -38,8 +40,18 @@ class KelasController extends Controller
 
     public function detailKelas(Kelas $kelas)
     {   
-        $livestreams = Livestream::all()->where('kelas_id', $kelas->id);
+        $livestreams = livestream::selectLivestream()->where('kelas_id', $kelas->id);
         $pengumumans2 = Pengumuman::selectPengumuman();
+        $tugass2 = Tugas::selectTugas();
+        $tugasusers = Tugasuser::all();
+
+        $tugass = Tugas::where('kelas_id', $kelas->id)->paginate(3, ['*'], 't');
+
+        $tugass3 = DB::table('tugass')
+                ->select('tugass.id','tugass.judul','tugass.jenis','tugass.isitugas', 'tugasusers.user_id', 'tugasusers.tugas_id')
+                ->leftjoin('tugasusers','tugasusers.tugas_id', '=', 'tugass.id')
+                ->paginate(3, ['*'], 't');
+
         $pengumumans = Pengumuman::where('kelas_id', $kelas->id)->paginate(3, ['*'], 'p');
 
         $materivid = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube')->paginate(1, ['*'], 'mv');
@@ -63,7 +75,7 @@ class KelasController extends Controller
         $users4 = DB::table('users')->where('id', $kelas->user_id)->get();
         $kelasusers = Kelasuser::all()->where('kelas_id', $kelas->id)->where('user_id', Auth::id());
 
-        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','materigit','pengumumans','pengumumans2','livestreams','users','users2','users3','users4','kelasusers'));
+        return view('detailKelas', compact('kelas','materivid','materiaud','materiteks','materigit','pengumumans','pengumumans2','tugass','tugass2','tugass3','livestreams','users','users2','users3','users4','kelasusers','tugasusers'));
     }
 
 // End View

@@ -67,6 +67,45 @@
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <b>Tugas Kelas</b>
+                        </div>
+                        @foreach ($tugass as $tugas)
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <label for="nama">{{ $tugas->judul }} ({{ $tugas->jenis }})</label>
+                                                </div>
+                                                <div>
+                                                    <label for="nama">{{ $tugas->isitugas }}</label>
+                                                </div>
+                                                <div class="text-center" style="margin-bottom: -20px;">
+                                                @if($tugas->user_id == Auth::id())
+                                                    <div class="col-xs-6 col-md-6 btn btn-sm btn-warning" data-id="{{$tugas->id}}" data-judul="{{$tugas->judul}}" data-isitugas="{{$tugas->isitugas}}" data-jenis="{{$tugas->jenis}}" data-toggle="modal" data-target="#edit_tugas" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6 btn btn-sm btn-danger" data-id="{{$tugas->id}}" data-toggle="modal" data-target="#hapus_tugas" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
+                                                    </div>
+                                                @else
+                                                @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endforeach
+                        <div class="text-center">
+                            {{$tugass->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 'p' => $pengumumans->currentPage()])->links()}} 
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
@@ -112,7 +151,7 @@
                             </ul>
                         @endforeach
                         <div class="text-center">
-                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -241,12 +280,12 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -276,7 +315,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -307,7 +346,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -336,7 +375,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -422,6 +461,56 @@
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <b>Tugas Kelas</b>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_tugas"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
+                            </div>
+                        </div>
+                        @foreach ($tugass as $tugas)
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <label for="nama">{{ $tugas->judul }} ({{ $tugas->jenis }})</label>
+                                                </div>
+                                                <div>
+                                                    <label for="nama">{{ $tugas->isitugas }}</label>
+                                                </div>
+                                                <div class="text-center" style="margin-bottom: -20px;">
+                                                @if($tugas->user_id == Auth::id())
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugas',[$kelas->id, $tugas->id]) }}'" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Kelola</b></span>
+                                                    </div>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-warning" data-id="{{$tugas->id}}" data-judul="{{$tugas->judul}}" data-isitugas="{{$tugas->isitugas}}" data-jenis="{{$tugas->jenis}}" data-toggle="modal" data-target="#edit_tugas" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
+                                                    </div>
+                                                    <div class="col-xs-4 col-md-4 btn btn-sm btn-danger" data-id="{{$tugas->id}}" data-toggle="modal" data-target="#hapus_tugas" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
+                                                    </div>
+                                                @else
+                                                    <div class="col-xs-12 col-md-4 col-md-offset-4 btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugas',[$kelas->id, $tugas->id]) }}'" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Kelola</b></span>
+                                                    </div>
+                                                @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endforeach
+                        <div class="text-center">
+                            {{$tugass->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 'p' => $pengumumans->currentPage()])->links()}} 
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
@@ -467,7 +556,7 @@
                             </ul>
                         @endforeach
                         <div class="text-center">
-                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -596,12 +685,12 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -631,7 +720,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -662,7 +751,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -691,7 +780,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -777,6 +866,48 @@
                     </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <b>Tugas Kelas</b>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_tugas"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
+                            </div>
+                        </div>
+                        @foreach ($tugass as $tugas)
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <label for="nama">{{ $tugas->judul }} ({{ $tugas->jenis }})</label>
+                                                </div>
+                                                <div>
+                                                    <label for="nama">{{ $tugas->isitugas }}</label>
+                                                </div>
+                                                <div class="text-center" style="margin-bottom: -20px;">
+                                                @if($tugas->user_id == Auth::id())
+                                                    <div class="col-xs-6 col-md-6 btn btn-sm btn-warning" data-id="{{$tugas->id}}" data-judul="{{$tugas->judul}}" data-isitugas="{{$tugas->isitugas}}" data-jenis="{{$tugas->jenis}}" data-toggle="modal" data-target="#edit_tugas" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-edit"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6 btn btn-sm btn-danger" data-id="{{$tugas->id}}" data-toggle="modal" data-target="#hapus_tugas" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
+                                                    </div>
+                                                @else
+                                                @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endforeach
+                        <div class="text-center">
+                            {{$tugass->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 'p' => $pengumumans->currentPage()])->links()}} 
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
                             <b>Pengumuman Kelas</b>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_pengumuman"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
@@ -822,7 +953,7 @@
                             </ul>
                         @endforeach
                         <div class="text-center">
-                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                            {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -955,12 +1086,12 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -990,7 +1121,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -1021,7 +1152,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -1050,7 +1181,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -1121,6 +1252,53 @@
                                 </ul>
                         </div>
                         <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <b>Tugas Kelas</b>
+                        </div>
+                        @foreach ($tugass as $tugas)
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="col-md-12">
+                                                <div>
+                                                    <label for="nama">{{ $tugas->judul }} ({{ $tugas->jenis }})</label>
+                                                </div>
+                                                <div>
+                                                    <label for="nama">{{ $tugas->isitugas }}</label>
+                                                </div>
+                                                <div class="text-center" style="margin-bottom: -20px;">
+                                                    @if($tugas->jenis == 'Video')
+                                                        <div class="col-xs-6 col-md-6 btn btn-sm btn-primary" data-tugas_id="{{$tugas->id}}" data-jenis="{{$tugas->jenis}}" data-toggle="modal" data-target="#kirim_tugas_vid" id="kelasdetail">
+                                                            <span class="before"><b><i class="fas fa-paper-plane"></i></b></span>
+                                                            <span class="after"><b><i class="fas fa-paper-plane"></i>Kirim Tugas</b></span>
+                                                        </div>
+                                                        <div class="col-xs-6 col-md-6 btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugas',[$kelas->id, $tugas->id]) }}'" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Lihat Data Tugas</b></span>
+                                                    </div>
+                                                    @else
+                                                        <div class="col-xs-6 col-md-6 btn btn-sm btn-primary" data-tugas_id="{{$tugas->id}}" data-jenis="{{$tugas->jenis}}" data-toggle="modal" data-target="#kirim_tugas_doc" id="kelasdetail">
+                                                            <span class="before"><b><i class="fas fa-paper-plane"></i></b></span>
+                                                            <span class="after"><b><i class="fas fa-paper-plane"></i>Kirim Tugas</b></span>
+                                                        </div>
+                                                        <div class="col-xs-6 col-md-6 btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugas',[$kelas->id, $tugas->id]) }}'" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Lihat Data Tugas</b></span>
+                                                    </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endforeach
+                        <div class="text-center">
+                            {{$tugass->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 'p' => $pengumumans->currentPage()])->links()}} 
+                        </div>
+                    </div>
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <b>Pengumuman Kelas</b>
                             </div>
@@ -1141,7 +1319,7 @@
                                 </ul>
                             @endforeach
                             <div class="text-center">
-                                {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                {{$pengumumans->appends(['mv' => $materivid->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                             </div>
                         </div>
                         <div class="panel panel-primary">
@@ -1270,12 +1448,12 @@
                                             </div>
                                             <div class="col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materivid->appends(['p' => $pengumumans->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -1305,7 +1483,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiaud->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'mt' => $materiteks->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -1336,7 +1514,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage()])->links()}} 
+                                                {{$materiteks->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mg' => $materigit->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -1365,7 +1543,7 @@
                                             </div>
                                             @endforeach
                                             <div class="text-center">
-                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage()])->links()}} 
+                                                {{$materigit->appends(['p' => $pengumumans->currentPage(), 'mv' => $materivid->currentPage(), 'ma' => $materiaud->currentPage(), 'mt' => $materiteks->currentPage(), 't' => $tugass->currentPage()])->links()}} 
                                             </div>
                                         </div>
                                     </div>
@@ -1484,6 +1662,55 @@
     </div>
 <!-- Akhir Modal Create Pesan -->
 
+<!-- Modal Create Tugas-->
+    <div class="modal fade" id="buat_tugas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Buat Tugas</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Create Tugas -->
+                    <form role="form" action="{{route('tugasStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::id() }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="{{ $kelas->id }}">
+                            </div> 
+                            <div class="form-group">
+                                <label for="">Judul Tugas</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Tulis Judul Tugas">
+                            </div>
+                            <div class="form-group">
+                                <label for="input_nama">Isi Tugas</label>
+                                <textarea name="isitugas" id="isitugas" rows="5" class="form-control" placeholder="Tulis Isi Tugas"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Pilih Jenis</label>
+                                <select name="jenis" id="jenis" class="form-control">
+                                    <option value="Video">Video</option>
+                                    <option value="Audio">Audio</option>
+                                    <option value="Tekstual">Tekstual</option>
+                                </select>
+                            </div> 
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Buat</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Create Tugas -->
+
 <!-- Modal Detail User-->
     <div class="modal fade" id="detail_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -1594,6 +1821,81 @@
     </div>
 <!-- Akhir Modal Gabung Kelas -->
 
+<!-- Modal Kirim Tugas Vid-->
+    <div class="modal fade" id="kirim_tugas_vid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Kirim Tugas</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Kirim Tugas Vid -->
+                    <form role="form" action="{{route('tugasuserStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="tugas_id" id="tugas_id" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="jenis" id="jenis" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="link" id="link" class="form-control" value="" placeholder="Masukkan Link Tugas">
+                                <label>Contoh link : https://www.youtube.com/watch?v=ABCDEFGHIJK</label>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Batal&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Kirim Tugas Vid -->
+
+<!-- Modal Kirim Tugas Doc-->
+    <div class="modal fade" id="kirim_tugas_doc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #7997f7; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Kirim Tugas</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Kirim Tugas Doc -->
+                    <form role="form" action="{{route('tugasuserStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="tugas_id" id="tugas_id" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="jenis" id="jenis" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" id="user_id" class="form-control" value="{{ Auth::user()->id }}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="link" id="link" class="form-control" value="" placeholder="Masukkan Link Tugas">
+                                <label>Contoh link : https://drive.google.com/file/d/123ABCDE/view?usp=sharing</label>
+                                <label>Contoh link 2 : https://drive.google.com/file/d/123ABCDE/view?usp=drive_open</label>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;&nbsp;&nbsp;Batal&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Kirim Tugas Doc -->
+
 <!-- Modal Detail Pengumuman-->
     <div class="modal fade" id="detail_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -1667,6 +1969,49 @@
     </div>
 <!-- Akhir Modal Update Pengumuman -->
 
+<!-- Modal Update Tugas-->
+    <div class="modal fade" id="edit_tugas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #e8c83a; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Ubah Tugas</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Update Tugas-->
+                <form role="form" action="{{route('editTugas')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_nama">Judul Tugas</label>
+                            <input type="text" name="judul" id="judul" class="form-control" value="">
+                        </div> 
+                        <div class="form-group">
+                            <label for="input_nama">Isi Tugas</label>
+                            <textarea name="isitugas" id="isitugas" rows="5" class="form-control" placeholder="Tulis Isi Tugas"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Pilih Jenis</label>
+                            <select name="jenis" id="jenis" class="form-control">
+                                <option value="Video">Video</option>
+                                <option value="Audio">Audio</option>
+                                <option value="Tekstual">Tekstual</option>
+                            </select>
+                        </div>  
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-warning">Ubah</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Update Tugas -->
+
 <!-- Modal Delete Pengumuman -->
     <div class="modal fade" id="hapus_pengumuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -1697,6 +2042,37 @@
         </div>
     </div>
 <!-- Akhir Modal Delete Pengumuman -->
+
+<!-- Modal Delete Tugas -->
+    <div class="modal fade" id="hapus_tugas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Tugas</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete Tugas -->
+                    <form role="form" action="{{ route('hapusTugas') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin menghapus tugas ini?</p>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Delete Tugas -->
 
 <!-- Modal Create Livestream-->
     <div class="modal fade" id="buat_livestream" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

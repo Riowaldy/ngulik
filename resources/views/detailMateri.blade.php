@@ -17,7 +17,7 @@
                                             <div class="col-md-6">
                                                 @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                                 @elseif($materi->jenis == 'Github')
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
@@ -137,7 +137,7 @@
                                             <div class="col-md-6">
                                                 @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                                 @elseif($materi->jenis == 'Github')
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
@@ -257,7 +257,7 @@
                                             <div class="col-md-6">
                                                 @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                                 @elseif($materi->jenis == 'Github')
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
@@ -377,7 +377,7 @@
                                             <div class="col-md-6">
                                                 @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                                 @elseif($materi->jenis == 'Github')
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>

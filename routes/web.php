@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profil','UserController@profil')->name('profil');
 Route::get('/pengguna','UserController@pengguna')->name('pengguna');
+Route::get('/laporan','AdminController@laporan')->name('laporan');
 Route::get('/kelas','KelasController@kelas')->name('kelas');
 Route::get('/kelas/{kelas}','KelasController@detailKelas')->name('detailKelas');
 Route::get('/kelas/{kelas}/materiVideo','MateriController@materiVideo')->name('materiVideo');
@@ -27,6 +28,8 @@ Route::get('/kelas/{kelas}/materiAudio','MateriController@materiAudio')->name('m
 Route::get('/kelas/{kelas}/materiTekstual','MateriController@materiTekstual')->name('materiTekstual');
 Route::get('/kelas/{kelas}/materiGithub','MateriController@materiGithub')->name('materiGithub');
 Route::get('/kelas/{kelas}/{materi}','MateriController@detailMateri')->name('detailMateri');
+Route::get('/kelas/{kelas}/tugas/{tugas}','TugasController@detailTugas')->name('detailTugas');
+Route::get('/tugas/{tugas}/{tugasuser}','TugasController@detailTugasuser')->name('detailTugasuser');
 Route::get('/obrolan','ObrolanController@obrolan')->name('obrolan');
 Route::get('/obrolan/{obrolan}','ObrolanController@detailObrolan')->name('detailObrolan');
 Route::get('/kelas/{kelas}/live/{livestream}','LivestreamController@detailLivestream')->name('detailLivestream');
@@ -39,10 +42,14 @@ Route::post('/editMateri','MateriController@editMateri')->name('editMateri');
 Route::post('/editPengumuman','PengumumanController@editPengumuman')->name('editPengumuman');
 Route::post('/editLivestream','LivestreamController@editLivestream')->name('editLivestream');
 Route::post('/editKomentar','KomentarController@editKomentar')->name('editKomentar');
+Route::post('/editTugas','TugasController@editTugas')->name('editTugas');
+Route::post('/editNilai','TugasController@editNilai')->name('editNilai');
 
 Route::post('/kelasStore','KelasController@kelasStore')->name('kelasStore');
 Route::post('/kelasuserStore','KelasController@kelasuserStore')->name('kelasuserStore');
+Route::post('/tugasuserStore','TugasController@tugasuserStore')->name('tugasuserStore');
 Route::post('/pengumumanStore','PengumumanController@pengumumanStore')->name('pengumumanStore');
+Route::post('/tugasStore','TugasController@tugasStore')->name('tugasStore');
 Route::post('/pesanStore','ObrolanController@pesanStore')->name('pesanStore');
 Route::post('/materiVideoStore','MateriController@materiVideoStore')->name('materiVideoStore');
 Route::post('/materiAudioStore','MateriController@materiAudioStore')->name('materiAudioStore');
@@ -59,6 +66,7 @@ Route::delete('/hapusLivestream','LivestreamController@hapusLivestream')->name('
 Route::delete('/hapusPengguna','UserController@hapusPengguna')->name('hapusPengguna');
 Route::delete('/hapusKomentar','KomentarController@hapusKomentar')->name('hapusKomentar');
 Route::delete('/hapusPesan','ObrolanController@hapusPesan')->name('hapusPesan');
+Route::delete('/hapusTugas','TugasController@hapusTugas')->name('hapusTugas');
 
 Route::get('/changePassword','UserController@showChangePasswordForm');
 Route::post('/changePassword','UserController@changePassword')->name('changePassword');
