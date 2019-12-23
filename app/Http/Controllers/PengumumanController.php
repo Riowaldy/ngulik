@@ -43,7 +43,7 @@ class PengumumanController extends Controller
 
 // Update
 
-    public function editPengumuman(Request $request){
+    public function editPengumuman(){
         // $edit = \DB::table('pengumumans')->select('id')->where('id', $request->input('id'));
         // $edit->update(['nama' => $request->input('nama')]);
         // $edit->update(['deskripsi' => $request->input('deskripsi')]);
@@ -57,7 +57,7 @@ class PengumumanController extends Controller
 
 // Delete
 
-    public function hapusPengumuman(Request $request)
+    public function hapusPengumuman()
     {
       // $delete = \DB::table('pengumumans')->select('id')->where('id', $request->input('id'));
       $delete = Pengumuman::selectPengumuman()->where('id', request('id'));

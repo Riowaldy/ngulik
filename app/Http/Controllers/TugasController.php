@@ -36,8 +36,9 @@ class TugasController extends Controller
     public function detailTugasuser(Tugas $tugas, Tugasuser $tugasuser)
     {   
         $tugass = DB::table('tugasusers')
-                ->select('tugasusers.*')
+                ->select('tugasusers.id','tugasusers.link','tugasusers.nilai','tugasusers.created_at','tugasusers.user_id','tugasusers.tugas_id','tugass.jenis')
                 ->join('users','users.id', '=', 'tugasusers.user_id')
+                ->join('tugass','tugass.id', '=', 'tugasusers.tugas_id')
                 ->where('tugasusers.id', '=', $tugasuser->id)
                 ->get();
         return view('detailTugasuser', compact('tugass'));
@@ -104,7 +105,7 @@ class TugasController extends Controller
 
 // Delete
 
-    public function hapusTugas(Request $request)
+    public function hapusTugas()
     {
         $delete = Tugas::selectTugas()->where('id', request('id'));
 

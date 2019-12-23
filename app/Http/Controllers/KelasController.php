@@ -45,14 +45,14 @@ class KelasController extends Controller
         $tugass2 = Tugas::selectTugas();
         $tugasusers = Tugasuser::all();
 
-        $tugass = Tugas::where('kelas_id', $kelas->id)->paginate(3, ['*'], 't');
+        $tugass = Tugas::orderby('id','desc')->where('kelas_id', $kelas->id)->paginate(3, ['*'], 't');
 
         $tugass3 = DB::table('tugass')
                 ->select('tugass.id','tugass.judul','tugass.jenis','tugass.isitugas', 'tugasusers.user_id', 'tugasusers.tugas_id')
                 ->leftjoin('tugasusers','tugasusers.tugas_id', '=', 'tugass.id')
                 ->paginate(3, ['*'], 't');
 
-        $pengumumans = Pengumuman::where('kelas_id', $kelas->id)->paginate(3, ['*'], 'p');
+        $pengumumans = Pengumuman::orderby('id','desc')->where('kelas_id', $kelas->id)->paginate(3, ['*'], 'p');
 
         $materivid = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Youtube')->paginate(1, ['*'], 'mv');
         $materiaud = Materi::where('kelas_id', $kelas->id)->where('status', 'Terverifikasi')->where('jenis', 'Audio')->paginate(1, ['*'], 'ma');

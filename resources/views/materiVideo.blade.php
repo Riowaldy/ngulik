@@ -152,9 +152,6 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Halaman Materi Murid</b>
-                            <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Video (Youtube)</button>
-                            </div>
                         </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
@@ -204,7 +201,7 @@
                 <div class="modal-body">
                           
     <!--Form Dalam Modal Create Pesan -->
-                    <form role="form" action="{{route('materiVideoStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
+                    <form role="form" action="{{route('materiStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                         <div class="box-body">
                             <div class="form-group">
                                 <input type="hidden" name="id" id="id" class="form-control" value="" readonly>

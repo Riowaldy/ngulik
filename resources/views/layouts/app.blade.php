@@ -54,7 +54,7 @@
                         @if(Auth::user()->status == 'admin')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
-                            <li><a href="{{ route('kelas') }}">Laporan</a></li>
+                            <li><a href="{{ route('laporan') }}">Laporan</a></li>
                             <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li><a href="{{ route('pengguna') }}">Pengguna</a></li>
                             <li class="dropdown">

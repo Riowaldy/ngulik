@@ -10,7 +10,7 @@ class Komentar extends Model
         'kelas_id', 'materi_id', 'user_id', 'isikomentar',
     ];
 
-    protected $table = 'komentars';
+    public $table = 'komentars';
 
     public function user()
 	{
@@ -40,5 +40,17 @@ class Komentar extends Model
 		            'user_id' => request('user_id'),
 		            'isikomentar' => request('isikomentar')
 		        ]);
+	}
+
+	public static function updateKomentar()
+	{
+		return 	Komentar::whereId(request('id'))->update([
+				'isikomentar' => request('isikomentar')
+				]);
+	}
+
+	public static function deleteKomentar()
+	{
+		return 	Komentar::whereId(request('id'))->delete();
 	}
 }

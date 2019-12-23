@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Barryvdh\DomPDF\serviceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +231,7 @@ return [
 
         'LaravelVideoEmbed' => Merujan99\LaravelVideoEmbed\Facades\LaravelVideoEmbed::class,
         'Embed' => Cohensive\Embed\Facades\Embed::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

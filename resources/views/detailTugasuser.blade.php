@@ -18,7 +18,7 @@
                                     <div class="panel-body">
                                         <div class="col-md-12 text-center">
                                             <div class="col-xs-12 col-md-12">
-                                                <button class="btn btn-sm btn-primary" data-id="{{$tugas->id}}" data-nilai="{{$tugas->nilai}}" data-toggle="modal" data-target="#edit_nilai">Beri Nilai</button>
+                                                <button class="btn btn-sm btn-warning" data-id="{{$tugas->id}}" data-nilai="{{$tugas->nilai}}" data-toggle="modal" data-target="#edit_nilai">Ubah Nilai</button>
                                             </div>
                                         </div>
                                     </div>
@@ -56,9 +56,18 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12 text-center">
+                                            <div>
+                                                <label>Dikirim pada : {{$tugas->created_at}}</label>
+                                            </div>
+                                            @if($tugas->jenis == 'Video')
                                             <div class="embed-responsive embed-responsive-16by9">
                                                 <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$tugas->link}}" allowfullscreen></iframe>
                                             </div>
+                                            @else
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$tugas->link}}/preview"></iframe>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </li>

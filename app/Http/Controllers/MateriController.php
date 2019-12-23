@@ -22,30 +22,31 @@ class MateriController extends Controller
 
     public function materiVideo(Kelas $kelas){
 
-        $materis = Materi::where('kelas_id', $kelas->id)->where('jenis', 'Youtube')->paginate(6);
+        $materis = Materi::orderby('id','desc')->where('kelas_id', $kelas->id)->where('jenis', 'Youtube')->paginate(6);
         
         return view('materiVideo', compact('kelas','materis'));
     }
     public function materiAudio(Kelas $kelas){
 
-        $materis = Materi::where('kelas_id', $kelas->id)->where('jenis', 'Audio')->paginate(6);
+        $materis = Materi::orderby('id','desc')->where('kelas_id', $kelas->id)->where('jenis', 'Audio')->paginate(6);
         return view('materiAudio', compact('kelas','materis'));
     }
     public function materiTekstual(Kelas $kelas){
 
-        $materis = Materi::where('kelas_id', $kelas->id)->where('jenis', 'Tekstual')->paginate(6);
+        $materis = Materi::orderby('id','desc')->where('kelas_id', $kelas->id)->where('jenis', 'Tekstual')->paginate(6);
         return view('materiTekstual', compact('kelas','materis'));
     }
     public function materiGithub(Kelas $kelas){
 
-        $materis = Materi::where('kelas_id', $kelas->id)->where('jenis', 'Github')->paginate(6);
+        $materis = Materi::orderby('id','desc')->where('kelas_id', $kelas->id)->where('jenis', 'Github')->paginate(6);
         return view('materiGithub', compact('kelas','materis'));
     }
     public function detailMateri(Kelas $kelas, Materi $materi)
     {   
         $materi2 = Materi::selectMateri();
-        $komentars = Komentar::selectKomentar()->where('kelas_id', $kelas->id)->where('materi_id', $materi->id);
-        return view('detailMateri', compact('kelas','materi','materi2','komentars'));
+        $komentars2 = Komentar::selectKomentar();
+        $komentars = Komentar::where('kelas_id', $kelas->id)->where('materi_id', $materi->id)->paginate(10);
+        return view('detailMateri', compact('kelas','materi','materi2','komentars','komentars2'));
     }
 
 // End View
@@ -73,6 +74,19 @@ class MateriController extends Controller
 // End Update
 
 // Insert
+
+    public function materiStore()
+    {
+        $this->validate(request(), [
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'link' => 'required'
+        ]);
+
+        Materi::createMateri();
+
+        return back()->with('success');
+    }
 
     public function materiVideoStore()
     {

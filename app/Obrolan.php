@@ -10,7 +10,7 @@ class Obrolan extends Model
         'pengirim', 'penerima', 'isipesan',
     ];
 
-    protected $table = 'obrolans';
+    public $table = 'obrolans';
 
 	protected $dates = [
 	    'created_at',
@@ -34,6 +34,11 @@ class Obrolan extends Model
 		            'penerima' =>request('penerima'),
 		            'isipesan' => request('isipesan')
 		        ]);
+	}
+
+	public static function deleteObrolan()
+	{
+		return 	Obrolan::whereId(request('id'))->delete();
 	}
 
 }

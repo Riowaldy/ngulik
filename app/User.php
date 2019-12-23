@@ -44,6 +44,11 @@ class User extends Authenticatable
         return User::all();
     }
 
+    public static function selectUserLaporan()
+    {
+        return User::paginate(10);
+    }
+
     public static function updateUser()
     {
         return  User::whereId(request('id'))->update([

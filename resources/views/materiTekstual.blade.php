@@ -151,9 +151,6 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Halaman Materi Murid</b>
-                            <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Tekstual (GDrive)</button>
-                            </div>
                         </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">

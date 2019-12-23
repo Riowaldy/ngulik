@@ -10,7 +10,7 @@ class Pengumuman extends Model
         'user_id', 'kelas_id', 'nama', 'deskripsi',
     ];
 
-    protected $table = 'pengumumans';
+    public $table = 'pengumumans';
 
 
     public function user()

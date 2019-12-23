@@ -23,6 +23,11 @@ class Kelas extends Model
 		return Kelas::all();
 	}
 
+	public static function selectKelasLaporan()
+	{
+		return Kelas::paginate(10);
+	}
+
 	public static function createKelas()
 	{
 		return 	Kelas::create([

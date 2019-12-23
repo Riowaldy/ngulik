@@ -84,6 +84,11 @@
                                                 </div>
                                             </div>
                                             @endforeach
+                                            <div class="col-md-12">
+                                                <div class="text-center">
+                                                    {!! $komentars->render() !!}
+                                                </div>
+                                            </div>
                                             <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                                                 <div class="box-body">
                                                     <div class="form-group">
@@ -168,7 +173,7 @@
                                     <div class="panel-body">
                                         <div class="col-md-12">
                                             <div class="text-center">
-                                                <label><h3>Komentar</h3></label>
+                                                <label><h3>Komentar / Pertanyaan</h3></label>
                                             </div>
                                             @foreach($komentars as $komentar)
                                             <div class="col-xs-8 col-md-10">
@@ -204,6 +209,11 @@
                                                 </div>
                                             </div>
                                             @endforeach
+                                            <div class="col-md-12">
+                                                <div class="text-center">
+                                                    {!! $komentars->render() !!}
+                                                </div>
+                                            </div>
                                             <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                                                 <div class="box-body">
                                                     <div class="form-group">
@@ -324,6 +334,11 @@
                                                 </div>
                                             </div>
                                             @endforeach
+                                            <div class="col-md-12">
+                                                <div class="text-center">
+                                                    {!! $komentars->render() !!}
+                                                </div>
+                                            </div>
                                             <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                                                 <div class="box-body">
                                                     <div class="form-group">
@@ -444,6 +459,11 @@
                                                 </div>
                                             </div>
                                             @endforeach
+                                            <div class="col-md-12">
+                                                <div class="text-center">
+                                                    {!! $komentars->render() !!}
+                                                </div>
+                                            </div>
                                             <form role="form" action="{{route('komentarStore')}}" enctype="multipart/form-data" method="post">{{csrf_field()}}
                                                 <div class="box-body">
                                                     <div class="form-group">

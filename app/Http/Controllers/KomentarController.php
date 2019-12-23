@@ -38,18 +38,20 @@ class KomentarController extends Controller
         return back()->with('success');
     }
 
-    public function editKomentar(Request $request){
-        $edit = \DB::table('komentars')->select('id')->where('id', $request->input('id'));
-        $edit->update(['isikomentar' => $request->input('isikomentar')]);
+    public function editKomentar(){
+        $edit = Komentar::selectKomentar()->where('id', request('id'));
+        $edit = Komentar::updateKomentar();
 
         return back()->with('success');
     }
 
-    public function hapusKomentar(Request $request)
+    public function hapusKomentar()
     {
-        $delete = \DB::table('komentars')->select('id')->where('id', $request->input('id'));
+        // $delete = \DB::table('komentars')->select('id')->where('id', $request->input('id'));
+        $delete = Komentar::selectKomentar()->where('id', request('id'));
 
-        $delete->delete();
+        // $delete->delete();
+        $delete = Komentar::deleteKomentar();
         return back()->with('success');
     }
 

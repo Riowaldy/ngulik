@@ -28,6 +28,55 @@ class Materi extends Model
 		return Materi::all();
 	}
 
+	public static function selectMateriLaporan()
+	{
+		return Materi::paginate(10);
+	}
+
+	public static function createMateri()
+	{	
+		if(request('jenis') == 'Youtube')
+		{
+			$dataExplode = explode("=" , request('link'));
+	        $dataEnd = end($dataExplode);
+			return 	Materi::create([
+			            'user_id' => request('user_id'),
+			            'kelas_id' => request('kelas_id'),
+			            'nama' => request('nama'),
+			            'jenis' => request('jenis'),
+			            'status' => request('status'),
+			            'deskripsi' => request('deskripsi'),
+			            'link' => $dataEnd
+			        ]);
+		}
+		else if(request('jenis') == 'Github')
+		{
+			return 	Materi::create([
+				        'user_id' => request('user_id'),
+				        'kelas_id' => request('kelas_id'),
+				        'nama' => request('nama'),
+				        'jenis' => request('jenis'),
+				        'status' => request('status'),
+				        'deskripsi' => request('deskripsi'),
+				        'link' => request('link1').'/'.request('link2')
+				    ]);
+		}
+		else
+		{
+			$dataExplode = explode("/" , request('link'));
+	        $dataEnd = $dataExplode[5];
+			return 	Materi::create([
+				        'user_id' => request('user_id'),
+				        'kelas_id' => request('kelas_id'),
+				        'nama' => request('nama'),
+				        'jenis' => request('jenis'),
+				        'status' => request('status'),
+				        'deskripsi' => request('deskripsi'),
+				        'link' => $dataEnd
+				    ]);
+		}
+	}
+
 	public static function createMateriVideo()
 	{	
 		$dataExplode = explode("=" , request('link'));

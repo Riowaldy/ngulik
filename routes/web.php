@@ -21,6 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profil','UserController@profil')->name('profil');
 Route::get('/pengguna','UserController@pengguna')->name('pengguna');
 Route::get('/laporan','AdminController@laporan')->name('laporan');
+Route::get('/laporan/user','AdminController@laporanUser')->name('laporanUser');
+Route::get('/laporan/kelas','AdminController@laporanKelas')->name('laporanKelas');
+Route::get('/laporan/materi','AdminController@laporanMateri')->name('laporanMateri');
+Route::get('/laporan/tugas','AdminController@laporanTugas')->name('laporanTugas');
+Route::get('/laporan/pengumuman','AdminController@laporanPengumuman')->name('laporanPengumuman');
+Route::get('/laporan/komentar','AdminController@laporanKomentar')->name('laporanKomentar');
 Route::get('/kelas','KelasController@kelas')->name('kelas');
 Route::get('/kelas/{kelas}','KelasController@detailKelas')->name('detailKelas');
 Route::get('/kelas/{kelas}/materiVideo','MateriController@materiVideo')->name('materiVideo');
@@ -51,6 +57,7 @@ Route::post('/tugasuserStore','TugasController@tugasuserStore')->name('tugasuser
 Route::post('/pengumumanStore','PengumumanController@pengumumanStore')->name('pengumumanStore');
 Route::post('/tugasStore','TugasController@tugasStore')->name('tugasStore');
 Route::post('/pesanStore','ObrolanController@pesanStore')->name('pesanStore');
+Route::post('/materiStore','MateriController@materiStore')->name('materiStore');
 Route::post('/materiVideoStore','MateriController@materiVideoStore')->name('materiVideoStore');
 Route::post('/materiAudioStore','MateriController@materiAudioStore')->name('materiAudioStore');
 Route::post('/materiTekstualStore','MateriController@materiTekstualStore')->name('materiTekstualStore');
@@ -70,3 +77,16 @@ Route::delete('/hapusTugas','TugasController@hapusTugas')->name('hapusTugas');
 
 Route::get('/changePassword','UserController@showChangePasswordForm');
 Route::post('/changePassword','UserController@changePassword')->name('changePassword');
+
+Route::get('/dynamic_pdfUser','AdminController@indexUserPDF')->name('UserPDF');
+Route::get('/dynamic_pdf/pdfUser','AdminController@pdfUserPDF')->name('UserPDF');
+Route::get('/dynamic_pdfKelas','AdminController@indexKelasPDF')->name('KelasPDF');
+Route::get('/dynamic_pdf/pdfKelas','AdminController@pdfKelasPDF')->name('KelasPDF');
+Route::get('/dynamic_pdfMateri','AdminController@indexMateriPDF')->name('MateriPDF');
+Route::get('/dynamic_pdf/pdfMateri','AdminController@pdfMateriPDF')->name('MateriPDF');
+Route::get('/dynamic_pdfTugas','AdminController@indexTugasPDF')->name('TugasPDF');
+Route::get('/dynamic_pdf/pdfTugas','AdminController@pdfTugasPDF')->name('TugasPDF');
+Route::get('/dynamic_pdfPengumuman','AdminController@indexPengumumanPDF')->name('PengumumanPDF');
+Route::get('/dynamic_pdf/pdfPengumuman','AdminController@pdfPengumumanPDF')->name('PengumumanPDF');
+Route::get('/dynamic_pdfKomentar','AdminController@indexKomentarPDF')->name('KomentarPDF');
+Route::get('/dynamic_pdf/pdfKomentar','AdminController@pdfKomentarPDF')->name('KomentarPDF');

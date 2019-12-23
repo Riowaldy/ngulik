@@ -10,7 +10,7 @@ class Livestream extends Model
         'user_id', 'kelas_id', 'link',
     ];
 
-    protected $table = 'livestreams';
+    public $table = 'livestreams';
 
     public function user()
 	{

@@ -78,7 +78,7 @@ class LivestreamController extends Controller
 
 // Delete
 
-    public function hapusLivestream(Request $request)
+    public function hapusLivestream()
     {
         // $delete = \DB::table('livestreams')->select('id')->where('id', $request->input('id'));
         $delete = Livestream::selectLivestream()->where('id', request('id'));

@@ -98,11 +98,13 @@ class ObrolanController extends Controller
 
 // Delete
 
-    public function hapusPesan(Request $request)
+    public function hapusPesan()
     {
-        $delete = \DB::table('obrolans')->select('id')->where('id', $request->input('id'));
+        // $delete = \DB::table('obrolans')->select('id')->where('id', $request->input('id'));
+        $delete = Obrolan::selectObrolan()->where('id', request('id'));
 
-        $delete->delete();
+        // $delete->delete();
+        $delete = Obrolan::deleteObrolan();
         return back()->with('success');
     }
 

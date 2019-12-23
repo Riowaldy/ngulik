@@ -14,8 +14,14 @@ class Tugasuser extends Model
 	{
 	    return $this->belongsToMany('App\User');
 	}
+
 	public function tugas()
 	{
 	    return $this->belongsToMany('App\Tugas');
 	}
+
+	public static function selectTugasuser()
+    {
+        return Tugasuser::all();
+    }
 }
