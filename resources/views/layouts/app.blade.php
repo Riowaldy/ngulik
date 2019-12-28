@@ -392,6 +392,17 @@
           modal.find('.modal-body #kelas_id').val(kelas_id);
         })
 
+        $('#hapus_tugasuser').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var tugas_id = button.data('tugas_id')
+          var kelas_id = button.data('kelas_id') 
+          var modal = $(this)
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #tugas_id').val(tugas_id);
+          modal.find('.modal-body #kelas_id').val(kelas_id);
+        })
+
         $('#hapus_pengumuman').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget)
           var id = button.data('id') 

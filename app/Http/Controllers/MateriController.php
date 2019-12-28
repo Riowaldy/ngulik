@@ -53,7 +53,7 @@ class MateriController extends Controller
 
 // Update
 
-    public function editStatusMateri(Request $request){
+    public function editStatusMateri(){
         // $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
         // $edit->update(['status' => $request->input('status')]);
 
@@ -61,11 +61,7 @@ class MateriController extends Controller
         $edit = Materi::updateStatusMateri();
         return back()->with('success');
     }
-    public function editMateri(Request $request){
-        // $edit = \DB::table('materis')->select('id')->where('id', $request->input('id'));
-        // $edit->update(['nama' => $request->input('nama')]);
-        // $edit->update(['deskripsi' => $request->input('deskripsi')]);
-
+    public function editMateri(){
         $edit = Materi::selectMateri()->where('id', request('id'));
         $edit = Materi::updateMateri();
         return back()->with('success');
@@ -195,13 +191,11 @@ class MateriController extends Controller
     public function hapusMateri(Request $request)
     {
         $deleteKomentar = \DB::table('komentars')->select('id')->where('materi_id', $request->input('id'));
-        // $delete = \DB::table('materis')->select('id')->where('id', $request->input('id'));
         $delete = Materi::selectMateri()->where('id', request('id'));
 
         $kelas = $request->input('kelas_id');
         
         $deleteKomentar->delete();
-        // $delete->delete();
         $delete = Materi::deleteMateri();
         return redirect()->route('detailKelas', ['kelas' => $kelas]);
     }

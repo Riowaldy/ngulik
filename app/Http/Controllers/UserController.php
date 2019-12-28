@@ -46,14 +46,11 @@ class UserController extends Controller
 
 // Update
 
-    public function editProfil(Request $request){
-      	// $edit = \DB::table('users')->select('id')->where('id', $request->input('id'));
-      	// $edit->update(['nama' => $request->input('nama')]);
-      	// $edit->update(['email' => $request->input('email')]);
-
+    public function editProfil()
+    {
         $edit = User::selectUser()->where('id', request('id'));
         $edit = User::updateUser();
-      return back()->with('success');
+        return back()->with('success');
     }
     public function editStatus(Request $request){
         // $edit = \DB::table('users')->select('id')->where('id', $request->input('id'));
@@ -105,7 +102,6 @@ class UserController extends Controller
         $deleteKomentar = \DB::table('komentars')->select('id')->where('user_id', $request->input('id'));
         $deleteLivestream = \DB::table('livestreams')->select('id')->where('user_id', $request->input('id'));
         $deleteObrolan = \DB::table('obrolans')->select('id')->where('pengirim', $request->input('id'))->where('penerima', $request->input('id'));
-        // $delete = \DB::table('users')->select('id')->where('id', $request->input('id'));
         $delete = User::selectUser()->where('id', request('id'));
 
         $deleteKelasuser->delete();
@@ -114,7 +110,6 @@ class UserController extends Controller
         $deleteKomentar->delete();
         $deleteLivestream->delete();
         $deleteObrolan->delete();
-        // $delete->delete();
         $delete = User::deleteUser();
       return back()->with('success');
     }

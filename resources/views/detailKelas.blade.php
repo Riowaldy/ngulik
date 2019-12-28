@@ -50,10 +50,6 @@
                                             <label for="nama">{{ $kelas->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="nama">Kode Kelas&emsp;&nbsp;:</label>
-                                            <label for="nama">NGULIK{{ $kelas->id }}</label>
-                                        </div>
-                                        <div class="col-md-12">
                                             <label for="nama">Pengajar&emsp;&emsp;&nbsp;&nbsp;:</label>
                                             <label for="nama">{{ $kelas->user->nama }}</label>
                                         </div>
@@ -442,10 +438,6 @@
                                         <div class="col-md-12">
                                             <label for="nama">Nama Kelas&emsp;:</label>
                                             <label for="nama">{{ $kelas->nama }}</label>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label for="nama">Kode Kelas&emsp;&nbsp;:</label>
-                                            <label for="nama">NGULIK{{ $kelas->id }}</label>
                                         </div>
                                         <div class="col-md-12">
                                             <label for="nama">Pengajar&emsp;&emsp;&nbsp;&nbsp;:</label>
@@ -849,10 +841,6 @@
                                             <label for="nama">{{ $kelas->nama }}</label>
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="nama">Kode Kelas&emsp;&nbsp;:</label>
-                                            <label for="nama">NGULIK{{ $kelas->id }}</label>
-                                        </div>
-                                        <div class="col-md-12">
                                             <label for="nama">Pengajar&emsp;&emsp;&nbsp;&nbsp;:</label>
                                             <label for="nama">{{ $kelas->user->nama }}</label>
                                         </div>
@@ -1234,10 +1222,6 @@
                                             <div class="col-md-12">
                                                 <label for="nama">Nama Kelas&emsp;:</label>
                                                 <label for="nama">{{ $kelas->nama }}</label>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label for="nama">Kode Kelas&emsp;&nbsp;:</label>
-                                                <label for="nama">NGULIK{{ $kelas->id }}</label>
                                             </div>
                                             <div class="col-md-12">
                                                 <label for="nama">Pengajar&emsp;&emsp;&nbsp;&nbsp;:</label>

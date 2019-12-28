@@ -82,14 +82,6 @@ class KelasController extends Controller
 
 // Update
 
-    // public function editKelas(Request $request){
-    //     $edit = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
-    //     $edit->update(['nama' => $request->input('nama')]);
-    //     $edit->update(['user_id' => $request->input('user_id')]);
-    //     $edit->update(['deskripsi' => $request->input('deskripsi')]);
-    //     return back()->with('success','Berhasil Di Edit');
-    // }
-
     public function editKelas(){
         $edit = Kelas::selectKelas()->where('id', request('id'));
         $edit = Kelas::updateKelas();
@@ -107,12 +99,6 @@ class KelasController extends Controller
             'nama' => 'required',
             'deskripsi' => 'required'
         ]);
-
-        // Kelas::create([
-        //     'nama' => request('nama'),
-        //     'user_id' => request('user_id'),
-        //     'deskripsi' => request('deskripsi')
-        // ]);
 
         Kelas::createKelas();
 
@@ -144,7 +130,6 @@ class KelasController extends Controller
         $deletePengumuman = \DB::table('pengumumans')->select('id')->where('kelas_id', $request->input('id'));
         $deleteKomentar = \DB::table('komentars')->select('id')->where('kelas_id', $request->input('id'));
         $deleteLivestream = \DB::table('livestreams')->select('id')->where('kelas_id', $request->input('id'));
-        // $delete = \DB::table('kelass')->select('id')->where('id', $request->input('id'));
         $delete = Kelas::selectKelas()->where('id', request('id'));
 
         $deleteKelasuser->delete();
@@ -152,7 +137,6 @@ class KelasController extends Controller
         $deletePengumuman->delete();
         $deleteKomentar->delete();
         $deleteLivestream->delete();
-        // $delete->delete();
         $delete = Kelas::deleteKelas();
       return back()->with('success');
     }

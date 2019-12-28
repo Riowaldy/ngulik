@@ -37,8 +37,21 @@ class Materi extends Model
 	{	
 		if(request('jenis') == 'Youtube')
 		{
-			$dataExplode = explode("=" , request('link'));
-	        $dataEnd = end($dataExplode);
+			$dataExplode = explode("." , request('link'));
+			if(count($dataExplode) == 3)
+			{
+				$dataExplode2 = explode("=" , request('link'));
+				$dataEnd = end($dataExplode2);
+			}
+	        else if (count($dataExplode) == 2)
+	        {
+	        	$dataExplode2 = explode("/" , request('link'));
+				$dataEnd = end($dataExplode2);
+	        }
+	        else
+	        {
+				$dataEnd = '...........';
+	        }
 			return 	Materi::create([
 			            'user_id' => request('user_id'),
 			            'kelas_id' => request('kelas_id'),

@@ -26,6 +26,7 @@ class TugasController extends Controller
     {   
         $tugass = DB::table('tugass')
                 ->select('tugass.id','tugass.jenis', 'tugasusers.id as idtgs','tugasusers.user_id', 'tugasusers.tugas_id','tugasusers.link','tugasusers.nilai','users.nama')
+                ->orderby('tugasusers.nilai','desc')
                 ->join('tugasusers','tugasusers.tugas_id', '=', 'tugass.id')
                 ->join('users','users.id','=','tugasusers.user_id')
                 ->where('tugasusers.tugas_id', '=', $tugas->id)
@@ -41,7 +42,7 @@ class TugasController extends Controller
                 ->join('tugass','tugass.id', '=', 'tugasusers.tugas_id')
                 ->where('tugasusers.id', '=', $tugasuser->id)
                 ->get();
-        return view('detailTugasuser', compact('tugass'));
+        return view('detailTugasuser', compact('tugass','tugas','tugasuser'));
     }
 
 // End View
@@ -64,8 +65,21 @@ class TugasController extends Controller
     public function tugasuserStore()
     {
     	if(request('jenis') == 'Video'){
-    		$dataExplode = explode("=" , request('link'));
-        	$dataEnd = end($dataExplode);
+    		$dataExplode = explode("." , request('link'));
+            if(count($dataExplode) == 3)
+            {
+                $dataExplode2 = explode("=" , request('link'));
+                $dataEnd = end($dataExplode2);
+            }
+            else if (count($dataExplode) == 2)
+            {
+                $dataExplode2 = explode("/" , request('link'));
+                $dataEnd = end($dataExplode2);
+            }
+            else
+            {
+                $dataEnd = '...........';
+            }
     	}
         else{
         	$dataExplode = explode("/" , request('link'));
@@ -111,6 +125,17 @@ class TugasController extends Controller
 
         $delete = Tugas::deleteTugas();
       return back()->with('success');
+    }
+
+    public function hapusTugasuser(Request $request)
+    {
+        $delete = \DB::table('tugasusers')->select('id')->where('id', $request->input('id'));
+
+        $kelas = $request->input('kelas_id');
+        $tugas = $request->input('tugas_id');
+
+        $delete->delete();
+        return redirect()->route('detailTugas', ['kelas' => $kelas, 'tugas' => $tugas]);
     }
 
 // End Delete

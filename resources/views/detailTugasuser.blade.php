@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <b>Daftar Tugas</b>
+                            <b>Detail Tugas</b>
                         </div>
                         @foreach ($tugass as $tugas)
                             <ul class="list-group list-group-flush">
@@ -29,6 +29,9 @@
                                 <li class="list-group-item">
                                     <div class="panel-body">
                                         <div class="col-md-12 text-center">
+                                            <div>
+                                                <label>Dikirim pada : {{$tugas->created_at}}</label>
+                                            </div>
                                             <div class="embed-responsive embed-responsive-16by9">
                                                 <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$tugas->link}}" allowfullscreen></iframe>
                                             </div>
@@ -49,7 +52,13 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <b>Daftar Tugas</b>
+                            <b>Detail Tugas</b>
+                            @if($tugasuser->user_id == Auth::id())
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$tugasuser->id}}" data-tugas_id="{{$tugasuser->tugas_id}}" data-kelas_id="{{$tugas->kelas_id}}" data-toggle="modal" data-target="#hapus_tugasuser">&nbsp;Hapus&nbsp;</button> 
+                            </div>
+                            @else
+                            @endif
                         </div>
                         @foreach ($tugass as $tugas)
                             <ul class="list-group list-group-flush">
@@ -112,4 +121,37 @@
         </div>
     </div>
 <!-- Akhir Modal Update Nilai -->
+
+<!-- Modal Delete Tugasuser-->
+    <div class="modal fade" id="hapus_tugasuser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" style="background-color: #c94b20; color: white;">
+                    <h4 class="modal-title" id="myModalLabel"><b>Hapus Tugas</b></h4>
+                </div>
+                <div class="modal-body">
+                          
+    <!--Form Dalam Modal Delete Tugasuser-->
+                    <form role="form" action="{{ route('hapusTugasuser') }}" enctype="multipart/form-data" method="post">
+                        {{csrf_field()}}
+                        {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="hidden" name="id" id="id" class="form-control" value="" readonly>
+                                <input type="hidden" name="kelas_id" id="kelas_id" class="form-control" value="" readonly>
+                                <input type="hidden" name="tugas_id" id="tugas_id" class="form-control" value="" readonly>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-center">Apakah anda yakin ingin menghapus Tugas ini?</p>
+                            </div>
+                            <div class="box-footer text-center">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">&nbsp;Batal&nbsp;</button>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Akhir Modal Delete Tugasuser-->
 @endsection

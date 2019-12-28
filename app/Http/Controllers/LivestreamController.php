@@ -37,20 +37,9 @@ class LivestreamController extends Controller
 
     public function livestreamStore()
     {
-
-    	// $dataExplode = explode("/" , request('link'));
-    	// $dataEnd = $dataExplode[4];
-    	// $dataExplode2 = explode("?" , $dataEnd);
-    	// $dataEnd2 = $dataExplode2[0];
         $this->validate(request(), [
             'link' => 'required'
         ]);
-
-        // Livestream::create([
-        //     'user_id' => request('user_id'),
-        //     'kelas_id' => request('kelas_id'),
-        //     'link' => $dataEnd2
-        // ]);
 
         Livestream::createLivestream();
 
@@ -61,14 +50,8 @@ class LivestreamController extends Controller
 
 // Update
 
-    public function editLivestream(Request $request){
-        // $dataExplode = explode("/" , request('link'));
-        // $dataEnd = $dataExplode[4];
-        // $dataExplode2 = explode("?" , $dataEnd);
-        // $dataEnd2 = $dataExplode2[0];
-        // $edit = \DB::table('livestreams')->select('id')->where('id', $request->input('id'));
-        // $edit->update(['link' => $dataEnd2]);
-
+    public function editLivestream()
+    {
         $edit = Livestream::selectLivestream()->where('id', request('id'));
         $edit = Livestream::updateLivestream();
       return back()->with('success');
@@ -80,14 +63,12 @@ class LivestreamController extends Controller
 
     public function hapusLivestream()
     {
-        // $delete = \DB::table('livestreams')->select('id')->where('id', $request->input('id'));
         $delete = Livestream::selectLivestream()->where('id', request('id'));
 
         $kelas = $request->input('kelas_id');
         
-        // $delete->delete();
         $delete = Livestream::deleteLivestream();
-      return redirect()->route('detailKelas', ['kelas' => $kelas]);
+        return redirect()->route('detailKelas', ['kelas' => $kelas]);
     }
 
 // End Delete

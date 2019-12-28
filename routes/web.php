@@ -68,6 +68,7 @@ Route::post('/livestreamStore','livestreamController@livestreamStore')->name('li
 Route::delete('/hapusKelas','KelasController@hapusKelas')->name('hapusKelas');
 Route::delete('/hapusKelasuser','KelasController@hapusKelasuser')->name('hapusKelasuser');
 Route::delete('/hapusMateri','MateriController@hapusMateri')->name('hapusMateri');
+Route::delete('/hapusTugasuser','TugasController@hapusTugasuser')->name('hapusTugasuser');
 Route::delete('/hapusPengumuman','PengumumanController@hapusPengumuman')->name('hapusPengumuman');
 Route::delete('/hapusLivestream','LivestreamController@hapusLivestream')->name('hapusLivestream');
 Route::delete('/hapusPengguna','UserController@hapusPengguna')->name('hapusPengguna');

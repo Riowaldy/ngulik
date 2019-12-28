@@ -27,13 +27,6 @@ class PengumumanController extends Controller
             'deskripsi' => 'required'
         ]);
 
-        // Pengumuman::create([
-        //     'user_id' => request('user_id'),
-        //     'kelas_id' => request('kelas_id'),
-        //     'nama' => request('nama'),
-        //     'deskripsi' => request('deskripsi')
-        // ]);
-
         Pengumuman::createPengumuman();
 
         return back()->with('success');
@@ -44,13 +37,9 @@ class PengumumanController extends Controller
 // Update
 
     public function editPengumuman(){
-        // $edit = \DB::table('pengumumans')->select('id')->where('id', $request->input('id'));
-        // $edit->update(['nama' => $request->input('nama')]);
-        // $edit->update(['deskripsi' => $request->input('deskripsi')]);
-
         $edit = Pengumuman::selectPengumuman()->where('id', request('id'));
         $edit = Pengumuman::updatePengumuman();
-      return back()->with('success');
+        return back()->with('success');
     }
 
 // End Update
@@ -59,10 +48,8 @@ class PengumumanController extends Controller
 
     public function hapusPengumuman()
     {
-      // $delete = \DB::table('pengumumans')->select('id')->where('id', $request->input('id'));
       $delete = Pengumuman::selectPengumuman()->where('id', request('id'));
 
-      // $delete->delete();
       $delete = Pengumuman::deletePengumuman();
       return back()->with('success');
     }

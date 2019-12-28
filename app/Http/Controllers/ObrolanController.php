@@ -40,7 +40,6 @@ class ObrolanController extends Controller
         return view('obrolan', compact('obrolans','obrolans2'));
     }
     public function detailObrolan(Obrolan $obrolan){
-        // SELECT * FROM `obrolans` WHERE (`pengirim`= 1 and `penerima`= 2) or (`pengirim`= 2 and `penerima`= 1)
 
         $obrolan4 = Obrolan::selectObrolan();
         $obrolans = DB::table('obrolans')
@@ -83,12 +82,6 @@ class ObrolanController extends Controller
             'isipesan' => 'required'
         ]);
 
-        // Obrolan::create([
-        //     'pengirim' => request('pengirim'),
-        //     'penerima' =>request('penerima'),
-        //     'isipesan' => request('isipesan')
-        // ]);
-
         Obrolan::createPesan();
 
         return back()->with('success');
@@ -100,10 +93,8 @@ class ObrolanController extends Controller
 
     public function hapusPesan()
     {
-        // $delete = \DB::table('obrolans')->select('id')->where('id', $request->input('id'));
         $delete = Obrolan::selectObrolan()->where('id', request('id'));
 
-        // $delete->delete();
         $delete = Obrolan::deleteObrolan();
         return back()->with('success');
     }

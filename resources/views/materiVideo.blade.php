@@ -229,7 +229,8 @@
                             <div class="form-group">
                                 <label for="input_nama">Link</label>
                                 <input type="text" name="link" id="link" class="form-control" placeholder="Tulis Link Materi">
-                                <label>Contoh link : https://www.youtube.com/watch?v=ABCDEFGHIJK</label>
+                                <label>Contoh link 1 : https://www.youtube.com/watch?v=ABCDEFGHIJK</label>
+                                <label>Contoh link 2 : https://youtu.be/ABCDEFGHIJK</label>
                             </div>
                             <div class="box-footer text-center">
                                 <button type="submit" class="btn btn-primary">Simpan</button>

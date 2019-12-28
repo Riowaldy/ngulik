@@ -26,13 +26,6 @@ class KomentarController extends Controller
             'isikomentar' => 'required'
         ]);
 
-        // Komentar::create([
-        //     'kelas_id' => request('kelas_id'),
-        //     'materi_id' => request('materi_id'),
-        //     'user_id' => request('user_id'),
-        //     'isikomentar' => request('isikomentar')
-        // ]);
-
         Komentar::createKomentar();
 
         return back()->with('success');
@@ -47,10 +40,8 @@ class KomentarController extends Controller
 
     public function hapusKomentar()
     {
-        // $delete = \DB::table('komentars')->select('id')->where('id', $request->input('id'));
         $delete = Komentar::selectKomentar()->where('id', request('id'));
 
-        // $delete->delete();
         $delete = Komentar::deleteKomentar();
         return back()->with('success');
     }
