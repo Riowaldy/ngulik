@@ -127,6 +127,7 @@ class KelasController extends Controller
     {
         $deleteKelasuser = \DB::table('kelasusers')->select('id')->where('kelas_id', $request->input('id'));
         $deleteMateri = \DB::table('materis')->select('id')->where('kelas_id', $request->input('id'));
+        $deleteTugas = \DB::table('tugass')->select('id')->where('kelas_id', $request->input('id'));
         $deletePengumuman = \DB::table('pengumumans')->select('id')->where('kelas_id', $request->input('id'));
         $deleteKomentar = \DB::table('komentars')->select('id')->where('kelas_id', $request->input('id'));
         $deleteLivestream = \DB::table('livestreams')->select('id')->where('kelas_id', $request->input('id'));
@@ -134,6 +135,7 @@ class KelasController extends Controller
 
         $deleteKelasuser->delete();
         $deleteMateri->delete();
+        $deleteTugas->delete();
         $deletePengumuman->delete();
         $deleteKomentar->delete();
         $deleteLivestream->delete();

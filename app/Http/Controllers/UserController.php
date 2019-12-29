@@ -97,19 +97,27 @@ class UserController extends Controller
     public function hapusPengguna(Request $request)
     {
         $deleteKelasuser = \DB::table('kelasusers')->select('id')->where('user_id', $request->input('id'));
+        $deleteKelas = \DB::table('kelass')->select('id')->where('user_id', $request->input('id'));
         $deleteMateri = \DB::table('materis')->select('id')->where('user_id', $request->input('id'));
+        $deleteTugasuser = \DB::table('tugasusers')->select('id')->where('user_id', $request->input('id'));
+        $deleteTugas = \DB::table('tugass')->select('id')->where('user_id', $request->input('id'));
         $deletePengumuman = \DB::table('pengumumans')->select('id')->where('user_id', $request->input('id'));
         $deleteKomentar = \DB::table('komentars')->select('id')->where('user_id', $request->input('id'));
         $deleteLivestream = \DB::table('livestreams')->select('id')->where('user_id', $request->input('id'));
-        $deleteObrolan = \DB::table('obrolans')->select('id')->where('pengirim', $request->input('id'))->where('penerima', $request->input('id'));
+        $deleteObrolan1 = \DB::table('obrolans')->select('id')->where('pengirim', $request->input('id'));
+        $deleteObrolan2 = \DB::table('obrolans')->select('id')->where('penerima', $request->input('id'));
         $delete = User::selectUser()->where('id', request('id'));
 
         $deleteKelasuser->delete();
+        $deleteKelas->delete();
         $deleteMateri->delete();
         $deletePengumuman->delete();
+        $deleteTugasuser->delete();
+        $deleteTugas->delete();
         $deleteKomentar->delete();
         $deleteLivestream->delete();
-        $deleteObrolan->delete();
+        $deleteObrolan1->delete();
+        $deleteObrolan2->delete();
         $delete = User::deleteUser();
       return back()->with('success');
     }
