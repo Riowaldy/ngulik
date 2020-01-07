@@ -18,12 +18,13 @@
                                                 <label for="nama">: {{ $user->nama }}</label>
                                             </div>
                                             <div class="col-xs-3 col-md-3">
-                                                <!-- <label for="nama">({{ $user->status }})</label> -->
                                                 <button type="button" class="btn btn-xs btn-primary" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-status="{{$user->status}}" data-toggle="modal" data-target="#edit_status" ><b>{{ $user->status }}</b></button>
                                             </div>
                                             <div class="col-xs-2 col-md-2">
-                                                <!-- <label for="nama">({{ $user->status }})</label> -->
+                                                @if($user->status == 'murid')
                                                 <button type="button" class="btn btn-xs btn-danger" data-id="{{$user->id}}" data-toggle="modal" data-target="#hapus_pengguna" ><b>Hapus</b></button>
+                                                @else
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

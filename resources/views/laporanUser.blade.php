@@ -93,13 +93,13 @@
                             </li>
                             <li class="list-group-item">
                                 <div class="panel-body" style="margin-top: -10px; margin-bottom: -10px;">
-                                    <div class="col-xs-4 col-md-4">
+                                    <div class="col-xs-3 col-md-4">
                                         <label for="nama">Nama</label>
                                     </div>
                                     <div class="col-xs-4 col-md-4">
                                         <label for="nama">Status</label>
                                     </div>
-                                    <div class="col-xs-4 col-md-4">
+                                    <div class="col-xs-5 col-md-4">
                                         <label for="nama">Email</label>
                                     </div>
                                 </div>
@@ -107,13 +107,13 @@
                             @foreach($users as $user)
                             <li class="list-group-item">
                                 <div class="panel-body" style="margin-top: -20px; margin-bottom: -20px;">
-                                    <div class="col-xs-4 col-md-4">
+                                    <div class="col-xs-3 col-md-4">
                                         <label for="nama">{{$user->nama}}</label>
                                     </div>
                                     <div class="col-xs-4 col-md-4">
                                         <label for="nama">{{$user->status}}</label>
                                     </div>
-                                    <div class="col-xs-4 col-md-4">
+                                    <div class="col-xs-5 col-md-4">
                                         <label for="nama">{{$user->email}}</label>
                                     </div>
                                 </div>

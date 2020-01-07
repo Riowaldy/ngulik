@@ -13,39 +13,37 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="panel-body text-center">
-                                    <div>
-                                        <div class="col-md-2">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="panel-body">
-                                                        <div class="text-center">
-                                                            <label>User Online</label>
-                                                        </div>
-                                                        @foreach($users as $user)
-                                                            @if(Cache::has('user-is-online-' . $user->id))
-                                                                <div class="text-left">
-                                                                    <label>{{ $user->nama }} </label>
-                                                                    <span class="dot" 
-                                                                    style="height: 10px;
-                                                                      width: 10px;
-                                                                      background-color: yellow;
-                                                                      border-radius: 50%;
-                                                                      display: inline-block;"></span>
-                                                                        </div>
-                                                            @else
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
-                                            </div>
+                                    <div class="col-xs-12 col-md-8">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-xs-6 col-md-2">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="panel-body">
+                                                    <div class="text-center">
+                                                        <label>User Online</label>
+                                                    </div>
+                                                    @foreach($users as $user)
+                                                        @if(Cache::has('user-is-online-' . $user->id))
+                                                            <div class="text-left">
+                                                                <label>{{ $user->nama }} </label>
+                                                                <span class="dot" 
+                                                                style="height: 10px;
+                                                                  width: 10px;
+                                                                  background-color: yellow;
+                                                                  border-radius: 50%;
+                                                                  display: inline-block;"></span>
+                                                                    </div>
+                                                        @else
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6 col-md-2">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="panel-body">
@@ -85,53 +83,42 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Halaman Live Stream</b>
-                            @if($livestream->user_id == Auth::id())
-                            <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-warning" data-id="{{$livestream->id}}" data-link="https://www.youtube.com/channel/{{$livestream->link}}?view_as=subscriber" data-toggle="modal" data-target="#edit_livestream">&nbsp;&nbsp;&nbsp;Ubah&nbsp;&nbsp;&nbsp;&nbsp;</button>
-                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$livestream->id}}" data-kelas_id="{{$livestream->kelas_id}}" data-toggle="modal" data-target="#hapus_livestream">&nbsp;Akhiri&nbsp;</button>
-                            </div>
-                            @else
-                            <div class="pull-right">
-                                <button type="submit" class="btn btn-xs btn-danger" data-id="{{$livestream->id}}" data-kelas_id="{{$livestream->kelas_id}}" data-toggle="modal" data-target="#hapus_livestream">&nbsp;Akhiri Lives Stream&nbsp;</button>
-                            </div>
-                            @endif
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="panel-body text-center">
-                                    <div>
-                                        <div class="col-md-2">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="panel-body">
-                                                        <div class="text-center">
-                                                            <label>User Online</label>
-                                                        </div>
-                                                        @foreach($users as $user)
-                                                            @if(Cache::has('user-is-online-' . $user->id))
-                                                                <div class="text-left">
-                                                                    <label>{{ $user->nama }} </label>
-                                                                    <span class="dot" 
-                                                                    style="height: 10px;
-                                                                      width: 10px;
-                                                                      background-color: yellow;
-                                                                      border-radius: 50%;
-                                                                      display: inline-block;"></span>
-                                                                        </div>
-                                                            @else
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
-                                            </div>
+                                    
+                                    <div class="col-xs-12 col-md-8">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-xs-6 col-md-2">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="panel-body">
+                                                    <div class="text-center">
+                                                        <label>User Online</label>
+                                                    </div>
+                                                    @foreach($users as $user)
+                                                        @if(Cache::has('user-is-online-' . $user->id))
+                                                            <div class="text-left">
+                                                                <label>{{ $user->nama }} </label>
+                                                                <span class="dot" 
+                                                                style="height: 10px;
+                                                                  width: 10px;
+                                                                  background-color: yellow;
+                                                                  border-radius: 50%;
+                                                                  display: inline-block;"></span>
+                                                                    </div>
+                                                        @else
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6 col-md-2">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="panel-body">
@@ -185,39 +172,38 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="panel-body text-center">
-                                    <div>
-                                        <div class="col-md-2">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="panel-body">
-                                                        <div class="text-center">
-                                                            <label>User Online</label>
-                                                        </div>
-                                                        @foreach($users as $user)
-                                                            @if(Cache::has('user-is-online-' . $user->id))
-                                                                <div class="text-left">
-                                                                    <label>{{ $user->nama }} </label>
-                                                                    <span class="dot" 
-                                                                    style="height: 10px;
-                                                                      width: 10px;
-                                                                      background-color: yellow;
-                                                                      border-radius: 50%;
-                                                                      display: inline-block;"></span>
-                                                                        </div>
-                                                            @else
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
-                                            </div>
+                                    
+                                    <div class="col-xs-12 col-md-8">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-xs-6 col-md-2">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="panel-body">
+                                                    <div class="text-center">
+                                                        <label>User Online</label>
+                                                    </div>
+                                                    @foreach($users as $user)
+                                                        @if(Cache::has('user-is-online-' . $user->id))
+                                                            <div class="text-left">
+                                                                <label>{{ $user->nama }} </label>
+                                                                <span class="dot" 
+                                                                style="height: 10px;
+                                                                  width: 10px;
+                                                                  background-color: yellow;
+                                                                  border-radius: 50%;
+                                                                  display: inline-block;"></span>
+                                                                    </div>
+                                                        @else
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6 col-md-2">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="panel-body">
@@ -261,39 +247,38 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="panel-body text-center">
-                                    <div>
-                                        <div class="col-md-2">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <div class="panel-body">
-                                                        <div class="text-center">
-                                                            <label>User Online</label>
-                                                        </div>
-                                                        @foreach($users as $user)
-                                                            @if(Cache::has('user-is-online-' . $user->id))
-                                                                <div class="text-left">
-                                                                    <label>{{ $user->nama }} </label>
-                                                                    <span class="dot" 
-                                                                    style="height: 10px;
-                                                                      width: 10px;
-                                                                      background-color: yellow;
-                                                                      border-radius: 50%;
-                                                                      display: inline-block;"></span>
-                                                                        </div>
-                                                            @else
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
-                                            </div>
+                                    
+                                    <div class="col-xs-12 col-md-8">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel={{$livestream->link}}"frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-xs-6 col-md-2">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="panel-body">
+                                                    <div class="text-center">
+                                                        <label>User Online</label>
+                                                    </div>
+                                                    @foreach($users as $user)
+                                                        @if(Cache::has('user-is-online-' . $user->id))
+                                                            <div class="text-left">
+                                                                <label>{{ $user->nama }} </label>
+                                                                <span class="dot" 
+                                                                style="height: 10px;
+                                                                  width: 10px;
+                                                                  background-color: yellow;
+                                                                  border-radius: 50%;
+                                                                  display: inline-block;"></span>
+                                                                    </div>
+                                                        @else
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-6 col-md-2">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="panel-body">

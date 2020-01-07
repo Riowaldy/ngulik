@@ -8,6 +8,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Admin</b>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -28,7 +31,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -53,6 +56,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Moderator</b>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Tekstual (GDrive)</button>
@@ -70,9 +76,9 @@
                                                         <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                     </a>
                                                     @if($materi->status == 'Biasa')
-                                                        <button type="submit" class="btn btn-xs btn-default" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri">Verifikasi</button>
+                                                        <button type="submit" class="btn btn-xs btn-default" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri">Tampilkan</button>
                                                     @else
-                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri2">Terverifikasi</button>
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri2">Ditampilkan</button>
                                                     @endif
                                                 </div>
                                             </div>
@@ -80,7 +86,7 @@
                                                 <label for="nama">{{ $materi->user->nama }}</label>
                                             </div>
                                             <div class="embed-responsive embed-responsive-16by9">
-                                                <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                             </div>
                                             <div style="margin-bottom: 30px;"></div>
                                         </div>
@@ -102,6 +108,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Tekstual (GDrive)</button>
@@ -125,7 +134,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>
@@ -150,6 +159,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Murid</b>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -170,7 +182,7 @@
                                                     <label for="nama">{{ $materi->user->nama }}</label>
                                                 </div>
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 30px;"></div>
                                             </div>

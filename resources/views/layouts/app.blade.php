@@ -276,9 +276,13 @@
           var button = $(event.relatedTarget)
           var id = button.data('id') 
           var nilai = button.data('nilai') 
+          var kelas_id = button.data('kelas_id')
+          var tugas_id = button.data('tugas_id') 
           var modal = $(this)
           modal.find('.modal-body #id').val(id);
           modal.find('.modal-body #nilai').val(nilai);
+          modal.find('.modal-body #kelas_id').val(kelas_id);
+          modal.find('.modal-body #tugas_id').val(tugas_id);
         })
 
         $('#edit_kelas').on('show.bs.modal', function (event) {

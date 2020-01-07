@@ -25,24 +25,24 @@ class TugasController extends Controller
 	public function detailTugas(Kelas $kelas, Tugas $tugas)
     {   
         $tugass = DB::table('tugass')
-                ->select('tugass.id','tugass.jenis', 'tugasusers.id as idtgs','tugasusers.user_id', 'tugasusers.tugas_id','tugasusers.link','tugasusers.nilai','users.nama')
+                ->select('tugass.id','tugass.jenis', 'tugass.kelas_id', 'tugasusers.id as idtgs','tugasusers.user_id', 'tugasusers.tugas_id','tugasusers.link','tugasusers.nilai','users.nama')
                 ->orderby('tugasusers.nilai','desc')
                 ->join('tugasusers','tugasusers.tugas_id', '=', 'tugass.id')
                 ->join('users','users.id','=','tugasusers.user_id')
                 ->where('tugasusers.tugas_id', '=', $tugas->id)
                 ->get();
-        return view('detailTugas', compact('tugass'));
+        return view('detailTugas', compact('tugass','kelas','tugas'));
     }
 
-    public function detailTugasuser(Tugas $tugas, Tugasuser $tugasuser)
+    public function detailTugasuser(Kelas $kelas, Tugas $tugas, Tugasuser $tugasuser)
     {   
         $tugass = DB::table('tugasusers')
-                ->select('tugasusers.id','tugasusers.link','tugasusers.nilai','tugasusers.created_at','tugasusers.user_id','tugasusers.tugas_id','tugass.jenis')
+                ->select('tugasusers.id','tugasusers.link','tugasusers.nilai','tugasusers.created_at','tugasusers.user_id','tugasusers.tugas_id','tugass.jenis', 'tugass.kelas_id')
                 ->join('users','users.id', '=', 'tugasusers.user_id')
                 ->join('tugass','tugass.id', '=', 'tugasusers.tugas_id')
                 ->where('tugasusers.id', '=', $tugasuser->id)
                 ->get();
-        return view('detailTugasuser', compact('tugass','tugas','tugasuser'));
+        return view('detailTugasuser', compact('kelas', 'tugass','tugas','tugasuser'));
     }
 
 // End View
@@ -111,8 +111,10 @@ class TugasController extends Controller
 
     public function editNilai(Request $request){
         $edit = \DB::table('tugasusers')->select('id')->where('id', $request->input('id'));
+        $kelas = $request->input('kelas_id');
+        $tugas = $request->input('tugas_id');
         $edit->update(['nilai' => $request->input('nilai')]);
-        return back()->with('success');
+        return redirect()->route('detailTugas', ['kelas' => $kelas, 'tugas' => $tugas]);
     }
 
 // End Update

@@ -125,6 +125,14 @@ class AdminController extends Controller
         $users = $this->get_post_data_user();
         $users2 = $this->get_post_data_user2();
         $output = '
+        <div style="margin-bottom:20px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/upn.png"></div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:120px; height:100px; width:460px; text-align:center;">
+            <div><h3>HIMPUNAN MAHASISWA SISTEM INFORMASI</h3></div>
+            <div><h3>UPN VETERAN JAWA TIMUR</h3></div>
+        </div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:600px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/himasifo.png"></div>
+
+        <div style="background-color:black; height: 4px;"></div>
         <h3 align="center">Laporan Data User</h3>
         <h4>Jumlah User : '.$users2.'</h4>
         <table width="100%" style="border-collapse: collapse; border: 0px;">
@@ -144,7 +152,14 @@ class AdminController extends Controller
             </tr>
             ';
         }
-        $output .= '</table>';
+        $output .= '</table>
+        <div style="margin-top:20px; margin-left:400px; height:100px; width:300px; text-align:center;;">
+            <h4>Mengetahui,</h4>
+        </div>
+        <div style="margin-top:40px; margin-left:400px; height:100px; width:300px; text-align:center;">
+            <h4>Kepala Departemen Litbang</h4>
+        </div>
+        ';
         return $output;
     }
     // AKHIR METHOD CETAK PDF USER
@@ -180,6 +195,14 @@ class AdminController extends Controller
         $kelass = $this->get_post_data_kelas();
         $kelass2 = $this->get_post_data_kelas2();
         $output = '
+        <div style="margin-bottom:20px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/upn.png"></div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:120px; height:100px; width:460px; text-align:center;">
+            <div><h3>HIMPUNAN MAHASISWA SISTEM INFORMASI</h3></div>
+            <div><h3>UPN VETERAN JAWA TIMUR</h3></div>
+        </div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:600px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/himasifo.png"></div>
+
+        <div style="background-color:black; height: 4px;"></div>
         <h3 align="center">Laporan Data Kelas</h3>
         <h4>Jumlah Kelas : '.$kelass2.'</h4>
         <table width="100%" style="border-collapse: collapse; border: 0px;">
@@ -197,7 +220,14 @@ class AdminController extends Controller
             </tr>
             ';
         }
-        $output .= '</table>';
+        $output .= '</table>
+
+        <div style="margin-top:20px; margin-left:400px; height:100px; width:300px; text-align:center;;">
+            <h4>Mengetahui,</h4>
+        </div>
+        <div style="margin-top:40px; margin-left:400px; height:100px; width:300px; text-align:center;">
+            <h4>Kepala Departemen Litbang</h4>
+        </div>';
         return $output;
     }
     // AKHIR METHOD CETAK PDF KELAS
@@ -233,6 +263,14 @@ class AdminController extends Controller
         $materis = $this->get_post_data_materi();
         $materis2 = $this->get_post_data_materi2();
         $output = '
+        <div style="margin-bottom:20px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/upn.png"></div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:120px; height:100px; width:460px; text-align:center;">
+            <div><h3>HIMPUNAN MAHASISWA SISTEM INFORMASI</h3></div>
+            <div><h3>UPN VETERAN JAWA TIMUR</h3></div>
+        </div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:600px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/himasifo.png"></div>
+
+        <div style="background-color:black; height: 4px;"></div>
         <h3 align="center">Laporan Data Materi</h3>
         <h4>Jumlah Materi : '.$materis2.'</h4>
         <table width="100%" style="border-collapse: collapse; border: 0px;">
@@ -252,7 +290,14 @@ class AdminController extends Controller
             </tr>
             ';
         }
-        $output .= '</table>';
+        $output .= '</table>
+
+        <div style="margin-top:20px; margin-left:400px; height:100px; width:300px; text-align:center;;">
+            <h4>Mengetahui,</h4>
+        </div>
+        <div style="margin-top:40px; margin-left:400px; height:100px; width:300px; text-align:center;">
+            <h4>Kepala Departemen Litbang</h4>
+        </div>';
         return $output;
     }
     // AKHIR METHOD CETAK PDF MATERI
@@ -292,6 +337,14 @@ class AdminController extends Controller
         $tugass = $this->get_post_data_tugas();
         $tugass2 = $this->get_post_data_tugas2();
         $output = '
+        <div style="margin-bottom:20px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/upn.png"></div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:120px; height:100px; width:460px; text-align:center;">
+            <div><h3>HIMPUNAN MAHASISWA SISTEM INFORMASI</h3></div>
+            <div><h3>UPN VETERAN JAWA TIMUR</h3></div>
+        </div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:600px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/himasifo.png"></div>
+
+        <div style="background-color:black; height: 4px;"></div>
         <h3 align="center">Laporan Data Tugas</h3>
         <h4>Jumlah Tugas : '.$tugass2.'</h4>
         <table width="100%" style="border-collapse: collapse; border: 0px;">
@@ -311,7 +364,13 @@ class AdminController extends Controller
             </tr>
             ';
         }
-        $output .= '</table>';
+        $output .= '</table>
+        <div style="margin-top:20px; margin-left:400px; height:100px; width:300px; text-align:center;;">
+            <h4>Mengetahui,</h4>
+        </div>
+        <div style="margin-top:40px; margin-left:400px; height:100px; width:300px; text-align:center;">
+            <h4>Kepala Departemen Litbang</h4>
+        </div>';
         return $output;
     }
     // AKHIR METHOD CETAK PDF TUGAS
@@ -351,6 +410,14 @@ class AdminController extends Controller
         $pengumumans = $this->get_post_data_pengumuman();
         $pengumumans2 = $this->get_post_data_pengumuman2();
         $output = '
+        <div style="margin-bottom:20px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/upn.png"></div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:120px; height:100px; width:460px; text-align:center;">
+            <div><h3>HIMPUNAN MAHASISWA SISTEM INFORMASI</h3></div>
+            <div><h3>UPN VETERAN JAWA TIMUR</h3></div>
+        </div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:600px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/himasifo.png"></div>
+
+        <div style="background-color:black; height: 4px;"></div>
         <h3 align="center">Laporan Data Pengumuman</h3>
         <h4>Jumlah Pengumuman : '.$pengumumans2.'</h4>
         <table width="100%" style="border-collapse: collapse; border: 0px;">
@@ -370,7 +437,13 @@ class AdminController extends Controller
             </tr>
             ';
         }
-        $output .= '</table>';
+        $output .= '</table>
+        <div style="margin-top:20px; margin-left:400px; height:100px; width:300px; text-align:center;;">
+            <h4>Mengetahui,</h4>
+        </div>
+        <div style="margin-top:40px; margin-left:400px; height:100px; width:300px; text-align:center;">
+            <h4>Kepala Departemen Litbang</h4>
+        </div>';
         return $output;
     }
     // AKHIR METHOD CETAK PDF PENGUMUMAN
@@ -410,6 +483,14 @@ class AdminController extends Controller
         $komentars = $this->get_post_data_komentar();
         $komentars2 = $this->get_post_data_komentar2();
         $output = '
+        <div style="margin-bottom:20px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/upn.png"></div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:120px; height:100px; width:460px; text-align:center;">
+            <div><h3>HIMPUNAN MAHASISWA SISTEM INFORMASI</h3></div>
+            <div><h3>UPN VETERAN JAWA TIMUR</h3></div>
+        </div>
+        <div style="position:absolute; margin-bottom:20px; margin-left:600px; height:100px; width:100px;"><img style="height:100px; width:100px;" src="img/himasifo.png"></div>
+
+        <div style="background-color:black; height: 4px;"></div>
         <h3 align="center">Laporan Data Komentar</h3>
         <h4>Jumlah Komentar : '.$komentars2.'</h4>
         <table width="100%" style="border-collapse: collapse; border: 0px;">
@@ -429,7 +510,14 @@ class AdminController extends Controller
             </tr>
             ';
         }
-        $output .= '</table>';
+        $output .= '</table>
+        </table>
+        <div style="margin-top:20px; margin-left:400px; height:100px; width:300px; text-align:center;;">
+            <h4>Mengetahui,</h4>
+        </div>
+        <div style="margin-top:40px; margin-left:400px; height:100px; width:300px; text-align:center;">
+            <h4>Kepala Departemen Litbang</h4>
+        </div>';
         return $output;
     }
     // AKHIR METHOD CETAK PDF KOMENTAR

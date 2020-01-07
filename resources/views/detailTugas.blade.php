@@ -10,6 +10,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Daftar Tugas</b>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -38,7 +41,7 @@
                                                 <label for="nama">{{ $tugas->nama }}</label>
                                             </div>
                                             <div class="col-xs-4 col-md-4">
-                                                <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugasuser',[$tugas->id, $tugas->idtgs]) }}'">Lihat Tugas</button>
+                                                <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugasuser',[$tugas->kelas_id, $tugas->id, $tugas->idtgs]) }}'">Lihat Tugas</button>
                                             </div>
                                             <div class="col-xs-4 col-md-4">
                                                 <label for="nama">{{ $tugas->nilai }}</label>
@@ -60,6 +63,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Daftar Tugas</b>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -88,7 +94,7 @@
                                                 <label for="nama">{{ $tugas->nama }}</label>
                                             </div>
                                             <div class="col-xs-4 col-md-4">
-                                                <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugasuser',[$tugas->id, $tugas->idtgs]) }}'">Lihat Tugas</button>
+                                                <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugasuser',[$tugas->kelas_id, $tugas->id, $tugas->idtgs]) }}'">Lihat Tugas</button>
                                             </div>
                                             <div class="col-xs-4 col-md-4">
                                                 <label for="nama">{{ $tugas->nilai }}</label>

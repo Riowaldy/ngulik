@@ -35,7 +35,7 @@ Route::get('/kelas/{kelas}/materiTekstual','MateriController@materiTekstual')->n
 Route::get('/kelas/{kelas}/materiGithub','MateriController@materiGithub')->name('materiGithub');
 Route::get('/kelas/{kelas}/{materi}','MateriController@detailMateri')->name('detailMateri');
 Route::get('/kelas/{kelas}/tugas/{tugas}','TugasController@detailTugas')->name('detailTugas');
-Route::get('/tugas/{tugas}/{tugasuser}','TugasController@detailTugasuser')->name('detailTugasuser');
+Route::get('/kelas/{kelas}/tugas/{tugas}/{tugasuser}','TugasController@detailTugasuser')->name('detailTugasuser');
 Route::get('/obrolan','ObrolanController@obrolan')->name('obrolan');
 Route::get('/obrolan/{obrolan}','ObrolanController@detailObrolan')->name('detailObrolan');
 Route::get('/kelas/{kelas}/live/{livestream}','LivestreamController@detailLivestream')->name('detailLivestream');

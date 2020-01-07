@@ -101,29 +101,19 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-12">
-                    <div class="col-sm-4 col-sm-offset-1 thumbnail">
-                        <img src="img/2.jpg">
+                    <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-1 thumbnail">
+                        <img src="img/1.jpg">
                     </div>
-                    <div class="col-sm-5 col-sm-offset-1 colpkanan text-justify">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="col-xs-12 col-md-5 col-md-offset-1 colpkanan text-justify">
+                        <p>Kegiatan Pembelajaran Non Formal Ngulik Sistem Informasi di Ruang 108 Gedung FIK2. Kegiatan ini berlangsung pada hari Rabu, 4 Desember 2019 dengan materi Logika dan Algoritma yang diikuti oleh mahasiswa angkatan 2019 dan pengajar mahasiswa angkatan 2018. Kegiatan berlangsung kondusif dimulai dari pukul 16:00 - 17:30 WIB.</p>
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <div class="col-sm-4 col-sm-offset-1 thumbnail">
+                    <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-1 thumbnail">
                         <img src="img/2.jpg">
                     </div>
-                    <div class="col-sm-5 col-sm-offset-1 colpkanan text-justify">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="col-xs-12 col-md-5 col-md-offset-1 colpkanan text-justify">
+                        <p>Kegiatan Pembelajaran Non Formal Ngulik Sistem Informasi di Ruang 108 Gedung FIK2. Kegiatan ini berlangsung pada hari Selasa, 3 Desember 2019 dengan materi Structured Query Language yang diikuti oleh mahasiswa angkatan 2018 dan pengajar mahasiswa angkatan 2017. Kegiatan berlangsung kondusif dimulai dari pukul 16:00 - 17:30 WIB.</p>
                     </div>
                 </div>
             </div>
@@ -142,13 +132,13 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-3 text-center">
+            <div class="col-xs-6 col-md-3 text-center" style="margin-bottom: 20px;">
               <img src="img/upn.png">
             </div>
-            <div class="col-sm-3 text-center">
+            <div class="col-xs-6 col-md-3 text-center" style="margin-bottom: 20px;">
                 <img src="img/himasifo.png">
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-12 col-md-6">
                 <div class="list-group">
                   <a class="list-group-item active text-center">
                     Ngulik | Sistem Informasi
@@ -164,16 +154,16 @@
             <div class="col-sm-8 col-sm-offset-2 find text-center">
                 <h2>Ikuti Kami</h2>
                 <hr>
-                <div class="col-sm-3 text-center">
+                <div class="col-xs-3 col-md-3 text-center" style="margin-bottom: 50px;">
                   <a href="https://www.facebook.com/himasifoupnvjatim"><img src="img/facebook.png"></a>
                 </div>
-                <div class="col-sm-3 text-center">
+                <div class="col-xs-3 col-md-3 text-center" style="margin-bottom: 50px;">
                   <a href="https://www.instagram.com/himasifo_upnvjatim/"><img src="img/instagram.png"></a>
                 </div>
-                <div class="col-sm-3 text-center">
+                <div class="col-xs-3 col-md-3 text-center" style="margin-bottom: 50px;">
                   <a href="https://www.youtube.com/channel/UComN7Zo6fWi9NSw6uXTzjhQ"><img src="img/youtube.png"></a>
                 </div>
-                <div class="col-sm-3 text-center">
+                <div class="col-xs-3 col-md-3 text-center" style="margin-bottom: 50px;">
                   <a href="http://www.himasifo-upnjatim.com/"><img src="img/website.png"></a>
                 </div>
             </div>

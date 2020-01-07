@@ -8,6 +8,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Detail Materi</b>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -17,14 +20,14 @@
                                             <div class="col-md-6">
                                                 @if($materi->jenis == 'Youtube')
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                                 @elseif($materi->jenis == 'Github')
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
                                                 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                                 @else
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview"></iframe>
                                                 </div> 
                                                 @endif   
                                                 <div style="margin-bottom: 30px;"></div>
@@ -125,6 +128,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Detail Materi</b>
                             @if($materi->user_id == Auth::id())
                             <div class="pull-right">
@@ -250,6 +256,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Detail Materi</b>
                             @if($materi->user_id == Auth::id())
                             <div class="pull-right">
@@ -375,6 +384,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Detail Materi</b>
                             @if($materi->user_id == Auth::id())
                             <div class="pull-right">

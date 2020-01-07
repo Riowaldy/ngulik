@@ -14,7 +14,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" style="margin-top: -20px; margin-bottom: -22px;">
                                                 <label for="nama"><h5>{{ $obrolan->nama }}</h5></label>
                                                 <div class="pull-right" style="margin-top: 5px;">
                                                     <a href="{{ route('detailObrolan', [$obrolan->id]) }}">
@@ -42,7 +42,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" style="margin-top: -20px; margin-bottom: -22px;">
                                                 <label for="nama"><h5>{{ $obrolan->nama }}</h5></label>
                                                 <div class="pull-right" style="margin-top: 5px;">
                                                     <a href="{{ route('detailObrolan', [$obrolan->id]) }}">
@@ -70,7 +70,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" style="margin-top: -20px; margin-bottom: -22px;">
                                                 <label for="nama"><h5>{{ $obrolan->nama }}</h5></label>
                                                 <div class="pull-right" style="margin-top: 5px;">
                                                     <a href="{{ route('detailObrolan', [$obrolan->id]) }}">
@@ -98,7 +98,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="panel-body">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12" style="margin-top: -20px; margin-bottom: -22px;">
                                                 <label for="nama"><h5>{{ $obrolan->nama }}</h5></label>
                                                 <div class="pull-right" style="margin-top: 5px;">
                                                     <a href="{{ route('detailObrolan', [$obrolan->id]) }}">

@@ -157,7 +157,7 @@
                                                 <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
                                                 <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                             </div>
-                                            <div class="col-xs-12 col-md-6 btn btn-sm btn-danger" data-kelas_id="{{$kelas->id}}" data-user_id="{{Auth::id()}}" data-toggle="modal" data-target="#hapus_kelasuser" id="kelasdetail">
+                                            <div class="col-xs-6 col-md-6 btn btn-sm btn-danger" data-kelas_id="{{$kelas->id}}" data-user_id="{{Auth::id()}}" data-toggle="modal" data-target="#hapus_kelasuser" id="kelasdetail">
                                                 <span class="before"><b><i class="fas fa-times-circle"></i></b></span>
                                                 <span class="after"><b><i class="fas fa-times-circle"></i>Keluar</b></span>
                                             </div>

@@ -158,8 +158,8 @@
                                     <li class="list-group-item">
                                         <div class="panel-body">
                                             @foreach ($users4 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $kelas->user->nama }} (Pengajar)
                                                             <span class="dot" 
@@ -180,15 +180,19 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users3 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -209,16 +213,18 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users2 as $user)
 
-                                            <div class="col-md-12">
+                                            <div class="col-xs-12 col-md-12">
 
-                                                <div class="col-md-6">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -239,9 +245,13 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -274,9 +284,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -304,9 +314,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -334,9 +344,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                             </div>
@@ -365,7 +375,7 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
                                                 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                             </div>
@@ -409,23 +419,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-md-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <b>Live Streaming</b>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <div class="panel-body text-center">
-                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buat_livestream" id="kelasdetail">
-                                            <span class="before"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-video"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
-                                            <span class="after"><b><i class="fas fa-video"></i> Mulai Live Stream</b></span>
-                                        </button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                 @endforelse
                 <div class="col-md-6">
                     <div class="panel panel-primary">
@@ -559,8 +553,8 @@
                                     <li class="list-group-item">
                                         <div class="panel-body">
                                             @foreach ($users4 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $kelas->user->nama }} (Pengajar)
                                                             <span class="dot" 
@@ -581,15 +575,19 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users3 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -610,16 +608,18 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users2 as $user)
 
-                                            <div class="col-md-12">
+                                            <div class="col-xs-12 col-md-12">
 
-                                                <div class="col-md-6">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -640,9 +640,13 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -675,9 +679,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -705,9 +709,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -735,9 +739,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                             </div>
@@ -766,7 +770,7 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
                                                 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                             </div>
@@ -952,8 +956,8 @@
                                     <li class="list-group-item">
                                         <div class="panel-body">
                                             @foreach ($users4 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $kelas->user->nama }} (Pengajar)
                                                             <span class="dot" 
@@ -974,19 +978,19 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    @if($user->id == Auth::id())
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
                                                         <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    @else
-                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
                                                         <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
-                                                    @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users3 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -1007,16 +1011,18 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users2 as $user)
 
-                                            <div class="col-md-12">
+                                            <div class="col-xs-12 col-md-12">
 
-                                                <div class="col-md-6">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -1037,9 +1043,13 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -1072,9 +1082,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -1102,9 +1112,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -1132,9 +1142,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                             </div>
@@ -1163,7 +1173,7 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
                                                 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                             </div>
@@ -1314,8 +1324,8 @@
                                     <li class="list-group-item">
                                         <div class="panel-body">
                                             @foreach ($users4 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $kelas->user->nama }} (Pengajar)
                                                             <span class="dot" 
@@ -1336,15 +1346,19 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users3 as $user)
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
+                                            <div class="col-xs-12 col-md-12">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -1365,16 +1379,18 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
                                             @foreach ($users2 as $user)
 
-                                            <div class="col-md-12">
+                                            <div class="col-xs-12 col-md-12">
 
-                                                <div class="col-md-6">
+                                                <div class="col-xs-6 col-md-6">
                                                     @if(Cache::has('user-is-online-' . $user->id))
                                                         <label for="nama">{{ $user->nama }} 
                                                             <span class="dot" 
@@ -1395,9 +1411,13 @@
                                                         </label>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
-                                                    <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-info" data-id="{{$user->id}}" data-nama="{{$user->nama}}" data-email="{{$user->email}}" data-toggle="modal" data-target="#detail_user"><b>Detail User</b></button>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-6">
+                                                        <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-pengirim="{{Auth::id()}}" data-penerima="{{$user->id}}" data-nama="{{$user->nama}}" data-target="#buat_pesan"><b>Kirim Pesan</b></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -1405,7 +1425,7 @@
                                     </li>
                                 </ul>
                         </div>
-                    </div>
+                </div>
                     <div class="col-md-6">
                         <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -1430,9 +1450,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$materi->link}}" allowfullscreen></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -1460,9 +1480,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                             </div>
                                             @endforeach
@@ -1490,9 +1510,9 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="http://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
+                                                    <iframe class="embed-responsive-item" src="https://drive.google.com/file/d/{{$materi->link}}/preview" height="200"></iframe>
                                                 </div>
                                                 <div style="margin-bottom: 5px;"></div>
                                             </div>
@@ -1521,7 +1541,7 @@
                                                     <span class="after"><b><i class="fas fa-search-plus"></i>Detail</b></span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12" style="margin-top: 10px;">
+                                            <div class="col-xs-12 col-md-12" style="margin-top: 10px;">
                                                 <div class="github-card" data-github="{{$materi->link}}" data-width="350" data-height="" data-theme="default"></div>
                                                 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
                                             </div>

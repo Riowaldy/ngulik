@@ -37,8 +37,7 @@ class UserController extends Controller
         return view('profil', compact('profil'));
     }
     public function pengguna(){
-        $users = User::selectUser()->whereIn('status', ['moderator','pengajar','murid']);
-        // $users = User::all();
+        $users = User::orderby('status')->where('status','!=','admin')->get();
         return view('pengguna', compact('users'));
     }
 

@@ -8,6 +8,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Pengajar</b>
                         </div>
                             <ul class="list-group list-group-flush">
@@ -53,6 +56,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Coding (Github)</button>
@@ -71,9 +77,9 @@
                                                             <input type="button" value="Detail" class="btn btn-xs btn-info" />
                                                         </a>
                                                         @if($materi->status == 'Biasa')
-                                                            <button type="submit" class="btn btn-xs btn-default" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri">Verifikasi</button>
+                                                            <button type="submit" class="btn btn-xs btn-default" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri">Tampilkan</button>
                                                         @else
-                                                            <button type="submit" class="btn btn-xs btn-info" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri2">Terverifikasi</button>
+                                                            <button type="submit" class="btn btn-xs btn-info" data-id="{{$materi->id}}" data-toggle="modal" data-target="#edit_statusMateri2">Ditampilkan</button>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -106,6 +112,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Pengajar</b>
                             <div class="pull-right">
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_video">Tambah Materi Coding (Github)</button>
@@ -154,6 +163,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
+                            <a href="{{ route('detailKelas', $kelas) }}">
+                                <span><b><i class="fas fa-arrow-circle-left" style="margin-right: 20px; color: white;"></i></b></span>
+                            </a>
                             <b>Halaman Materi Pengajar</b>
                         </div>
                             <ul class="list-group list-group-flush">
