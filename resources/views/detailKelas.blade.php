@@ -853,6 +853,9 @@
                         <div class="panel-heading">
                             <b>Tugas Kelas</b>
                             <div class="pull-right">
+                                <a href="{{ route('learningPath', $kelas) }}">
+                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Learning Path</b></button>
+                                </a>
                                 <button type="submit" class="btn btn-xs btn-default" data-toggle="modal" data-target="#buat_tugas"><b>&nbsp;&nbsp;Tambah&nbsp;&nbsp;</b></button>
                             </div>
                         </div>
@@ -1241,6 +1244,11 @@
                         <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Tugas Kelas</b>
+                            <div class="pull-right">
+                                <a href="{{ route('learningPath', $kelas) }}">
+                                    <button type="submit" class="btn btn-xs btn-default"><b>Lihat Learning Path</b></button>
+                                </a>
+                            </div>
                         </div>
                         @foreach ($tugass as $tugas)
                             <ul class="list-group list-group-flush">

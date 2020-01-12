@@ -34,6 +34,25 @@ class TugasController extends Controller
         return view('detailTugas', compact('tugass','kelas','tugas'));
     }
 
+    public function learningPath(Kelas $kelas)
+    {   
+        $tugass = Tugas::all()->where('kelas_id',$kelas->id);
+        return view('learningPath', compact('tugass','kelas'));
+    }
+
+    public function detailLearningPath(Kelas $kelas, Tugas $tugas)
+    {   
+        $tugass1 = Tugas::all()->where('kelas_id',$kelas->id);
+        $tugass = Tugasuser::all()->where('tugas_id',$tugas->id)->where('user_id',Auth::id());
+        $tugass2 = DB::table('tugasusers')
+                ->select('tugasusers.id','tugasusers.user_id','tugasusers.tugas_id','tugass.jenis')
+                ->join('tugass','tugass.id', '=', 'tugasusers.tugas_id')
+                ->where('tugasusers.tugas_id',$tugas->id)
+                ->where('tugasusers.user_id',Auth::id())
+                ->get();
+        return view('detailLearningPath', compact('tugass','kelas','tugas','tugass1','tugass2'));
+    }
+
     public function detailTugasuser(Kelas $kelas, Tugas $tugas, Tugasuser $tugasuser)
     {   
         $tugass = DB::table('tugasusers')

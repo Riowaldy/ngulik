@@ -220,9 +220,6 @@
                         <div class="pull-right">
                             <button type="submit" class="btn btn-xs btn-default" id="hovertampil" onclick="saveitonLocal()">
                                 <span>Simpan Data</span>
-                                <div id="tampil" style="margin-top: 50px;">
-                                    Klik untuk menyimpan data coding. Data akan tersimpan jika anda tidak menghapus data browser.
-                                </div>
                             </button>
                         </div>
                     </div>
@@ -307,7 +304,7 @@
             document.getElementById("text").value = localStorage.getItem("htmlcode");
             document.getElementById("gagalsimpan").innerHTML = "Berhasil menyimpan data anda.";
             document.getElementById("gagalsimpan").style.left = "0px";
-            setTimeout(function(){document.getElementById("gagalsimpan").style.left = "-400px";} , 5000);
+            setTimeout(function(){document.getElementById("gagalsimpan").style.left = "-400px";} , 2000);
         } else {
             document.getElementById("gagalsimpan").innerHTML = "Gagal menyimpan data anda.";
             document.getElementById("gagalsimpan").style.left = "0px";

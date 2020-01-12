@@ -30,6 +30,8 @@ Route::get('/laporan/pengumuman','AdminController@laporanPengumuman')->name('lap
 Route::get('/laporan/komentar','AdminController@laporanKomentar')->name('laporanKomentar');
 Route::get('/kelas','KelasController@kelas')->name('kelas');
 Route::get('/kelas/{kelas}','KelasController@detailKelas')->name('detailKelas');
+Route::get('/kelas/{kelas}/learningPath','TugasController@learningPath')->name('learningPath');
+Route::get('/kelas/{kelas}/learningPath/{tugas}','TugasController@detailLearningPath')->name('detailLearningPath');
 Route::get('/kelas/{kelas}/materiVideo','MateriController@materiVideo')->name('materiVideo');
 Route::get('/kelas/{kelas}/materiAudio','MateriController@materiAudio')->name('materiAudio');
 Route::get('/kelas/{kelas}/materiTekstual','MateriController@materiTekstual')->name('materiTekstual');
