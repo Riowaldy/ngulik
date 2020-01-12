@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profil','UserController@profil')->name('profil');
 Route::get('/pengguna','UserController@pengguna')->name('pengguna');
 Route::get('/laporan','AdminController@laporan')->name('laporan');
+Route::get('/livecode','AdminController@livecode')->name('livecode');
 Route::get('/laporan/user','AdminController@laporanUser')->name('laporanUser');
 Route::get('/laporan/kelas','AdminController@laporanKelas')->name('laporanKelas');
 Route::get('/laporan/materi','AdminController@laporanMateri')->name('laporanMateri');
@@ -35,6 +36,7 @@ Route::get('/kelas/{kelas}/materiTekstual','MateriController@materiTekstual')->n
 Route::get('/kelas/{kelas}/materiGithub','MateriController@materiGithub')->name('materiGithub');
 Route::get('/kelas/{kelas}/{materi}','MateriController@detailMateri')->name('detailMateri');
 Route::get('/kelas/{kelas}/tugas/{tugas}','TugasController@detailTugas')->name('detailTugas');
+Route::get('/kelas/{kelas}/tugas/{tugas}/chartTugas','AdminController@chartTugas')->name('chartTugas');
 Route::get('/kelas/{kelas}/tugas/{tugas}/{tugasuser}','TugasController@detailTugasuser')->name('detailTugasuser');
 Route::get('/obrolan','ObrolanController@obrolan')->name('obrolan');
 Route::get('/obrolan/{obrolan}','ObrolanController@detailObrolan')->name('detailObrolan');

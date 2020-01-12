@@ -20,6 +20,10 @@ use PDF;
 
 class AdminController extends Controller
 {
+
+    public function livecode(){
+        return view('livecode');
+    }
 	public function laporan(){
 
         $kelass = Kelas::selectKelas();
@@ -66,6 +70,24 @@ class AdminController extends Controller
         $tugass2 = Tugasuser::selectTugasuser()->count();
 
         return view('laporanTugas', compact('tugass','tugass2'));
+    }
+
+    public function chartTugas(Kelas $kelas, Tugas $tugas){
+        $tugass = DB::table('tugasusers')
+            ->select('tugasusers.nilai','tugasusers.tugas_id','tugass.judul','users.nama')
+            ->join('tugass','tugass.id', '=', 'tugasusers.tugas_id')
+            ->join('users','users.id', '=', 'tugasusers.user_id')
+            ->where('tugasusers.tugas_id',$tugas->id)
+            ->get();
+        $categories = [];
+        $nilai = [];
+        $judul = [];
+        foreach ($tugass as $tugas) {
+            $categories[] = $tugas->nama;
+            $nilai[] = $tugas->nilai;
+            $judul[0] = $tugas->judul;
+        }
+        return view('chartTugas', compact('tugass','categories','nilai','judul'));
     }
 
     public function laporanPengumuman(){

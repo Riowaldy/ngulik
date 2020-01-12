@@ -76,11 +76,13 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <b>Data Laporan</b>
-                            <a href="{{ route('TugasPDF') }}">
-                                <button type="submit" class="btn btn-xs btn-danger pull-right">
-                                    <b>Cetak Laporan</b>
-                                </button>
-                            </a>
+                                <div class="pull-right">
+                                    <a href="{{ route('TugasPDF') }}">
+                                    <button type="submit" class="btn btn-xs btn-danger">
+                                        <b>Cetak Laporan</b>
+                                    </button>
+                                    </a>
+                                </div>
                         </div>
                         <ul class="list-group list-group-flush text-center">
                             <li class="list-group-item">
@@ -119,13 +121,20 @@
                             </li>
                             @endforeach
                         </ul>
+                        <div class="panel">
+                            <div id="chartTugas">
+                                
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="text-center">
                             {!! $tugass->render() !!}
                         </div>
                     </div>
+                    
                 </div>
+                
             </div>
         </div>
     @elseif(Auth::user()->status == 'moderator')

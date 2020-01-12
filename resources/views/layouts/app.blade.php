@@ -15,6 +15,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('fa/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style2.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     
 </head>
 <body>
@@ -54,6 +56,7 @@
                         @if(Auth::user()->status == 'admin')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
+                            <li><a href="{{ route('livecode') }}">Live Coding</a></li>
                             <li><a href="{{ route('laporan') }}">Laporan</a></li>
                             <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li><a href="{{ route('pengguna') }}">Pengguna</a></li>
@@ -83,6 +86,7 @@
                         @elseif(Auth::user()->status == 'moderator')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
+                            <li><a href="{{ route('livecode') }}">Live Coding</a></li>
                             <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -110,6 +114,7 @@
                         @elseif(Auth::user()->status == 'pengajar')
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
+                            <li><a href="{{ route('livecode') }}">Live Coding</a></li>
                             <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -137,6 +142,7 @@
                         @else
 
                             <li><a href="{{ route('kelas') }}">Kelas</a></li>
+                            <li><a href="{{ route('livecode') }}">Live Coding</a></li>
                             <li><a href="{{ route('obrolan') }}">Pesan</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

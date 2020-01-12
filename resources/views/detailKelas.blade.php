@@ -78,17 +78,10 @@
                                                     <label for="nama">{{ $tugas->isitugas }}</label>
                                                 </div>
                                                 <div class="text-center" style="margin-bottom: -20px;">
-                                                @if($tugas->user_id == Auth::id())
-                                                    <div class="col-xs-6 col-md-6 btn btn-sm btn-warning" data-id="{{$tugas->id}}" data-judul="{{$tugas->judul}}" data-isitugas="{{$tugas->isitugas}}" data-jenis="{{$tugas->jenis}}" data-toggle="modal" data-target="#edit_tugas" id="kelasdetail">
-                                                        <span class="before"><b><i class="fas fa-edit"></i></b></span>
-                                                        <span class="after"><b><i class="fas fa-edit"></i>Ubah</b></span>
+                                                    <div class="col-xs-12 col-md-12 btn btn-sm btn-primary" onclick="location.href='{{ route('detailTugas',[$kelas->id, $tugas->id]) }}'" id="kelasdetail">
+                                                        <span class="before"><b><i class="fas fa-search-plus"></i></b></span>
+                                                        <span class="after"><b><i class="fas fa-search-plus"></i>Kelola</b></span>
                                                     </div>
-                                                    <div class="col-xs-6 col-md-6 btn btn-sm btn-danger" data-id="{{$tugas->id}}" data-toggle="modal" data-target="#hapus_tugas" id="kelasdetail">
-                                                        <span class="before"><b><i class="fas fa-trash-alt"></i></b></span>
-                                                        <span class="after"><b><i class="fas fa-trash-alt"></i>Hapus</b></span>
-                                                    </div>
-                                                @else
-                                                @endif
                                                 </div>
                                             </div>
                                         </div>
